@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vestibular IPEDE 2027.1 – Inscrições abertas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --verde:#006450; --verde-esc:#004A3C; --verde-cl:#E6F2EC; --verde-bg:#F3F8F5;
+    --laranja:#F25A06; --amarelo:#F8A900; --oliva:#9DB52F; --folha:#13871E;
+    --tinta:#14231F; --cinza:#55625D; --linha:#D9E6E0; --branco:#fff; --erro:#C62828;
+    --raio:14px; --sombra:0 10px 30px rgba(0,74,60,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--tinta);background:var(--branco);line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  .faixa{display:flex;height:6px}.faixa i{flex:1}
+  .faixa i:nth-child(1){background:#0B6E5A}.faixa i:nth-child(2){background:var(--folha)}.faixa i:nth-child(3){background:var(--oliva)}.faixa i:nth-child(4){background:var(--amarelo)}.faixa i:nth-child(5){background:var(--laranja)}
+
+  /* topo */
+  header.topo{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--linha)}
+  header.topo .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+  header.topo .logo{height:40px;width:auto}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;font:700 15px/1 Inter,sans-serif;padding:14px 26px;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s,background .15s}
+  .btn:active{transform:scale(.98)}
+  .btn-pri{background:var(--laranja);color:#fff;box-shadow:0 8px 20px rgba(242,90,6,.28)}
+  .btn-pri:hover{background:#d94f04}
+  .btn-ver{background:var(--verde);color:#fff}
+  .btn-ver:hover{background:var(--verde-esc)}
+  .btn-sec{background:#fff;color:var(--verde);border:2px solid var(--verde)}
+  .btn-wa{background:#1FA855;color:#fff;font-size:17px;padding:18px 30px;box-shadow:0 10px 24px rgba(31,168,85,.3)}
+  .btn-wa:hover{background:#178a45}
+  .btn[disabled]{opacity:.55;cursor:not-allowed}
+  .topo .btn{padding:11px 20px;font-size:14px}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;background:linear-gradient(160deg,#fff 0%,#fff 45%,var(--verde-bg) 100%)}
+  .hero .fan{position:absolute;right:-90px;top:50%;transform:translateY(-50%);height:118%;width:auto;opacity:.95}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-top:64px;padding-bottom:72px}
+  .selo{display:inline-flex;align-items:center;gap:8px;background:var(--verde-cl);color:var(--verde);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border-radius:999px}
+  .selo b{width:8px;height:8px;border-radius:50%;background:var(--laranja);box-shadow:0 0 0 4px rgba(242,90,6,.18)}
+  .hero h1{font-size:clamp(40px,6vw,72px);line-height:1.02;font-weight:900;letter-spacing:-.025em;color:var(--verde);margin:18px 0 6px}
+  .hero h1 span{background:linear-gradient(90deg,var(--laranja),var(--amarelo));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:clamp(17px,2vw,20px);color:var(--cinza);max-width:560px;margin:14px 0 28px}
+  .hero .acoes{display:flex;flex-wrap:wrap;gap:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+  .chip{background:#fff;border:1px solid var(--linha);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;color:var(--verde)}
+  .chip em{font-style:normal;color:var(--laranja)}
+  .cartao-hero{background:#fff;border-radius:22px;box-shadow:var(--sombra);padding:28px;border:1px solid var(--linha);position:relative;z-index:2}
+  .cartao-hero h3{font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:var(--laranja);margin-bottom:14px}
+  .passo-mini{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px dashed var(--linha)}
+  .passo-mini:last-child{border-bottom:0}
+  .num{flex:none;width:34px;height:34px;border-radius:10px;background:var(--verde);color:#fff;font-weight:800;display:grid;place-items:center}
+  .passo-mini strong{display:block;font-size:16px}
+  .passo-mini small{color:var(--cinza);font-size:14px}
+
+  /* seções */
+  section{padding:72px 0}
+  #inscricao,#como-funciona,#ingresso{scroll-margin-top:76px}
+  .tit-sec{text-align:center;max-width:720px;margin:0 auto 40px}
+  .tit-sec .k{color:var(--laranja);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:13px}
+  .tit-sec h2{font-size:clamp(28px,3.6vw,40px);line-height:1.12;font-weight:900;color:var(--verde);letter-spacing:-.015em;margin-top:8px}
+  .tit-sec p{color:var(--cinza);margin-top:10px;font-size:17px}
+
+  .ingressos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .ing{position:relative;text-align:left;background:#fff;border:2px solid var(--linha);border-radius:var(--raio);padding:22px 20px;cursor:pointer;font:inherit;color:inherit;transition:border-color .15s,box-shadow .15s,transform .15s}
+  .ing:hover{border-color:var(--verde);transform:translateY(-2px);box-shadow:var(--sombra)}
+  .ing[aria-pressed="true"]{border-color:var(--verde);background:var(--verde-bg);box-shadow:var(--sombra)}
+  .ing .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px;color:#fff;font-size:22px}
+  .ing strong{display:block;font-size:17px;color:var(--verde)}
+  .ing small{display:block;color:var(--cinza);font-size:14px;margin-top:4px}
+  .ing .tag{position:absolute;top:14px;right:14px;background:var(--laranja);color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px;border-radius:6px}
+
+  .vantagens{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .vant{background:#fff;border-radius:var(--raio);padding:24px;border:1px solid var(--linha)}
+  .vant b{display:block;font-size:18px;color:var(--verde);margin:10px 0 6px}
+  .vant p{color:var(--cinza);font-size:15px}
+  .vant .bolinha{width:12px;height:12px;border-radius:4px;transform:rotate(45deg)}
+
+  /* formulário */
+  #inscricao{background:var(--verde-bg)}
+  .painel{max-width:780px;margin:0 auto;background:#fff;border-radius:22px;box-shadow:var(--sombra);border:1px solid var(--linha);overflow:hidden}
+  .painel-topo{background:var(--verde);color:#fff;padding:22px 28px}
+  .painel-topo h3{font-size:22px;font-weight:800}
+  .painel-topo p{opacity:.85;font-size:15px}
+  .etapas{display:flex;gap:6px;padding:16px 28px;border-bottom:1px solid var(--linha);background:#fff;flex-wrap:wrap}
+  .etapa{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:#9AA7A2}
+  .etapa i{font-style:normal;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:#EEF2F0;color:#9AA7A2;font-size:12px}
+  .etapa.ativa{color:var(--verde)} .etapa.ativa i{background:var(--verde);color:#fff}
+  .etapa.ok{color:var(--folha)} .etapa.ok i{background:var(--folha);color:#fff}
+  .etapa+.etapa:before{content:"";width:22px;height:2px;background:var(--linha);margin-right:4px}
+  .corpo{padding:28px}
+  .grade{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+  .campo{display:flex;flex-direction:column;gap:6px}
+  .campo.cheio{grid-column:1/-1}
+  label{font-size:14px;font-weight:700;color:var(--tinta)}
+  label .obr{color:var(--laranja)}
+  input,select,textarea{font:16px/1.4 Inter,sans-serif;color:var(--tinta);background:#fff;border:1.5px solid var(--linha);border-radius:10px;padding:13px 14px;width:100%;transition:border-color .15s,box-shadow .15s}
+  input:focus,select:focus,textarea:focus{outline:0;border-color:var(--verde);box-shadow:0 0 0 4px rgba(0,100,80,.12)}
+  .invalido{border-color:var(--erro)!important}
+  .msg-erro{color:var(--erro);font-size:13px;min-height:0}
+  .check{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--cinza);font-weight:500}
+  .check input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--verde)}
+  .rodape-form{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:24px;flex-wrap:wrap}
+  .aviso{background:#FFF7E6;border:1px solid #F8D58A;color:#6B4A00;border-radius:12px;padding:14px 16px;font-size:14px;margin-bottom:18px}
+  .alerta{display:none;background:#FDECEA;border:1px solid #F5C2C0;color:var(--erro);border-radius:12px;padding:12px 14px;font-size:14px;margin-top:16px}
+
+  /* redação */
+  .tema{background:var(--verde-bg);border:1px solid var(--linha);border-left:6px solid var(--verde);border-radius:12px;padding:20px 22px;margin-bottom:18px}
+  .tema .k{font-size:12px;font-weight:800;color:var(--laranja);letter-spacing:.12em;text-transform:uppercase}
+  .tema h4{font-size:21px;line-height:1.25;color:var(--verde);margin:6px 0 12px;font-weight:800}
+  .apoio{display:grid;gap:10px}
+  .apoio div{background:#fff;border:1px solid var(--linha);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--cinza)}
+  .apoio b{color:var(--tinta)}
+  .instr{list-style:none;display:grid;gap:6px;margin:6px 0 18px;font-size:14px;color:var(--cinza)}
+  .instr li:before{content:"✓";color:var(--folha);font-weight:800;margin-right:8px}
+  textarea#texto{min-height:380px;resize:vertical;line-height:1.75;background:repeating-linear-gradient(#fff,#fff 27px,#EEF4F1 28px)}
+  .contador{display:flex;justify-content:space-between;font-size:13px;color:var(--cinza);margin-top:8px;flex-wrap:wrap;gap:8px}
+  .barra{height:6px;border-radius:6px;background:#EEF2F0;overflow:hidden;margin-top:6px}
+  .barra i{display:block;height:100%;width:0;background:var(--laranja);transition:width .2s,background .2s}
+
+  /* final */
+  .final{text-align:center;padding:12px 6px 6px}
+  .final .ok{width:76px;height:76px;border-radius:50%;background:var(--verde-cl);display:grid;place-items:center;margin:0 auto 16px}
+  .final h3{font-size:26px;color:var(--verde);font-weight:900;line-height:1.2}
+  .final p{color:var(--cinza);margin:10px auto 0;max-width:520px}
+  .protocolo{display:inline-block;margin:18px 0;background:var(--verde-bg);border:1px dashed var(--verde);border-radius:10px;padding:10px 18px;font-weight:800;letter-spacing:.06em;color:var(--verde)}
+  .previa{background:#F0F7F3;border-radius:12px;padding:14px 16px;font-size:14px;color:var(--tinta);text-align:left;max-width:560px;margin:16px auto 22px;border:1px solid var(--linha)}
+  .previa small{display:block;color:var(--cinza);font-weight:700;margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em;font-size:11px}
+
+  .oculto{display:none!important}
+
+  /* faq e rodapé */
+  .faq{max-width:780px;margin:0 auto;display:grid;gap:12px}
+  details{background:#fff;border:1px solid var(--linha);border-radius:12px;padding:16px 18px}
+  summary{cursor:pointer;font-weight:700;color:var(--verde);list-style:none;display:flex;justify-content:space-between;gap:12px}
+  summary:after{content:"+";font-size:20px;line-height:1;color:var(--laranja)}
+  details[open] summary:after{content:"–"}
+  details p{color:var(--cinza);margin-top:10px;font-size:15px}
+  footer{background:var(--verde-esc);color:#D6E7DF;padding:40px 0 28px;font-size:14px}
+  footer .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:24px}
+  footer strong{color:#fff;font-size:16px}
+  footer a{color:#fff}
+  footer .copy{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.15);padding-top:18px;font-size:12px;opacity:.75}
+
+  .spinner{width:18px;height:18px;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:gira .8s linear infinite}
+  @keyframes gira{to{transform:rotate(360deg)}}
+
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;padding-top:40px;padding-bottom:48px}
+    .hero .fan{opacity:.18;right:-160px}
+    .ingressos{grid-template-columns:1fr 1fr}
+    .vantagens{grid-template-columns:1fr}
+    footer .wrap{grid-template-columns:1fr}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 16px}
+    header.topo .logo{height:32px}
+    .topo .btn{padding:10px 14px;font-size:13px}
+    .ingressos{grid-template-columns:1fr}
+    .grade{grid-template-columns:1fr}
+    .corpo{padding:20px 16px}
+    .painel-topo,.etapas{padding-left:16px;padding-right:16px}
+    section{padding:52px 0}
+    .rodape-form .btn{width:100%}
+    .etapa+.etapa:before{width:10px}
+    .etapas{gap:4px}
+    .etapa{font-size:12px}
+  }
+</style>
+</head>
+<body>
+
+<div class="faixa"><i></i><i></i><i></i><i></i><i></i></div>
+<header class="topo">
+  <div class="wrap">
+    <svg class="logo" role="img" aria-label="Faculdades IPEDE" viewBox="70 0 1270 345" xmlns="http://www.w3.org/2000/svg">
+      <text x="228" y="96" textLength="640" lengthAdjust="spacing" font-family="Inter" font-weight="500" font-size="46" fill="#2B2B2B">FACULDADES</text>
+      <text x="85" y="241" textLength="928" lengthAdjust="spacingAndGlyphs" font-family="Inter" font-weight="900" font-size="180" fill="#006450">IPEDE</text>
+      <polygon points="1064.4,151.0 1113.1,108.1 1104.8,19.0 1048.1,88.2" fill="#0B6E5A"/><polygon points="1081.2,160.2 1166.8,150.2 1261.1,68.5 1139.5,96.8" fill="#13871E"/><polygon points="1086.0,173.0 1174.8,198.1 1309.8,180.8 1176.3,154.1" fill="#9DB52F"/><polygon points="1081.0,184.2 1138.2,248.6 1259.3,279.0 1166.4,195.7" fill="#F8A900"/><polygon points="1064.1,193.1 1047.5,258.7 1104.3,333.5 1112.8,239.9" fill="#F25A06"/>
+    </svg>
+    <a class="btn btn-pri" href="#inscricao" onclick="return irPara('inscricao')">Inscreva-se grátis</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <svg class="fan" aria-hidden="true" viewBox="-20 -280 300 560" xmlns="http://www.w3.org/2000/svg"><polygon points="6.8,-22.1 57.8,-67.1 49.1,-160.7 -10.4,-88.0" fill="#0B6E5A"/><polygon points="24.3,-12.4 114.2,-22.8 213.3,-108.7 85.6,-79.0" fill="#13871E"/><polygon points="29.4,1.0 122.6,27.4 264.4,9.2 124.2,-18.8" fill="#9DB52F"/><polygon points="24.1,12.8 84.2,80.5 211.4,112.4 113.8,24.8" fill="#F8A900"/><polygon points="6.4,22.2 -11.0,91.0 48.6,169.6 57.6,71.3" fill="#F25A06"/></svg>
+    <div class="wrap">
+      <div>
+        <span class="selo"><b></b> Inscrições abertas</span>
+        <h1>Vestibular<br><span>2027.1</span></h1>
+        <p class="lead">Comece sua graduação nas Faculdades IPEDE, em Codó. Inscrição gratuita e 100% online: preencha seus dados, faça a redação e fale com a nossa equipe para garantir sua matrícula.</p>
+        <div class="acoes">
+          <a class="btn btn-pri" href="#inscricao" onclick="return irPara('inscricao')">Quero me inscrever</a>
+          <a class="btn btn-sec" href="#como-funciona" onclick="return irPara('como-funciona')">Como funciona</a>
+        </div>
+        <div class="chips">
+          <span class="chip"><em>✓</em> Inscrição gratuita</span>
+          <span class="chip"><em>✓</em> Redação online</span>
+          <span class="chip"><em>✓</em> Resultado rápido</span>
+        </div>
+      </div>
+      <aside class="cartao-hero" id="como-funciona">
+        <h3>Como funciona</h3>
+        <div class="passo-mini"><span class="num">1</span><div><strong>Faça sua inscrição</strong><small>Seus dados em menos de 2 minutos.</small></div></div>
+        <div class="passo-mini"><span class="num">2</span><div><strong>Escreva a redação</strong><small>Tema atual, feita aqui mesmo, sem sair da página.</small></div></div>
+        <div class="passo-mini"><span class="num">3</span><div><strong>Garanta sua matrícula</strong><small>Fale com a recepção pelo WhatsApp e veja os próximos passos.</small></div></div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- FORMAS DE INGRESSO -->
+  <section id="ingresso">
+    <div class="wrap">
+      <div class="tit-sec">
+        <span class="k">Formas de ingresso</span>
+        <h2>Escolha a sua forma de ingressar</h2>
+        <p>Selecione uma opção e siga para a inscrição.</p>
+      </div>
+      <div class="ingressos" role="group" aria-label="Formas de ingresso">
+        <button class="ing" type="button" data-ingresso="Vestibular Online" aria-pressed="true">
+          <span class="tag">Mais rápido</span>
+          <span class="ic" style="background:var(--verde)">✎</span>
+          <strong>Vestibular Online</strong><small>Inscrição + redação online sobre um tema atual.</small>
+        </button>
+        <button class="ing" type="button" data-ingresso="Nota do ENEM" aria-pressed="false">
+          <span class="ic" style="background:var(--folha)">★</span>
+          <strong>Nota do ENEM</strong><small>Use seu desempenho no ENEM para ingressar.</small>
+        </button>
+        <button class="ing" type="button" data-ingresso="Transferência Externa" aria-pressed="false">
+          <span class="ic" style="background:var(--amarelo)">⇄</span>
+          <strong>Transferência</strong><small>Venha de outra instituição para a IPEDE.</small>
+        </button>
+        <button class="ing" type="button" data-ingresso="Segunda Graduação" aria-pressed="false">
+          <span class="ic" style="background:var(--laranja)">🎓</span>
+          <strong>Segunda Graduação</strong><small>Já tem diploma? Faça uma nova graduação.</small>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSCRIÇÃO / REDAÇÃO / FINAL -->
+  <section id="inscricao">
+    <div class="wrap">
+      <div class="painel">
+        <div class="painel-topo">
+          <h3 id="tituloPainel">Inscrição – Vestibular Online</h3>
+          <p id="subPainel">Preencha seus dados para iniciar. Leva menos de 2 minutos.</p>
+        </div>
+        <div class="etapas" aria-hidden="true">
+          <span class="etapa ativa" id="e1"><i>1</i>Dados</span>
+          <span class="etapa" id="e2"><i>2</i>Redação</span>
+          <span class="etapa" id="e3"><i>3</i>Matrícula</span>
+        </div>
+
+        <!-- ETAPA 1 -->
+        <form class="corpo" id="formDados" novalidate>
+          <div class="grade">
+            <div class="campo cheio"><label for="nome">Nome completo <span class="obr">*</span></label>
+              <input id="nome" name="nome" autocomplete="name" placeholder="Como está no seu documento" required><span class="msg-erro"></span></div>
+            <div class="campo"><label for="cpf">CPF <span class="obr">*</span></label>
+              <input id="cpf" name="cpf" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" required><span class="msg-erro"></span></div>
+            <div class="campo"><label for="nascimento">Data de nascimento <span class="obr">*</span></label>
+              <input id="nascimento" name="nascimento" type="date" required><span class="msg-erro"></span></div>
+            <div class="campo"><label for="whatsapp">WhatsApp <span class="obr">*</span></label>
+              <input id="whatsapp" name="whatsapp" inputmode="tel" autocomplete="tel" placeholder="(99) 99999-9999" maxlength="15" required><span class="msg-erro"></span></div>
+            <div class="campo"><label for="email">E-mail <span class="obr">*</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" required><span class="msg-erro"></span></div>
+            <div class="campo"><label for="cidade">Cidade / UF <span class="obr">*</span></label>
+              <input id="cidade" name="cidade" placeholder="Ex.: Codó – MA" required><span class="msg-erro"></span></div>
+            <div class="campo"><label for="curso">Curso de interesse <span class="obr">*</span></label>
+              <select id="curso" name="curso" required><option value="">Selecione</option></select><span class="msg-erro"></span></div>
+            <div class="campo"><label for="turno">Turno <span class="obr">*</span></label>
+              <select id="turno" name="turno" required><option value="">Selecione</option><option>Matutino</option><option>Vespertino</option><option>Noturno</option></select><span class="msg-erro"></span></div>
+            <div class="campo"><label for="ingressoSel">Forma de ingresso <span class="obr">*</span></label>
+              <select id="ingressoSel" name="ingresso" required>
+                <option>Vestibular Online</option><option>Nota do ENEM</option><option>Transferência Externa</option><option>Segunda Graduação</option>
+              </select></div>
+            <div class="campo cheio"><label for="origem">Como conheceu a IPEDE?</label>
+              <select id="origem" name="origem"><option value="">Selecione (opcional)</option><option>Instagram</option><option>Facebook</option><option>WhatsApp</option><option>Indicação de amigo ou familiar</option><option>Escola / professor</option><option>Rádio ou TV</option><option>Google</option><option>Outro</option></select></div>
+            <div class="campo cheio">
+              <label class="check"><input type="checkbox" id="lgpd"> <span>Autorizo as Faculdades IPEDE a usar meus dados para o processo seletivo e para entrar em contato comigo sobre a matrícula, conforme a LGPD (Lei nº 13.709/2018).</span></label>
+              <span class="msg-erro" id="erroLgpd"></span>
+            </div>
+          </div>
+          <div class="alerta" id="alerta1" role="alert"></div>
+          <div class="rodape-form">
+            <small style="color:var(--cinza)"><span style="color:var(--laranja)">*</span> Campos obrigatórios</small>
+            <button class="btn btn-pri" type="submit" id="btnDados">Continuar para a redação →</button>
+          </div>
+        </form>
+
+        <!-- ETAPA 2 -->
+        <div class="corpo oculto" id="etapaRedacao">
+          <div class="aviso" id="saudacao"></div>
+          <div class="tema">
+            <span class="k">Tema da redação</span>
+            <h4 id="temaTxt">Os desafios do uso da inteligência artificial na formação dos jovens brasileiros</h4>
+            <div class="apoio">
+              <div><b>Texto I.</b> Ferramentas de inteligência artificial que escrevem textos, resolvem exercícios e respondem perguntas passaram a fazer parte da rotina de muitos estudantes. Elas podem agilizar pesquisas e explicar conteúdos difíceis, mas também levantam dúvidas sobre plágio, dependência tecnológica e o desenvolvimento do pensamento crítico.</div>
+              <div><b>Texto II.</b> Especialistas em educação defendem que o desafio não é proibir a tecnologia, e sim ensinar a usá-la com responsabilidade: checar informações, citar fontes e manter o esforço próprio de aprender. Ao mesmo tempo, muitos jovens ainda têm acesso limitado à internet e a equipamentos, o que pode aprofundar desigualdades.</div>
+            </div>
+          </div>
+          <ul class="instr">
+            <li>Escreva um texto <b>dissertativo-argumentativo</b> em norma-padrão da língua portuguesa.</li>
+            <li>Apresente uma tese, desenvolva argumentos e conclua com uma proposta de intervenção.</li>
+            <li>Mínimo de <b>120</b> e máximo de <b>700</b> palavras. O título é opcional.</li>
+            <li>A redação deve ser autoral: copiar e colar está desativado neste campo.</li>
+          </ul>
+          <div class="campo" style="margin-bottom:14px"><label for="tituloRed">Título (opcional)</label>
+            <input id="tituloRed" maxlength="120" placeholder="Dê um título à sua redação"></div>
+          <div class="campo"><label for="texto">Sua redação <span class="obr">*</span></label>
+            <textarea id="texto" spellcheck="true" placeholder="Comece a escrever aqui..."></textarea>
+            <div class="barra"><i id="barra"></i></div>
+            <div class="contador"><span id="contPal">0 palavras · mínimo 120</span><span id="contTempo">Tempo de escrita: 0 min</span></div>
+          </div>
+          <div class="alerta" id="alerta2" role="alert"></div>
+          <div class="rodape-form">
+            <small style="color:var(--cinza)" id="rascunhoInfo">Seu texto é salvo automaticamente neste aparelho.</small>
+            <button class="btn btn-ver" type="button" id="btnRedacao" disabled>Enviar redação ✓</button>
+          </div>
+        </div>
+
+        <!-- ETAPA 3 -->
+        <div class="corpo oculto" id="etapaFinal">
+          <div class="final">
+            <div class="ok"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#006450" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+            <h3 id="finalTitulo">Redação enviada com sucesso!</h3>
+            <p id="finalTexto">Agora é só falar com a nossa recepção para conhecer os próximos passos da sua matrícula.</p>
+            <div class="protocolo" id="protocoloTxt">Protocolo</div>
+            <div class="previa"><small>Mensagem que será enviada</small><span id="previaMsg"></span></div>
+            <a class="btn btn-wa" id="btnWhats" href="#" target="_blank" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.1.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
+              Falar com a recepção no WhatsApp
+            </a>
+            <p style="font-size:13px;margin-top:14px">Recepção: (99) 98193-0161 · Segunda a sexta, em horário comercial</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VANTAGENS -->
+  <section style="padding-top:20px">
+    <div class="wrap">
+      <div class="tit-sec"><span class="k">Por que a IPEDE</span><h2>Graduação de qualidade perto de você</h2></div>
+      <div class="vantagens">
+        <div class="vant"><span class="bolinha" style="background:var(--verde);display:block"></span><b>Credenciada pelo MEC</b><p>Instituição credenciada pela Portaria MEC nº 373/2022, com diploma reconhecido.</p></div>
+        <div class="vant"><span class="bolinha" style="background:var(--amarelo);display:block"></span><b>Aqui em Codó</b><p>Estude sem precisar mudar de cidade, com estrutura e professores próximos de você.</p></div>
+        <div class="vant"><span class="bolinha" style="background:var(--laranja);display:block"></span><b>Atendimento humano</b><p>Nossa recepção acompanha você em cada etapa, da inscrição até a matrícula.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="background:var(--verde-bg)">
+    <div class="wrap">
+      <div class="tit-sec"><span class="k">Dúvidas frequentes</span><h2>Perguntas e respostas</h2></div>
+      <div class="faq">
+        <details><summary>A inscrição tem custo?</summary><p>Não. A inscrição no Vestibular IPEDE 2027.1 é gratuita.</p></details>
+        <details><summary>Como é a prova?</summary><p>No Vestibular Online você escreve uma redação dissertativo-argumentativa sobre um tema atual, aqui mesmo na página, logo após a inscrição.</p></details>
+        <details><summary>Quanto tempo leva?</summary><p>A inscrição leva cerca de 2 minutos. Para a redação, reserve de 30 a 60 minutos em um lugar tranquilo.</p></details>
+        <details><summary>Quando sai o resultado?</summary><p>Depois de enviar a redação, fale com a recepção pelo WhatsApp. A equipe informa o resultado e os documentos necessários para a matrícula.</p></details>
+        <details><summary>Posso usar a nota do ENEM?</summary><p>Sim. Escolha "Nota do ENEM" na forma de ingresso, preencha seus dados e você será direcionado ao WhatsApp da recepção.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <strong>Faculdades IPEDE – Codó/MA</strong><br>
+      Instituto Pedreirense de Educação e Extensão Ltda. · CNPJ 15.466.680/0016-97<br>
+      Credenciada pela Portaria MEC nº 373/2022
+    </div>
+    <div>
+      Rua Francisco Alves Lisbino, 1020 – São Sebastião, Codó/MA · CEP 65400-000<br>
+      WhatsApp: <a href="https://wa.me/5599981930161" target="_blank" rel="noopener">(99) 98193-0161</a> · E-mail: <a href="mailto:ipede@ipede.edu.br">ipede@ipede.edu.br</a>
+    </div>
+    <div class="copy">© 2026 Faculdades IPEDE. Seus dados são tratados conforme a Lei Geral de Proteção de Dados (LGPD).</div>
+  </div>
+</footer>
+
+<script>
+  /* ============ Configuração ============ */
+  var CURSOS = ['Direito'];               // acrescente os cursos ofertados
+  var WHATS = '5599981930161';
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzzp8lJbLT7z821T4S8aqY5klB5NdxEmY8bBrnce7JFdMl40sQuwvKNeQhm6vDG90YPWQ/exec';
+  var MIN_PAL = 120, MAX_PAL = 700;
+  var TEMA = document.getElementById('temaTxt').textContent.trim();
+
+  var estado = { ingresso: 'Vestibular Online', protocolo: '', nome: '', curso: '', inicio: 0 };
+  var $ = function (id) { return document.getElementById(id); };
+
+  // Persistência leve (melhor esforço)
+  function guardar(k, v) { try { localStorage.setItem('ipede27_' + k, JSON.stringify(v)); } catch (e) {} }
+  function ler(k) { try { return JSON.parse(localStorage.getItem('ipede27_' + k)); } catch (e) { return null; } }
+
+  // Chamada ao servidor (Apps Script) com modo demonstração fora dele
+  function servidor(fn, arg) {
+    return new Promise(function (ok, falha) {
+      if (ENDPOINT && !(window.google && google.script && google.script.run)) {
+        fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify({ acao: fn === 'salvarInscricao' ? 'inscricao' : 'redacao', dados: arg }) })
+          .then(function (r) { return r.json(); })
+          .then(function (j) { if (j.ok) ok(j.r); else falha(new Error(j.erro || 'Não foi possível salvar. Tente novamente.')); })
+          .catch(function () { falha(new Error('Falha de conexão. Verifique sua internet e tente novamente.')); });
+      } else if (window.google && google.script && google.script.run) {
+        google.script.run.withSuccessHandler(ok).withFailureHandler(function (e) {
+          falha(new Error((e && e.message) || 'Falha de conexão. Tente novamente.'));
+        })[fn](arg);
+      } else {
+        setTimeout(function () {
+          if (fn === 'salvarInscricao') ok({ protocolo: 'IPEDE27-00001', nome: arg.nome.toUpperCase(), curso: arg.curso, ingresso: arg.ingresso, jaInscrito: false, redacaoEnviada: false });
+          else ok({ ok: true, nome: estado.nome, curso: estado.curso });
+        }, 600);
+      }
+    });
+  }
+
+  function irPara(id) { var el = $(id); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false; }
+
+  /* ============ Formas de ingresso ============ */
+  CURSOS.forEach(function (c) { var o = document.createElement('option'); o.textContent = c; $('curso').appendChild(o); });
+  if (CURSOS.length === 1) $('curso').value = CURSOS[0];
+
+  function definirIngresso(v) {
+    estado.ingresso = v;
+    $('ingressoSel').value = v;
+    document.querySelectorAll('.ing').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.ingresso === v)); });
+    var red = v === 'Vestibular Online';
+    $('tituloPainel').textContent = 'Inscrição – ' + v;
+    $('btnDados').textContent = red ? 'Continuar para a redação →' : 'Concluir inscrição →';
+    $('e2').classList.toggle('oculto', !red);
+  }
+  document.querySelectorAll('.ing').forEach(function (b) {
+    b.addEventListener('click', function () { definirIngresso(b.dataset.ingresso); irPara('inscricao'); });
+  });
+  $('ingressoSel').addEventListener('change', function () { definirIngresso(this.value); });
+
+  /* ============ Máscaras ============ */
+  $('cpf').addEventListener('input', function () {
+    var d = this.value.replace(/\D/g, '').slice(0, 11);
+    this.value = d.replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+  });
+  $('whatsapp').addEventListener('input', function () {
+    var d = this.value.replace(/\D/g, '').slice(0, 11);
+    if (d.length > 10) this.value = d.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+    else if (d.length > 6) this.value = d.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+    else if (d.length > 2) this.value = d.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+    else this.value = d;
+  });
+
+  function cpfValido(c) {
+    c = c.replace(/\D/g, '');
+    if (!/^\d{11}$/.test(c) || /^(\d)\1{10}$/.test(c)) return false;
+    for (var t = 9; t < 11; t++) {
+      var s = 0; for (var i = 0; i < t; i++) s += +c[i] * (t + 1 - i);
+      if (((s * 10) % 11) % 10 !== +c[t]) return false;
+    }
+    return true;
+  }
+
+  function marcarErro(id, msg) {
+    var el = $(id); el.classList.toggle('invalido', !!msg);
+    var m = el.parentNode.querySelector('.msg-erro'); if (m) m.textContent = msg || '';
+    return !msg;
+  }
+
+  function validarDados() {
+    var ok = true, v = function (id) { return $(id).value.trim(); };
+    ok = marcarErro('nome', v('nome').split(/\s+/).length < 2 ? 'Informe nome e sobrenome.' : '') && ok;
+    ok = marcarErro('cpf', !cpfValido(v('cpf')) ? 'CPF inválido.' : '') && ok;
+    var nasc = v('nascimento'), anos = nasc ? (Date.now() - new Date(nasc).getTime()) / 31557600000 : 0;
+    ok = marcarErro('nascimento', !nasc || anos < 14 || anos > 100 ? 'Informe uma data válida.' : '') && ok;
+    var w = v('whatsapp').replace(/\D/g, '');
+    ok = marcarErro('whatsapp', w.length < 10 ? 'Informe DDD + número.' : '') && ok;
+    ok = marcarErro('email', !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('email')) ? 'E-mail inválido.' : '') && ok;
+    ok = marcarErro('cidade', v('cidade').length < 3 ? 'Informe sua cidade.' : '') && ok;
+    ok = marcarErro('curso', !v('curso') ? 'Escolha o curso.' : '') && ok;
+    ok = marcarErro('turno', !v('turno') ? 'Escolha o turno.' : '') && ok;
+    $('erroLgpd').textContent = $('lgpd').checked ? '' : 'Marque a autorização para continuar.';
+    ok = $('lgpd').checked && ok;
+    if (!ok) { var p = document.querySelector('.invalido'); if (p) p.focus(); }
+    return ok;
+  }
+
+  function carregando(btn, sim, txt) {
+    btn.disabled = sim;
+    if (sim) { btn.dataset.txt = btn.innerHTML; btn.innerHTML = '<span class="spinner"></span> ' + txt; }
+    else if (btn.dataset.txt) btn.innerHTML = btn.dataset.txt;
+  }
+  function alerta(id, msg) { var a = $(id); a.textContent = msg || ''; a.style.display = msg ? 'block' : 'none'; }
+
+  /* ============ Etapa 1: inscrição ============ */
+  $('formDados').addEventListener('submit', function (ev) {
+    ev.preventDefault(); alerta('alerta1', '');
+    if (!validarDados()) return;
+    var dados = {
+      nome: $('nome').value, cpf: $('cpf').value, nascimento: $('nascimento').value,
+      whatsapp: $('whatsapp').value, email: $('email').value, cidade: $('cidade').value,
+      curso: $('curso').value, turno: $('turno').value, ingresso: $('ingressoSel').value,
+      origem: $('origem').value, lgpd: $('lgpd').checked
+    };
+    var btn = $('btnDados'); carregando(btn, true, 'Enviando...');
+    servidor('salvarInscricao', dados).then(function (r) {
+      estado.protocolo = r.protocolo; estado.nome = r.nome; estado.curso = r.curso || dados.curso;
+      estado.ingresso = r.ingresso || dados.ingresso;
+      guardar('sessao', { protocolo: estado.protocolo, nome: estado.nome, curso: estado.curso, ingresso: estado.ingresso });
+      if (estado.ingresso !== 'Vestibular Online' || r.redacaoEnviada) mostrarFinal(r.redacaoEnviada);
+      else mostrarRedacao(r.jaInscrito);
+    }).catch(function (e) { alerta('alerta1', e.message); carregando(btn, false); });
+  });
+
+  function marcarEtapa(n) {
+    ['e1', 'e2', 'e3'].forEach(function (id, i) {
+      $(id).classList.toggle('ativa', i + 1 === n); $(id).classList.toggle('ok', i + 1 < n);
+    });
+  }
+  function primeiroNome() { var n = (estado.nome || '').toLowerCase().split(' ')[0] || ''; return n.charAt(0).toUpperCase() + n.slice(1); }
+
+  /* ============ Etapa 2: redação ============ */
+  var cronometro = null;
+  function mostrarRedacao(jaInscrito) {
+    $('formDados').classList.add('oculto'); $('etapaRedacao').classList.remove('oculto'); marcarEtapa(2);
+    $('tituloPainel').textContent = 'Redação – Vestibular Online';
+    $('subPainel').textContent = 'Protocolo ' + estado.protocolo + ' · ' + estado.curso;
+    $('saudacao').innerHTML = (jaInscrito ? 'Encontramos sua inscrição, ' : 'Inscrição confirmada, ') + '<b>' + primeiroNome() +
+      '</b>! Seu protocolo é <b>' + estado.protocolo + '</b>. Agora escreva sua redação com calma. Ela é a última etapa antes da matrícula.';
+    var rasc = ler('rascunho_' + estado.protocolo);
+    if (rasc) { $('texto').value = rasc.texto || ''; $('tituloRed').value = rasc.titulo || ''; }
+    estado.inicio = (rasc && rasc.inicio) || Date.now();
+    contar();
+    clearInterval(cronometro);
+    cronometro = setInterval(function () { $('contTempo').textContent = 'Tempo de escrita: ' + minutos() + ' min'; }, 15000);
+    $('contTempo').textContent = 'Tempo de escrita: ' + minutos() + ' min';
+    irPara('inscricao');
+    setTimeout(function () { $('texto').focus({ preventScroll: true }); }, 500);
+  }
+  function minutos() { return Math.max(0, Math.round((Date.now() - estado.inicio) / 60000)); }
+  function palavras(t) { return (t.match(/[A-Za-zÀ-ÿ0-9]+/g) || []).length; }
+  function contar() {
+    var n = palavras($('texto').value), pct = Math.min(100, n / MIN_PAL * 100);
+    $('barra').style.width = pct + '%';
+    $('barra').style.background = n >= MIN_PAL ? (n > MAX_PAL ? 'var(--erro)' : 'var(--folha)') : 'var(--laranja)';
+    $('contPal').textContent = n + ' palavra' + (n === 1 ? '' : 's') + (n < MIN_PAL ? ' · faltam ' + (MIN_PAL - n) + ' para o mínimo' : n > MAX_PAL ? ' · acima do máximo de ' + MAX_PAL : ' · ok');
+    $('btnRedacao').disabled = n < MIN_PAL || n > MAX_PAL;
+  }
+  var salvarRasc = null;
+  $('texto').addEventListener('input', function () {
+    contar(); clearTimeout(salvarRasc);
+    salvarRasc = setTimeout(function () { guardar('rascunho_' + estado.protocolo, { texto: $('texto').value, titulo: $('tituloRed').value, inicio: estado.inicio }); }, 600);
+  });
+  ['paste', 'drop'].forEach(function (evt) {
+    $('texto').addEventListener(evt, function (e) { e.preventDefault(); alerta('alerta2', 'Para garantir que a redação seja sua, colar texto não é permitido. Digite sua redação.'); setTimeout(function () { alerta('alerta2', ''); }, 4000); });
+  });
+
+  $('btnRedacao').addEventListener('click', function () {
+    alerta('alerta2', '');
+    var btn = this; carregando(btn, true, 'Enviando redação...');
+    servidor('salvarRedacao', { protocolo: estado.protocolo, tema: TEMA, titulo: $('tituloRed').value, texto: $('texto').value, minutos: minutos() })
+      .then(function () { clearInterval(cronometro); try { localStorage.removeItem('ipede27_rascunho_' + estado.protocolo); } catch (e) {} mostrarFinal(true); })
+      .catch(function (e) { alerta('alerta2', e.message); carregando(btn, false); contar(); });
+  });
+
+  /* ============ Etapa 3: WhatsApp ============ */
+  function mostrarFinal(redacao) {
+    $('formDados').classList.add('oculto'); $('etapaRedacao').classList.add('oculto'); $('etapaFinal').classList.remove('oculto');
+    marcarEtapa(3);
+    var vest = estado.ingresso === 'Vestibular Online';
+    $('tituloPainel').textContent = vest ? 'Vestibular concluído' : 'Inscrição concluída';
+    $('subPainel').textContent = 'Último passo: fale com a recepção para garantir sua matrícula.';
+    $('finalTitulo').textContent = vest ? 'Parabéns, ' + primeiroNome() + '! Sua redação foi enviada.' : 'Inscrição recebida, ' + primeiroNome() + '!';
+    $('finalTexto').textContent = 'Clique no botão abaixo para falar com a recepção das Faculdades IPEDE pelo WhatsApp e receber as orientações para a matrícula.';
+    $('protocoloTxt').textContent = 'Protocolo ' + estado.protocolo;
+    var msg = vest
+      ? 'Olá! Meu nome é ' + tituloCaso(estado.nome) + '. Acabei de concluir o Vestibular IPEDE 2027.1 (protocolo ' + estado.protocolo + '), com interesse no curso de ' + estado.curso + '. Gostaria, por gentileza, de receber orientações sobre os próximos passos para efetivar minha matrícula. Desde já, agradeço.'
+      : 'Olá! Meu nome é ' + tituloCaso(estado.nome) + '. Acabei de realizar minha inscrição no Processo Seletivo IPEDE 2027.1 por ' + estado.ingresso + ' (protocolo ' + estado.protocolo + '), com interesse no curso de ' + estado.curso + '. Gostaria, por gentileza, de receber orientações sobre os próximos passos para efetivar minha matrícula. Desde já, agradeço.';
+    $('previaMsg').textContent = msg;
+    $('btnWhats').href = 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(msg);
+    guardar('sessao', null);
+    irPara('inscricao');
+  }
+  function tituloCaso(s) {
+    return (s || '').toLowerCase().split(' ').map(function (p) { return /^(da|de|do|das|dos|e)$/.test(p) ? p : p.charAt(0).toUpperCase() + p.slice(1); }).join(' ');
+  }
+
+  /* ============ Retomar sessão ============ */
+  (function () {
+    var s = ler('sessao');
+    if (s && s.protocolo) {
+      estado.protocolo = s.protocolo; estado.nome = s.nome; estado.curso = s.curso; estado.ingresso = s.ingresso || 'Vestibular Online';
+      if (estado.ingresso === 'Vestibular Online') mostrarRedacao(true);
+    }
+  })();
+</script>
+</body>
+</html>
