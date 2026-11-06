@@ -68,7 +68,8 @@
   .topo .btn{padding:12px 20px;font-size:13px}
 
   /* ===== HERO ===== */
-  .hero{position:relative;overflow:hidden;color:#fff;min-height:100vh;min-height:100svh;display:flex;align-items:center;background:linear-gradient(170deg,var(--noite) 0%,var(--navy) 50%,#08245A 100%)}
+  section.hero{padding:0}
+  .hero{position:relative;overflow:hidden;color:#fff;min-height:clamp(720px,100svh,960px);display:flex;align-items:center;background:linear-gradient(170deg,var(--noite) 0%,var(--navy) 50%,#08245A 100%)}
   .aurora{position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none;will-change:transform}
   .aurora.a1{width:720px;height:720px;right:-180px;top:-220px;background:radial-gradient(circle,rgba(30,107,255,.55),transparent 65%);animation:deriva1 26s ease-in-out infinite}
   .aurora.a2{width:560px;height:560px;left:-200px;bottom:-260px;background:radial-gradient(circle,rgba(56,182,255,.32),transparent 65%);animation:deriva2 32s ease-in-out infinite}
@@ -81,7 +82,7 @@
   .ondas{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:auto;pointer-events:none}
   .ondas path{stroke-dasharray:2600;stroke-dashoffset:2600;animation:traca 3.2s var(--ease) .6s forwards}
   @keyframes traca{to{stroke-dashoffset:0}}
-  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:center;padding-top:118px;padding-bottom:110px;width:100%}
+  .hero .wrap{position:relative;z-index:2;padding-top:150px;padding-bottom:170px;width:100%}
 
   /* entrada do hero: texto surge por máscara */
   .linha-m{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
@@ -98,26 +99,26 @@
   .hero h1 .l2 .linha-m:first-child{margin-top:16px}
   .hero p.lead{font-size:clamp(16.5px,1.6vw,18.5px);color:rgba(255,255,255,.72);max-width:540px;margin:24px 0 34px;line-height:1.7}
   .hero .acoes{display:flex;flex-wrap:wrap;gap:14px}
-  .selos{display:flex;flex-wrap:wrap;gap:12px 30px;margin-top:38px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:13.5px;color:rgba(255,255,255,.7);max-width:560px}
-  .selos span{display:inline-flex;align-items:center;gap:10px}
 
-  .moldura{position:relative;justify-self:center;width:100%;max-width:440px;perspective:1400px}
-  .moldura .halo{position:absolute;inset:-14% -12%;background:radial-gradient(circle at 50% 45%,rgba(56,182,255,.42),transparent 62%);filter:blur(36px);z-index:-1}
-  .moldura .cartao{position:relative;border-radius:24px;padding:1px;transform-style:preserve-3d;will-change:transform;
-    background:linear-gradient(150deg,rgba(251,227,160,.9),rgba(242,181,28,.15) 28%,rgba(56,182,255,.3) 62%,rgba(251,227,160,.75));
-    box-shadow:0 60px 120px -50px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.04);
-    opacity:0;transform:translateY(40px) scale(.96) rotateX(6deg);transition:opacity 1.6s var(--ease) .35s,transform 1.6s var(--ease) .35s}
-  .pronto .moldura .cartao{opacity:1;transform:none}
-  .moldura .interno{position:relative;border-radius:23px;overflow:hidden;background:var(--navy)}
-  .moldura img{width:100%;height:auto}
-  .moldura .brilho{position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.28) 48%,transparent 60%);transform:translateX(-120%)}
-  .pronto .moldura .brilho{animation:varre 2.2s var(--ease) 1.6s forwards}
-  @keyframes varre{to{transform:translateX(120%)}}
-  .moldura .reflexo{position:absolute;inset:0;pointer-events:none;border-radius:23px;background:radial-gradient(600px circle at var(--rx,50%) var(--ry,0%),rgba(255,255,255,.12),transparent 40%);opacity:0;transition:opacity .5s}
-  .moldura:hover .reflexo{opacity:1}
+  .hero-visual{position:absolute;z-index:1;right:0;top:0;bottom:0;width:min(54vw,860px);pointer-events:none}
+  .hero-visual .luz{position:absolute;right:8%;top:14%;width:70%;height:60%;border-radius:50%;background:radial-gradient(circle,rgba(56,182,255,.35),transparent 65%);filter:blur(40px)}
+  .hero-visual picture{position:absolute;right:0;bottom:96px;height:calc(100% - 150px);max-height:960px;aspect-ratio:759/1080;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 22%);mask-image:linear-gradient(90deg,transparent 0%,#000 22%)}
+  .hero-visual img{width:100%;height:100%;object-fit:contain;object-position:right bottom;opacity:0;transform:scale(1.05) translateY(10px);transition:opacity 2s var(--ease) .3s,transform 2.4s var(--ease) .3s;will-change:transform}
+  .pronto .hero-visual img{opacity:1;transform:none}
+  .hero-texto{max-width:640px}
+
+  /* faixa de destaques */
+  .destaques{position:relative;z-index:5;margin-top:-64px}
+  .destaques .grade-d{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:24px;box-shadow:0 30px 70px -36px rgba(6,26,64,.5);border:1px solid var(--linha);overflow:hidden}
+  .destaques .item{display:flex;gap:16px;align-items:center;padding:28px 28px}
+  .destaques .item + .item{border-left:1px solid var(--linha)}
+  .destaques .ic{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(150deg,var(--navy),var(--navy-3))}
+  .destaques small{display:block;font:600 10.5px/1.2 Montserrat,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza);margin-bottom:5px}
+  .destaques b{display:block;font:700 15px/1.3 Montserrat,sans-serif;color:var(--navy)}
 
   /* ===== seções ===== */
-  section{padding:140px 0;position:relative}
+  section{padding:124px 0;position:relative}
   section[id]{scroll-margin-top:60px}
   .k{display:inline-flex;align-items:center;gap:12px;font:600 11.5px/1 Montserrat,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--azul)}
   .k:before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
@@ -136,17 +137,18 @@
   .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
 
   /* ===== sobre ===== */
-  #sobre{background:var(--creme)}
-  .sobre{display:grid;grid-template-columns:.9fr 1.1fr;gap:96px;align-items:center}
-  .visual{position:relative;max-width:440px;justify-self:center;width:100%}
-  .visual .foto{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:349/700;box-shadow:var(--sombra);background:var(--navy)}
-  .visual .foto img{width:100%;height:100%;object-fit:cover;object-position:top;transform:scale(1.08);transition:transform 2.4s var(--ease)}
-  .visual.on .foto img{transform:scale(1)}
-  .visual .foto:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(6,26,64,.92) 88%)}
-  .visual .contorno{position:absolute;inset:-18px 18px 18px -18px;border:1px solid rgba(217,150,10,.45);border-radius:32px;z-index:-1}
-  .visual .legenda{position:absolute;left:28px;right:28px;bottom:30px;color:#fff;z-index:2}
-  .visual .legenda blockquote{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(20px,2vw,24px);line-height:1.35}
-  .visual .legenda small{display:block;margin-top:14px;font:600 11px/1 Montserrat,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--ouro-cl)}
+  #sobre{background:#fff;padding-top:120px}
+  .sobre{display:grid;grid-template-columns:1fr 1fr;gap:88px;align-items:center}
+  .painel-sobre{position:relative;overflow:hidden;border-radius:30px;padding:52px 48px 46px;color:#fff;background:radial-gradient(520px 320px at 100% 0%,rgba(56,182,255,.28),transparent 60%),linear-gradient(155deg,var(--noite),var(--navy-2));box-shadow:var(--sombra)}
+  .painel-sobre:after{content:"";position:absolute;inset:0;border-radius:30px;padding:1px;pointer-events:none;background:linear-gradient(140deg,rgba(251,227,160,.55),transparent 35%,transparent 70%,rgba(56,182,255,.4));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+  .painel-sobre .aspas{position:absolute;right:30px;top:-10px;font:600 170px/1 "Playfair Display",serif;color:rgba(242,181,28,.18)}
+  .painel-sobre blockquote{position:relative;font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(22px,2.3vw,29px);line-height:1.35;max-width:84%}
+  .painel-sobre .assin{display:flex;align-items:center;gap:12px;margin-top:20px;font:600 10.5px/1 Montserrat,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--ouro-cl)}
+  .painel-sobre .assin:before{content:"";width:30px;height:1px;background:var(--ouro)}
+  .painel-sobre .sep{height:1px;background:rgba(255,255,255,.1);margin:32px 0 26px}
+  .painel-sobre small{display:block;color:rgba(255,255,255,.66);font-size:14px;margin-bottom:18px}
+  .painel-sobre .lista-ouro{grid-template-columns:1fr;margin-top:0;gap:14px}
+  .painel-sobre .lista-ouro li{color:rgba(255,255,255,.92)}
   .sobre h2{font-size:clamp(32px,4vw,50px);color:var(--navy);font-weight:800;margin-top:20px}
   .sobre p{color:var(--cinza);font-size:17px;margin-top:20px}
   .lista-ouro{list-style:none;margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:16px 26px}
@@ -296,10 +298,18 @@
 
   @media (max-width:1020px){
     nav.menu{display:none}
-    .hero .wrap{grid-template-columns:1fr;gap:64px;padding-top:130px;padding-bottom:120px}
-    .moldura{max-width:380px}
+    .hero{min-height:0;flex-direction:column;align-items:stretch}
+    .hero .wrap{order:1}
+    .hero-visual{order:2}
+    .hero .wrap{padding-top:130px;padding-bottom:0}
+    .hero-visual{position:relative;width:100%;height:520px;margin-top:-10px}
+    .hero-visual{margin-top:28px}
+    .hero-visual picture{right:0;bottom:56px;height:calc(100% - 56px)}
+    .hero-visual img{object-position:center bottom}
+    .destaques .grade-d{grid-template-columns:1fr 1fr}
+    .destaques .item:nth-child(3){border-left:0}
+    .destaques .item:nth-child(n+3){border-top:1px solid var(--linha)}
     .sobre,.grade-insc{grid-template-columns:1fr;gap:64px}
-    .visual{max-width:380px}
     .lado{position:static}
     .areas{grid-template-columns:1fr 1fr}
     .publico{grid-template-columns:1fr 1fr}
@@ -314,13 +324,17 @@
     header.topo .wrap{height:70px}
     .logo{height:32px}
     .topo .btn{padding:11px 16px;font-size:12.5px}
-    .hero .wrap{padding-top:116px;padding-bottom:100px}
+    .hero .wrap{padding-top:104px}
+    .hero-visual{height:470px;margin-top:8px}
+    .hero-visual picture{bottom:40px;height:calc(100% - 40px)}
+    .hero-visual .luz{right:0;width:90%}
+    .destaques{margin-top:-48px}
+    .destaques .item{flex-direction:column;align-items:flex-start;gap:12px;padding:20px 18px}
+    .destaques .ic{width:40px;height:40px;border-radius:12px}
+    .destaques b{font-size:14px}
+    .painel-sobre{padding:40px 24px 34px;border-radius:24px}
     .hero h1{font-size:clamp(42px,12vw,58px)}
     .hero .acoes .btn{width:100%}
-    .selos{flex-direction:column;gap:12px}
-    .moldura{max-width:320px}
-    .visual{max-width:320px}
-    .visual .contorno{inset:-12px 12px 12px -12px}
     .lista-ouro{grid-template-columns:1fr}
     .areas,.publico,.difs{grid-template-columns:1fr}
     .area{padding:36px 28px}
@@ -337,7 +351,7 @@
   }
   @media (prefers-reduced-motion:reduce){
     *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
-    .rv,.fade-h,.moldura .cartao{opacity:1;transform:none;filter:none}
+    .rv,.fade-h,.hero-visual img{opacity:1;transform:none;filter:none}
     .linha-m > span{transform:none}
     .ondas path{stroke-dashoffset:0}
   }
@@ -379,8 +393,12 @@
       <path d="M0,170 C260,90 520,210 820,150 C1080,98 1260,120 1440,60" fill="none" stroke="url(#gOnda1)" stroke-width="2"/>
       <path d="M0,200 C300,140 560,230 860,180 C1120,138 1300,160 1440,110" fill="none" stroke="url(#gOnda2)" stroke-width="1.2"/>
     </svg>
+    <div class="hero-visual" aria-hidden="true">
+      <span class="luz"></span>
+      <picture><img id="imgHero" src="heroi.webp" width="759" height="1080" alt="" fetchpriority="high"></picture>
+    </div>
     <div class="wrap">
-      <div>
+      <div class="hero-texto">
         <span class="eyebrow fade-h" style="transition-delay:.1s"><i></i>Inscrições abertas · Codó/MA</span>
         <p class="pre"><span class="linha-m"><span style="transition-delay:.2s">Pós-graduação em</span></span></p>
         <h1>
@@ -395,42 +413,37 @@
           <a class="btn btn-ouro" href="#inscricao">Quero me inscrever <span class="seta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
           <a class="btn btn-linha" href="#sobre">Conhecer a pós</a>
         </div>
-        <div class="selos fade-h" style="transition-delay:1.1s">
-          <span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Instituição credenciada pelo MEC</span>
-          <span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Pré-inscrição em 2 minutos</span>
-        </div>
-      </div>
-      <div class="moldura" id="moldura">
-        <span class="halo"></span>
-        <div class="cartao" id="cartaoArte">
-          <div class="interno">
-            <picture><source srcset="arte.webp" type="image/webp"><img src="arte.jpg" width="900" height="985" alt="Arte da Pós-graduação em Direito Previdenciário e Assistencial das Faculdades IPEDE" fetchpriority="high"></picture>
-            <span class="brilho"></span><span class="reflexo"></span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
+  <div class="destaques">
+    <div class="wrap">
+      <div class="grade-d rv">
+        <div class="item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><div><small>Curso</small><b>Pós-graduação</b></div></div>
+        <div class="item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><div><small>Instituição</small><b>Credenciada pelo MEC</b></div></div>
+        <div class="item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div><small>Local</small><b>Codó – MA</b></div></div>
+        <div class="item"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><small>Pré-inscrição</small><b>Gratuita e online</b></div></div>
+      </div>
+    </div>
+  </div>
+
   <!-- SOBRE -->
   <section id="sobre">
     <div class="wrap sobre">
-      <div class="visual rv" id="visual">
-        <span class="contorno"></span>
-        <div class="foto">
-          <picture><source srcset="estatua.webp" type="image/webp"><img src="estatua.jpg" width="349" height="820" alt="Estátua da Justiça sobre livros de Direito Previdenciário" loading="lazy"></picture>
-        </div>
-        <div class="legenda">
-          <blockquote>“Conhecer a Previdência é garantir direitos a quem mais precisa deles.”</blockquote>
-          <small>Faculdades IPEDE</small>
-        </div>
-      </div>
       <div>
         <span class="k rv">A pós-graduação</span>
         <h2 class="rv d1">Uma especialização que <span class="it" style="color:var(--navy-3)">transforma</span> a sua atuação</h2>
         <p class="rv d2">O Direito Previdenciário e Assistencial está no centro da vida de milhões de brasileiros: aposentadorias, pensões, auxílios e benefícios assistenciais movimentam diariamente o INSS e a Justiça Federal.</p>
         <p class="rv d3">A pós das Faculdades IPEDE prepara você para atuar com segurança técnica nessa área, do requerimento administrativo ao processo judicial, com visão prática da realidade da nossa região.</p>
-        <ul class="lista-ouro rv d4">
+      </div>
+      <div class="painel-sobre rv d2">
+        <span class="aspas">&ldquo;</span>
+        <blockquote>Conhecer a Previdência é garantir direitos a quem mais precisa deles.</blockquote>
+        <div class="assin">Faculdades IPEDE</div>
+        <div class="sep"></div>
+        <small>Ao longo da especialização, você desenvolve:</small>
+        <ul class="lista-ouro">
           <li>Leitura estratégica de casos previdenciários</li>
           <li>Segurança no processo administrativo do INSS</li>
           <li>Atuação no processo judicial previdenciário</li>
@@ -676,20 +689,22 @@
 
   /* arte do hero: inclinação suave seguindo o cursor */
   if (finoPonteiro && !reduzido) {
-    var mold = $('moldura'), cart = $('cartaoArte'), ref = mold.querySelector('.reflexo');
-    mold.addEventListener('mousemove', function (e) {
-      var r = mold.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-      cart.style.transition = 'transform .6s cubic-bezier(.16,1,.3,1)';
-      cart.style.transform = 'rotateY(' + ((x - .5) * 8) + 'deg) rotateX(' + ((.5 - y) * 6) + 'deg)';
-      ref.style.setProperty('--rx', x * 100 + '%'); ref.style.setProperty('--ry', y * 100 + '%');
-    });
-    mold.addEventListener('mouseleave', function () { cart.style.transition = 'transform 1.2s cubic-bezier(.16,1,.3,1)'; cart.style.transform = ''; });
     document.querySelectorAll('.area').forEach(function (c) {
       c.addEventListener('mousemove', function (e) {
         var r = c.getBoundingClientRect();
         c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
       });
     });
+  }
+
+  /* parallax suave da imagem do hero */
+  if (!reduzido && innerWidth > 1020) {
+    var imgH = $('imgHero'), pend = false;
+    setTimeout(function () { imgH.style.transition = 'opacity 2s'; }, 2900);
+    addEventListener('scroll', function () {
+      if (pend) return; pend = true;
+      requestAnimationFrame(function () { pend = false; var y = Math.min(scrollY, 900); if ($('hero').classList.contains('pronto')) imgH.style.transform = 'translateY(' + (y * .12) + 'px)'; });
+    }, { passive: true });
   }
 
   /* FAQ: uma aberta por vez */
