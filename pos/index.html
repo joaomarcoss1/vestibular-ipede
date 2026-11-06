@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pós-graduação em Direito Previdenciário e Assistencial – Faculdades IPEDE</title>
-<meta name="description" content="Pós-graduação em Direito Previdenciário e Assistencial das Faculdades IPEDE, em Codó/MA. Faça sua pré-inscrição online.">
+<meta name="description" content="Pós-graduação em Direito Previdenciário e Assistencial das Faculdades IPEDE, em Codó/MA. 18 meses, 100% presencial, com professores mestres e doutores. Faça sua pré-inscrição online.">
 <meta name="theme-color" content="#061A40">
 <meta property="og:title" content="Pós-graduação em Direito Previdenciário e Assistencial – Faculdades IPEDE">
 <meta property="og:description" content="Especialize-se em uma das áreas que mais movimentam a advocacia. Pré-inscrição online.">
@@ -107,6 +107,24 @@
   .hero-visual img{width:100%;height:100%;object-fit:contain;object-position:right bottom;opacity:0;transform:scale(1.05) translateY(10px);transition:opacity 2s var(--ease) .3s,transform 2.4s var(--ease) .3s;will-change:transform}
   .pronto .hero-visual img{opacity:1;transform:none}
   .hero-texto{max-width:640px}
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,640px) 300px;justify-content:start;align-items:start;column-gap:clamp(36px,4vw,64px)}
+  @media (min-width:1021px) and (max-width:1300px){.hero .wrap{grid-template-columns:minmax(0,1fr) 280px}.ficha{width:280px}.hero-visual{opacity:.35}}
+  .ficha{position:relative;margin-top:6px;width:300px;justify-self:start;border-radius:22px;padding:24px 24px 22px;
+    background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.025));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    box-shadow:0 30px 60px -30px rgba(0,0,0,.6)}
+  .ficha:before{content:"";position:absolute;inset:0;border-radius:22px;padding:1px;pointer-events:none;background:linear-gradient(150deg,rgba(251,227,160,.7),rgba(255,255,255,.08) 40%,rgba(56,182,255,.35));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+  .ficha-topo{display:flex;align-items:center;gap:12px;font:600 10.5px/1 Montserrat,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--ouro-cl);margin-bottom:6px}
+  .ficha-topo i{flex:1;height:1px;background:linear-gradient(90deg,rgba(242,181,28,.6),transparent)}
+  .ficha ul{list-style:none}
+  .ficha li{display:flex;gap:14px;align-items:center;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.08);opacity:0;transform:translateX(14px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+  .pronto .ficha li{opacity:1;transform:none}
+  .ficha li:nth-child(1){transition-delay:1.3s}.ficha li:nth-child(2){transition-delay:1.42s}.ficha li:nth-child(3){transition-delay:1.54s}
+  .ficha .fi{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;border:1px solid rgba(242,181,28,.35);background:rgba(242,181,28,.08)}
+  .ficha b{display:block;font:800 17px/1.2 Montserrat,sans-serif;color:#fff;letter-spacing:-.01em}
+  .ficha small{display:block;font-size:12.5px;color:rgba(255,255,255,.62);margin-top:3px}
+  .ficha-rodape{display:flex;align-items:center;gap:12px;padding-top:18px;font-size:17px;line-height:1.3;white-space:nowrap}
+  .ficha-rodape:before{content:"";flex:none;width:7px;height:7px;transform:rotate(45deg);background:var(--ouro)}
+  .ficha-rodape .it{color:var(--ouro-cl)}
 
   /* faixa de destaques */
   .destaques{position:relative;z-index:5;margin-top:-64px}
@@ -299,7 +317,11 @@
   @media (max-width:1020px){
     nav.menu{display:none}
     .hero{min-height:0;flex-direction:column;align-items:stretch}
-    .hero .wrap{order:1}
+    .hero .wrap{order:1;display:block}
+    .ficha{width:100%;max-width:560px;margin-top:40px}
+    .ficha ul{display:grid;grid-template-columns:repeat(3,1fr);gap:0 18px}
+    .ficha li{flex-direction:column;align-items:flex-start;gap:10px;border-bottom:0}
+    .ficha-rodape{border-top:1px solid rgba(255,255,255,.08)}
     .hero-visual{order:2}
     .hero .wrap{padding-top:130px;padding-bottom:0}
     .hero-visual{position:relative;width:100%;height:520px;margin-top:-10px}
@@ -326,6 +348,9 @@
     .topo .btn{padding:11px 16px;font-size:12.5px}
     .hero .wrap{padding-top:104px}
     .hero-visual{height:470px;margin-top:8px}
+    .ficha ul{grid-template-columns:1fr}
+    .ficha li{flex-direction:row;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+    .ficha{padding:20px 20px 18px}
     .hero-visual picture{bottom:40px;height:calc(100% - 40px)}
     .hero-visual .luz{right:0;width:90%}
     .destaques{margin-top:-48px}
@@ -351,7 +376,7 @@
   }
   @media (prefers-reduced-motion:reduce){
     *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
-    .rv,.fade-h,.hero-visual img{opacity:1;transform:none;filter:none}
+    .rv,.fade-h,.hero-visual img,.ficha li{opacity:1;transform:none;filter:none}
     .linha-m > span{transform:none}
     .ondas path{stroke-dashoffset:0}
   }
@@ -414,6 +439,15 @@
           <a class="btn btn-linha" href="#sobre">Conhecer a pós</a>
         </div>
       </div>
+      <aside class="ficha fade-h" style="transition-delay:1.1s" aria-label="Informações do curso">
+        <div class="ficha-topo"><span>Sobre o curso</span><i></i></div>
+        <ul>
+          <li><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><div><b>18 meses</b><small>Duração do curso</small></div></li>
+          <li><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg></span><div><b>100% presencial</b><small>Aulas nas Faculdades IPEDE</small></div></li>
+          <li><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span><div><b>Mestres e doutores</b><small>Corpo docente qualificado</small></div></li>
+        </ul>
+        <div class="ficha-rodape"><span class="it">O mercado de trabalho te espera.</span></div>
+      </aside>
     </div>
   </section>
 
@@ -610,6 +644,7 @@
       <div class="cab"><span class="k rv">Dúvidas frequentes</span><h2 class="rv d1">Perguntas e <span class="it">respostas</span></h2></div>
       <div class="faq rv d2">
         <details><summary>Quem pode fazer a pós-graduação?<span class="mais"></span></summary><div class="resp"><div><p>Profissionais com curso superior concluído: bacharéis em Direito, advogados e graduados em áreas afins, como Serviço Social, Contábeis e Administração. Estudantes no último ano podem fazer a pré-inscrição e confirmar as condições com a secretaria.</p></div></div></details>
+        <details><summary>Qual a duração e como são as aulas?<span class="mais"></span></summary><div class="resp"><div><p>A pós tem duração de 18 meses, com aulas 100% presenciais nas Faculdades IPEDE, em Codó/MA, ministradas por professores mestres e doutores.</p></div></div></details>
         <details><summary>A pré-inscrição tem custo?<span class="mais"></span></summary><div class="resp"><div><p>Não. A pré-inscrição é gratuita e não gera nenhum compromisso. Valores e condições de pagamento são informados pela secretaria.</p></div></div></details>
         <details><summary>Quando começam as aulas?<span class="mais"></span></summary><div class="resp"><div><p>A data de início da turma é informada pela secretaria no contato após a pré-inscrição.</p></div></div></details>
         <details><summary>Quais documentos vou precisar?<span class="mais"></span></summary><div class="resp"><div><p>Normalmente são pedidos documento de identidade, CPF, comprovante de residência e diploma ou declaração de conclusão da graduação. A secretaria confirma a lista completa no momento da matrícula.</p></div></div></details>
