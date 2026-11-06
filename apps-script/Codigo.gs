@@ -45,6 +45,7 @@ function doPost(e) {
     const req = JSON.parse((e && e.postData && e.postData.contents) || '{}');
     if (req.acao === 'inscricao') out = { ok: true, r: salvarInscricao(req.dados) };
     else if (req.acao === 'redacao') out = { ok: true, r: salvarRedacao(req.dados) };
+    else if (req.acao === 'pos') out = { ok: true, r: salvarPos(req.dados) };
     else throw new Error('Ação inválida.');
   } catch (err) {
     out = { ok: false, erro: err.message };
@@ -182,4 +183,94 @@ function cpfValido_(c) {
 function formatarCpf_(c) { return `${c.slice(0, 3)}.${c.slice(3, 6)}.${c.slice(6, 9)}-${c.slice(9)}`; }
 function formatarFone_(f) {
   return f.length === 11 ? `(${f.slice(0, 2)}) ${f.slice(2, 7)}-${f.slice(7)}` : `(${f.slice(0, 2)}) ${f.slice(2, 6)}-${f.slice(6)}`;
+}
+
+/* ====================================================================== */
+/*  PÓS-GRADUAÇÃO EM DIREITO PREVIDENCIÁRIO E ASSISTENCIAL                */
+/*  Página: landing page própria (Vercel) -> planilha própria             */
+/* ====================================================================== */
+const POS = {
+  planilhaNome: 'Inscrições – Pós em Direito Previdenciário e Assistencial',
+  aba: 'Inscritos',
+  cor: '#0B2A6B',
+  prefixo: 'PREV-',
+};
+const CAB_POS = ['Data/hora', 'Protocolo', 'Nome completo', 'CPF', 'Nascimento', 'E-mail', 'WhatsApp',
+  'Cidade/UF', 'Formação', 'Instituição de formação', 'Ano de conclusão', 'Atuação profissional',
+  'Como conheceu a IPEDE', 'Aceite LGPD', 'Status', 'Responsável', 'Observações'];
+
+/** Rode uma vez pelo editor: cria (ou localiza) a planilha da Pós e mostra o link. */
+function configurarPos() {
+  const ss = planilhaPos_();
+  Logger.log('Planilha da Pós: ' + ss.getUrl());
+  return ss.getUrl();
+}
+
+function planilhaPos_() {
+  const props = PropertiesService.getScriptProperties();
+  const id = props.getProperty('POS_SHEET_ID');
+  let ss = null;
+  if (id) { try { ss = SpreadsheetApp.openById(id); } catch (e) { ss = null; } }
+  if (!ss) {
+    ss = SpreadsheetApp.create(POS.planilhaNome);
+    props.setProperty('POS_SHEET_ID', ss.getId());
+  }
+  let sh = ss.getSheetByName(POS.aba);
+  if (!sh) {
+    sh = ss.getSheets()[0];
+    sh.setName(POS.aba);
+  }
+  if (sh.getLastRow() === 0) {
+    sh.getRange(1, 1, 1, CAB_POS.length).setValues([CAB_POS]).setFontWeight('bold')
+      .setBackground(POS.cor).setFontColor('#FFFFFF').setVerticalAlignment('middle');
+    sh.setFrozenRows(1);
+    sh.setRowHeight(1, 32);
+    [150, 110, 240, 120, 100, 220, 140, 150, 200, 200, 110, 200, 170, 90, 150, 140, 260]
+      .forEach((w, i) => sh.setColumnWidth(i + 1, w));
+    sh.getRange('D:D').setNumberFormat('@');
+    sh.getRange('K:K').setNumberFormat('@');
+    const regra = SpreadsheetApp.newDataValidation()
+      .requireValueInList(['Pré-inscrito', 'Em contato', 'Documentos enviados', 'Matriculado', 'Desistente'], true)
+      .setAllowInvalid(true).build();
+    sh.getRange(2, 15, 1000, 1).setDataValidation(regra);
+  }
+  return ss;
+}
+
+function salvarPos(d) {
+  d = d || {};
+  const limpo = s => String(s == null ? '' : s).trim().replace(/\s+/g, ' ').slice(0, 200);
+  const nome = limpo(d.nome).toUpperCase();
+  const cpf = limpo(d.cpf).replace(/\D/g, '');
+  const email = limpo(d.email).toLowerCase();
+  const whats = limpo(d.whatsapp).replace(/\D/g, '');
+
+  if (nome.split(' ').length < 2) throw new Error('Informe o nome completo.');
+  if (!cpfValido_(cpf)) throw new Error('CPF inválido. Confira os números.');
+  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) throw new Error('E-mail inválido.');
+  if (whats.length < 10 || whats.length > 11) throw new Error('WhatsApp inválido. Use DDD + número.');
+  if (!limpo(d.formacao)) throw new Error('Informe sua formação.');
+  if (d.lgpd !== true) throw new Error('É preciso aceitar o uso dos dados para a inscrição.');
+
+  const lock = LockService.getScriptLock();
+  lock.waitLock(20000);
+  try {
+    const sh = planilhaPos_().getSheetByName(POS.aba);
+    const n = sh.getLastRow() - 1;
+    if (n > 0) {
+      const dados = sh.getRange(2, 1, n, 4).getValues();
+      for (let i = 0; i < dados.length; i++) {
+        if (String(dados[i][3]).replace(/\D/g, '') === cpf) {
+          return { protocolo: dados[i][1], nome: dados[i][2], jaInscrito: true };
+        }
+      }
+    }
+    const protocolo = POS.prefixo + ('00000' + (n + 1)).slice(-5);
+    sh.appendRow([new Date(), protocolo, nome, formatarCpf_(cpf), limpo(d.nascimento), email,
+      formatarFone_(whats), limpo(d.cidade), limpo(d.formacao), limpo(d.instituicao), limpo(d.ano),
+      limpo(d.atuacao), limpo(d.origem), 'Sim', 'Pré-inscrito', '', '']);
+    return { protocolo, nome, jaInscrito: false };
+  } finally {
+    lock.releaseLock();
+  }
 }

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pós-graduação em Direito Previdenciário e Assistencial – Faculdades IPEDE</title>
+<meta name="description" content="Pós-graduação em Direito Previdenciário e Assistencial das Faculdades IPEDE, em Codó/MA. Faça sua pré-inscrição online.">
+<meta name="theme-color" content="#061A40">
+<meta property="og:title" content="Pós-graduação em Direito Previdenciário e Assistencial – Faculdades IPEDE">
+<meta property="og:description" content="Especialize-se em uma das áreas que mais cresce na advocacia. Pré-inscrição online.">
+<meta property="og:image" content="https://pos-previdenciario-ipede.vercel.app/og.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#061A40; --navy-2:#0A2A66; --navy-3:#0F3A8A; --noite:#030E26;
+    --azul:#1E6BFF; --ciano:#38B6FF;
+    --ouro:#F5B819; --ouro-2:#E39B06; --ouro-cl:#FFE08A;
+    --tinta:#0C1830; --cinza:#5A667D; --linha:#E2E8F2; --fundo:#F5F7FB; --erro:#C62828;
+    --ease:cubic-bezier(.2,.8,.2,1);
+    --sombra:0 30px 70px -30px rgba(6,26,64,.45); --sombra-s:0 10px 30px -16px rgba(6,26,64,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--tinta);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  h1,h2,h3,h4{font-family:Montserrat,Inter,sans-serif;letter-spacing:-.02em;line-height:1.08}
+  .it{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:600;letter-spacing:0}
+  .ouro{background:linear-gradient(180deg,var(--ouro-cl),var(--ouro) 45%,var(--ouro-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  ::selection{background:var(--ouro);color:var(--navy)}
+
+  #progresso{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--ciano),var(--azul),var(--ouro))}
+
+  /* topo */
+  header.topo{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .35s,box-shadow .35s,backdrop-filter .35s}
+  header.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:82px;transition:height .35s var(--ease)}
+  header.topo.solido{background:rgba(6,26,64,.82);backdrop-filter:saturate(1.4) blur(16px);-webkit-backdrop-filter:saturate(1.4) blur(16px);box-shadow:0 1px 0 rgba(255,255,255,.08),0 16px 40px -24px rgba(0,0,0,.6)}
+  header.topo.solido .wrap{height:66px}
+  .logo{height:44px;width:auto;transition:height .35s var(--ease)}
+  header.topo.solido .logo{height:36px}
+  nav.menu{display:flex;gap:30px;font-size:14px;font-weight:600}
+  nav.menu a{text-decoration:none;color:rgba(255,255,255,.82);position:relative;transition:color .2s}
+  nav.menu a:hover{color:#fff}
+  nav.menu a:after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--ouro);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+  nav.menu a:hover:after{transform:scaleX(1)}
+
+  .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:12px;font:700 15px/1 Montserrat,Inter,sans-serif;letter-spacing:.01em;padding:17px 28px;cursor:pointer;text-decoration:none;overflow:hidden;isolation:isolate;transition:transform .25s var(--ease),box-shadow .25s,background .25s}
+  .btn:active{transform:scale(.98)}
+  .btn .seta{transition:transform .3s var(--ease)}
+  .btn:hover .seta{transform:translateX(4px)}
+  .btn-ouro{background:linear-gradient(180deg,#FFD24A,var(--ouro) 50%,var(--ouro-2));color:var(--navy);box-shadow:0 14px 30px -12px rgba(245,184,25,.65),inset 0 1px 0 rgba(255,255,255,.5)}
+  .btn-ouro:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .9s var(--ease)}
+  .btn-ouro:hover:before{transform:translateX(120%)}
+  .btn-ouro:hover{box-shadow:0 18px 36px -12px rgba(245,184,25,.8),inset 0 1px 0 rgba(255,255,255,.5)}
+  .btn-linha{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+  .btn-linha:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.55)}
+  .btn-wa{background:linear-gradient(180deg,#2BD96B,#1FA855);color:#fff;font-size:16px;padding:19px 30px;box-shadow:0 14px 30px -12px rgba(31,168,85,.7)}
+  .btn[disabled]{opacity:.6;cursor:not-allowed}
+  .topo .btn{padding:13px 22px;font-size:13.5px}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;color:#fff;min-height:100vh;min-height:100svh;display:flex;align-items:center;
+    background:radial-gradient(900px 600px at 78% 20%,rgba(30,107,255,.35),transparent 60%),
+               radial-gradient(700px 500px at 0% 100%,rgba(56,182,255,.16),transparent 60%),
+               linear-gradient(165deg,var(--noite) 0%,var(--navy) 45%,var(--navy-2) 100%)}
+  .hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;
+    mask-image:radial-gradient(ellipse at 60% 40%,#000 10%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 60% 40%,#000 10%,transparent 70%)}
+  .ondas{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:auto;pointer-events:none}
+  .ondas path{stroke-dasharray:2400;stroke-dashoffset:2400;animation:traca 2.6s var(--ease) .3s forwards}
+  @keyframes traca{to{stroke-dashoffset:0}}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center;padding-top:130px;padding-bottom:120px;width:100%}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;font:700 12px/1 Montserrat,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro-cl)}
+  .eyebrow:before{content:"";width:34px;height:2px;background:linear-gradient(90deg,var(--ouro),transparent)}
+  .hero .pre{font:800 clamp(18px,2.2vw,24px)/1.1 Montserrat,sans-serif;letter-spacing:.02em;margin-top:26px;color:#fff;text-transform:uppercase}
+  .hero h1{font-size:clamp(44px,6.6vw,86px);font-weight:900;margin:10px 0 0;text-transform:uppercase;letter-spacing:-.025em;line-height:.98}
+  .hero h1 .l2{display:block;font-size:.62em;color:#fff;letter-spacing:-.01em;margin-top:10px;line-height:1.05}
+  .hero p.lead{font-size:clamp(16.5px,1.7vw,19px);color:rgba(255,255,255,.78);max-width:560px;margin:26px 0 36px}
+  .hero .acoes{display:flex;flex-wrap:wrap;gap:14px}
+  .selos{display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:40px;font-size:14px;color:rgba(255,255,255,.8)}
+  .selos span{display:inline-flex;align-items:center;gap:9px}
+  .selos svg{flex:none}
+
+  .moldura{position:relative;justify-self:center;max-width:430px;width:100%}
+  .moldura .halo{position:absolute;inset:-12% -10%;background:radial-gradient(circle at 50% 45%,rgba(56,182,255,.45),transparent 62%);filter:blur(30px);z-index:-1}
+  .moldura .cartao{position:relative;border-radius:22px;padding:10px;background:linear-gradient(145deg,rgba(255,224,138,.9),rgba(245,184,25,.25) 30%,rgba(56,182,255,.35) 70%,rgba(255,224,138,.7));box-shadow:0 50px 100px -40px rgba(0,0,0,.8);transform:perspective(1200px) rotateY(-8deg) rotateX(3deg);transition:transform .8s var(--ease)}
+  .moldura:hover .cartao{transform:perspective(1200px) rotateY(0) rotateX(0)}
+  .moldura img{border-radius:15px;width:100%;height:auto}
+  .moldura .tag{position:absolute;left:-26px;bottom:42px;background:#fff;color:var(--navy);border-radius:14px;padding:14px 18px;box-shadow:var(--sombra);font-size:13px;line-height:1.35;max-width:220px}
+  .moldura .tag b{display:block;font-family:Montserrat,sans-serif;font-size:15px}
+  .moldura .tag i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#22C55E;margin-right:6px;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+
+  /* seções */
+  section{padding:120px 0;position:relative}
+  section[id]{scroll-margin-top:70px}
+  .cab{max-width:760px;margin:0 auto 60px;text-align:center}
+  .cab .k{font:700 12px/1 Montserrat,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--azul)}
+  .cab h2{font-size:clamp(30px,4.2vw,50px);font-weight:800;color:var(--navy);margin-top:16px}
+  .cab p{color:var(--cinza);font-size:18px;margin-top:16px}
+  .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .rv.on{opacity:1;transform:none}
+  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+
+  /* sobre */
+  .sobre{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+  .sobre h2{font-size:clamp(30px,3.8vw,46px);color:var(--navy);font-weight:800}
+  .sobre .k{font:700 12px/1 Montserrat,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--azul);display:block;margin-bottom:16px}
+  .sobre p{color:var(--cinza);font-size:17px;margin-top:18px}
+  .citacao{position:relative;border-radius:24px;padding:46px 40px;color:#fff;overflow:hidden;
+    background:radial-gradient(500px 300px at 100% 0%,rgba(56,182,255,.3),transparent 60%),linear-gradient(150deg,var(--navy),var(--navy-3))}
+  .citacao:before{content:"\201C";position:absolute;top:-30px;right:24px;font:700 220px/1 "Playfair Display",serif;color:rgba(245,184,25,.18)}
+  .citacao blockquote{font-family:"Playfair Display",serif;font-size:clamp(22px,2.4vw,28px);line-height:1.35;font-style:italic;position:relative}
+  .citacao .linha-ouro{width:60px;height:3px;background:var(--ouro);margin:26px 0 18px;border-radius:2px}
+  .citacao small{color:rgba(255,255,255,.75);font-size:14.5px;display:block}
+  .citacao ul{list-style:none;margin-top:26px;display:grid;gap:12px;position:relative}
+  .citacao li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:rgba(255,255,255,.9)}
+  .citacao li:before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;background:rgba(245,184,25,.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F5B819' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/12px no-repeat}
+
+  /* atuação */
+  #atuacao{background:var(--fundo)}
+  .areas{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .area{position:relative;background:#fff;border:1px solid var(--linha);border-radius:20px;padding:32px 28px;box-shadow:var(--sombra-s);transition:transform .4s var(--ease),box-shadow .4s,border-color .4s;overflow:hidden}
+  .area:after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--ouro),var(--azul));transform:scaleY(0);transform-origin:top;transition:transform .5s var(--ease)}
+  .area:hover{transform:translateY(-6px);box-shadow:var(--sombra);border-color:#C9D6EE}
+  .area:hover:after{transform:scaleY(1)}
+  .area .ic{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(150deg,var(--navy),var(--navy-3));margin-bottom:22px;box-shadow:0 12px 24px -14px rgba(6,26,64,.8)}
+  .area .ic svg{width:26px;height:26px}
+  .area h3{font-size:19px;color:var(--navy);font-weight:700}
+  .area p{color:var(--cinza);font-size:15px;margin-top:8px}
+
+  /* para quem */
+  .publico{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .pub{display:flex;gap:16px;align-items:flex-start;padding:24px;border-radius:18px;border:1px solid var(--linha);background:#fff;transition:border-color .3s,box-shadow .3s}
+  .pub:hover{border-color:#C9D6EE;box-shadow:var(--sombra-s)}
+  .pub .n{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font:800 15px/1 Montserrat,sans-serif;color:var(--navy);background:linear-gradient(180deg,#FFE9A8,var(--ouro))}
+  .pub h4{font-size:16.5px;color:var(--navy)}
+  .pub p{font-size:14.5px;color:var(--cinza);margin-top:4px}
+
+  /* diferenciais (faixa escura) */
+  .escuro{color:#fff;background:radial-gradient(800px 400px at 90% 0%,rgba(30,107,255,.28),transparent 60%),linear-gradient(170deg,var(--noite),var(--navy))}
+  .escuro .cab h2{color:#fff}.escuro .cab p{color:rgba(255,255,255,.72)}.escuro .cab .k{color:var(--ouro)}
+  .difs{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .dif{padding:30px 26px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transition:background .3s,border-color .3s,transform .4s var(--ease)}
+  .dif:hover{background:rgba(255,255,255,.07);border-color:rgba(245,184,25,.45);transform:translateY(-4px)}
+  .dif svg{width:30px;height:30px;margin-bottom:18px}
+  .dif h3{font-size:18px}
+  .dif p{font-size:14.5px;color:rgba(255,255,255,.72);margin-top:8px}
+
+  /* inscrição */
+  #inscricao{background:linear-gradient(180deg,#fff,var(--fundo))}
+  .grade-insc{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
+  .lado{position:sticky;top:100px}
+  .lado .k{font:700 12px/1 Montserrat,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--azul)}
+  .lado h2{font-size:clamp(30px,3.8vw,46px);color:var(--navy);margin:16px 0}
+  .lado p{color:var(--cinza);font-size:17px}
+  .passos{list-style:none;margin-top:30px;display:grid;gap:0;position:relative}
+  .passos li{display:flex;gap:16px;padding-bottom:22px;position:relative}
+  .passos li:not(:last-child):before{content:"";position:absolute;left:17px;top:38px;bottom:2px;width:2px;background:linear-gradient(180deg,var(--linha),transparent)}
+  .passos b{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:var(--ouro);font:800 14px/1 Montserrat,sans-serif}
+  .passos strong{display:block;color:var(--navy);font-size:15.5px}
+  .passos span{color:var(--cinza);font-size:14.5px}
+
+  .painel{scroll-margin-top:80px;background:#fff;border-radius:26px;border:1px solid var(--linha);box-shadow:0 50px 100px -50px rgba(6,26,64,.5);overflow:hidden}
+  .painel-topo{position:relative;padding:28px 34px;color:#fff;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--navy-3))}
+  .painel-topo:after{content:"";position:absolute;right:-60px;top:-80px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(245,184,25,.35),transparent 70%)}
+  .painel-topo h3{font-size:21px;position:relative}
+  .painel-topo p{font-size:14.5px;color:rgba(255,255,255,.78);position:relative;margin-top:4px}
+  .barra-passos{display:flex;gap:6px;margin-top:18px;position:relative}
+  .barra-passos i{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.18);overflow:hidden;position:relative}
+  .barra-passos i:after{content:"";position:absolute;inset:0;background:var(--ouro);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+  .barra-passos i.on:after{transform:scaleX(1)}
+  .corpo{padding:30px 34px 34px}
+  .corpo.entra{animation:entra .5s var(--ease)}
+  @keyframes entra{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .titulo-bloco{font:700 12px/1 Montserrat,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--azul);margin:4px 0 16px;display:flex;align-items:center;gap:12px}
+  .titulo-bloco:after{content:"";flex:1;height:1px;background:var(--linha)}
+  .grade{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;margin-bottom:24px}
+  .campo{display:flex;flex-direction:column;gap:7px;min-width:0}
+  .campo.cheio{grid-column:1/-1}
+  label{font-size:13.5px;font-weight:600;color:var(--tinta)}
+  label .o{color:var(--ouro-2)}
+  input,select{font:16px/1.4 Inter,sans-serif;color:var(--tinta);background:#F8FAFD;border:1.5px solid var(--linha);border-radius:12px;padding:14px 15px;width:100%;transition:border-color .2s,box-shadow .2s,background .2s;appearance:none;-webkit-appearance:none}
+  select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235A667D' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:40px}
+  input:hover,select:hover{border-color:#C9D6EE}
+  input:focus,select:focus{outline:0;border-color:var(--azul);background:#fff;box-shadow:0 0 0 4px rgba(30,107,255,.12)}
+  .invalido{border-color:var(--erro)!important;background:#FFF8F8!important}
+  .msg-erro{color:var(--erro);font-size:12.5px;font-weight:600;min-height:0}
+  .check{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--cinza);font-weight:500;cursor:pointer}
+  .check input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--navy);appearance:auto;-webkit-appearance:checkbox;padding:0}
+  .alerta{display:none;background:#FDECEA;border:1px solid #F5C2C0;color:var(--erro);border-radius:12px;padding:12px 14px;font-size:14px;margin-top:16px}
+  .rodape-form{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:24px;flex-wrap:wrap}
+  .rodape-form small{color:var(--cinza);font-size:13px;display:flex;align-items:center;gap:8px}
+  .spinner{width:18px;height:18px;border:3px solid rgba(6,26,64,.25);border-top-color:var(--navy);border-radius:50%;animation:gira .8s linear infinite}
+  @keyframes gira{to{transform:rotate(360deg)}}
+
+  .final{text-align:center;padding:8px 0}
+  .final .ok{width:92px;height:92px;border-radius:50%;margin:0 auto 22px;display:grid;place-items:center;background:linear-gradient(180deg,#FFF3CC,#FFE08A);box-shadow:0 0 0 10px rgba(245,184,25,.12)}
+  .final .ok path{stroke-dasharray:30;stroke-dashoffset:30;animation:risca .6s .3s var(--ease) forwards}
+  @keyframes risca{to{stroke-dashoffset:0}}
+  .final h3{font-size:clamp(22px,2.6vw,28px);color:var(--navy)}
+  .final p{color:var(--cinza);max-width:520px;margin:12px auto 0}
+  .protocolo{display:inline-block;margin:22px 0;padding:12px 22px;border-radius:12px;border:1.5px dashed var(--navy-3);color:var(--navy);font:800 15px/1 Montserrat,sans-serif;letter-spacing:.08em;background:#F3F6FD}
+  .previa{max-width:560px;margin:0 auto 26px;text-align:left;background:#F3F6FD;border:1px solid var(--linha);border-radius:16px;padding:16px 18px;font-size:14px}
+  .previa small{display:block;font:700 11px/1 Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza);margin-bottom:8px}
+
+  .oculto{display:none!important}
+
+  /* FAQ */
+  .faq{max-width:840px;margin:0 auto;display:grid;gap:14px}
+  .faq details{border:1px solid var(--linha);border-radius:18px;background:#fff;transition:border-color .3s,box-shadow .3s;overflow:hidden}
+  .faq details[open]{border-color:#C9D6EE;box-shadow:var(--sombra-s)}
+  .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:21px 24px;font:700 16px/1.35 Montserrat,sans-serif;color:var(--navy)}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary:after{content:"+";flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#EEF3FC;color:var(--navy);font:500 20px/1 Inter,sans-serif;transition:transform .35s var(--ease),background .3s,color .3s}
+  .faq details[open] summary:after{transform:rotate(45deg);background:var(--navy);color:var(--ouro)}
+  .faq details p{padding:0 24px 22px;color:var(--cinza);font-size:15.5px;animation:entra .4s var(--ease)}
+
+  /* CTA */
+  .cta{position:relative;overflow:hidden;border-radius:30px;padding:72px 56px;color:#fff;display:grid;grid-template-columns:1.4fr auto;gap:30px;align-items:center;
+    background:radial-gradient(600px 300px at 100% 0%,rgba(245,184,25,.28),transparent 60%),radial-gradient(500px 300px at 0% 100%,rgba(56,182,255,.25),transparent 60%),linear-gradient(140deg,var(--noite),var(--navy-2))}
+  .cta h2{font-size:clamp(28px,3.6vw,44px)}
+  .cta p{color:rgba(255,255,255,.75);font-size:17px;margin-top:12px}
+
+  footer{background:var(--noite);color:rgba(255,255,255,.72);padding:64px 0 30px;font-size:14px}
+  footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+  footer .logo{height:42px;margin-bottom:16px}
+  footer strong{display:block;color:#fff;font:700 12.5px/1 Montserrat,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+  footer a{color:#fff;text-decoration:none}
+  footer a:hover{color:var(--ouro)}
+  footer .copy{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-top:22px;font-size:12.5px;opacity:.7;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+  @media (max-width:1000px){
+    nav.menu{display:none}
+    .hero .wrap{grid-template-columns:1fr;gap:50px;padding-top:120px;padding-bottom:110px}
+    .moldura{max-width:360px}
+    .moldura .cartao{transform:none}
+    .sobre,.grade-insc{grid-template-columns:1fr;gap:44px}
+    .lado{position:static}
+    .areas,.publico{grid-template-columns:1fr 1fr}
+    .difs{grid-template-columns:1fr 1fr}
+    .cta{grid-template-columns:1fr;text-align:left;padding:56px 36px}
+    footer .wrap{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:620px){
+    .wrap{padding:0 16px}
+    section{padding:80px 0}
+    header.topo .wrap{height:68px}
+    .logo{height:34px}
+    .topo .btn{padding:11px 14px;font-size:12.5px}
+    .hero h1{font-size:clamp(38px,11vw,52px)}
+    .hero .acoes .btn{width:100%}
+    .moldura .tag{left:8px;bottom:-22px}
+    .areas,.publico,.difs{grid-template-columns:1fr}
+    .grade{grid-template-columns:1fr}
+    .corpo{padding:24px 18px 26px}
+    .painel-topo{padding:24px 18px}
+    .rodape-form .btn{width:100%}
+    .citacao{padding:36px 24px}
+    .cta{padding:44px 22px;border-radius:22px}
+    .cta .btn{width:100%}
+    footer .wrap{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+    .rv{opacity:1;transform:none}
+    .ondas path{stroke-dashoffset:0}
+  }
+</style>
+</head>
+<body>
+<div id="progresso"></div>
+
+<!-- logotipo reutilizável -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gLeque" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9BE1FF"/><stop offset=".55" stop-color="#38B6FF"/><stop offset="1" stop-color="#1E6BFF"/></linearGradient>
+    <symbol id="logo" viewBox="70 0 1270 345">
+      <text x="228" y="96" textLength="640" lengthAdjust="spacing" font-family="Montserrat,Inter,sans-serif" font-weight="600" font-size="46" fill="#fff">FACULDADES</text>
+      <text x="85" y="241" textLength="928" lengthAdjust="spacingAndGlyphs" font-family="Montserrat,Inter,sans-serif" font-weight="900" font-size="180" fill="#fff">IPEDE</text>
+      <polygon points="1064.4,151.0 1113.1,108.1 1104.8,19.0 1048.1,88.2" fill="#9BE1FF"/><polygon points="1081.2,160.2 1166.8,150.2 1261.1,68.5 1139.5,96.8" fill="#5CC8FF"/><polygon points="1086.0,173.0 1174.8,198.1 1309.8,180.8 1176.3,154.1" fill="#38B6FF"/><polygon points="1081.0,184.2 1138.2,248.6 1259.3,279.0 1166.4,195.7" fill="#1E8BFF"/><polygon points="1064.1,193.1 1047.5,258.7 1104.3,333.5 1112.8,239.9" fill="#1E6BFF"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="topo" id="topo">
+  <div class="wrap">
+    <a href="#" aria-label="Faculdades IPEDE – início" onclick="scrollTo({top:0});return false"><svg class="logo" viewBox="70 0 1270 345" role="img" aria-label="Faculdades IPEDE"><use href="#logo"/></svg></a>
+    <nav class="menu" aria-label="Seções">
+      <a href="#sobre">A pós</a><a href="#atuacao">Atuação</a><a href="#publico">Para quem</a><a href="#faq">Dúvidas</a>
+    </nav>
+    <a class="btn btn-ouro" href="#inscricao">Fazer pré-inscrição</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-label="Pós-graduação em Direito Previdenciário e Assistencial">
+    <svg class="ondas" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,170 C260,90 520,210 820,150 C1080,98 1260,120 1440,60" fill="none" stroke="url(#gOnda1)" stroke-width="2.5"/>
+      <path d="M0,200 C300,140 560,230 860,180 C1120,138 1300,160 1440,110" fill="none" stroke="url(#gOnda2)" stroke-width="1.5"/>
+      <defs>
+        <linearGradient id="gOnda1" x1="0" x2="1"><stop offset="0" stop-color="#38B6FF" stop-opacity="0"/><stop offset=".45" stop-color="#38B6FF"/><stop offset="1" stop-color="#F5B819"/></linearGradient>
+        <linearGradient id="gOnda2" x1="0" x2="1"><stop offset="0" stop-color="#F5B819" stop-opacity="0"/><stop offset=".6" stop-color="#F5B819" stop-opacity=".7"/><stop offset="1" stop-color="#38B6FF" stop-opacity=".4"/></linearGradient>
+      </defs>
+    </svg>
+    <div class="wrap">
+      <div>
+        <span class="eyebrow rv">Inscrições abertas · Codó/MA</span>
+        <p class="pre rv d1">Pós-graduação em</p>
+        <h1 class="rv d2"><span class="ouro">Direito</span><span class="l2">Previdenciário e Assistencial</span></h1>
+        <p class="lead rv d3">Domine aposentadorias, pensões, benefícios por incapacidade e o BPC/LOAS. Especialize-se em uma das áreas que mais movimentam a advocacia e o atendimento à população.</p>
+        <div class="acoes rv d4">
+          <a class="btn btn-ouro" href="#inscricao">Quero me inscrever <span class="seta">→</span></a>
+          <a class="btn btn-linha" href="#sobre">Conhecer a pós</a>
+        </div>
+        <div class="selos rv d5">
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8z"/></svg>Faculdades IPEDE</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>Instituição credenciada pelo MEC</span>
+          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Pré-inscrição em 2 minutos</span>
+        </div>
+      </div>
+      <div class="moldura rv d2">
+        <span class="halo"></span>
+        <div class="cartao">
+          <picture><source srcset="arte.webp" type="image/webp"><img src="arte.jpg" width="900" height="985" alt="Arte da Pós-graduação em Direito Previdenciário e Assistencial das Faculdades IPEDE"></picture>
+        </div>
+        <div class="tag"><b><i></i>Turma em formação</b>Garanta sua pré-inscrição e receba as condições pela secretaria.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="wrap sobre">
+      <div>
+        <span class="k rv">A pós-graduação</span>
+        <h2 class="rv d1">Uma especialização que <span class="it" style="color:var(--azul)">transforma</span> a sua atuação</h2>
+        <p class="rv d2">O Direito Previdenciário e Assistencial está no centro da vida de milhões de brasileiros: aposentadorias, pensões, auxílios e benefícios assistenciais movimentam diariamente o INSS e a Justiça Federal.</p>
+        <p class="rv d3">A pós das Faculdades IPEDE prepara você para atuar com segurança técnica nessa área, do requerimento administrativo ao processo judicial, com visão prática da realidade da nossa região.</p>
+      </div>
+      <div class="citacao rv d2">
+        <blockquote>Conhecer a Previdência é garantir direitos a quem mais precisa deles.</blockquote>
+        <div class="linha-ouro"></div>
+        <small>Ao longo da especialização, você desenvolve:</small>
+        <ul>
+          <li>Leitura estratégica de casos previdenciários e assistenciais</li>
+          <li>Segurança no processo administrativo junto ao INSS</li>
+          <li>Atuação no processo judicial previdenciário</li>
+          <li>Diferencial competitivo no mercado jurídico</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATUAÇÃO -->
+  <section id="atuacao">
+    <div class="wrap">
+      <div class="cab">
+        <span class="k rv">Campo de atuação</span>
+        <h2 class="rv d1">Onde a especialização leva você</h2>
+        <p class="rv d2">Áreas com demanda constante, em escritórios, órgãos públicos e no atendimento direto à população.</p>
+      </div>
+      <div class="areas">
+        <div class="area rv d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a5 5 0 015-5h4a5 5 0 015 5v2"/></svg></div><h3>Aposentadorias</h3><p>Por idade, tempo de contribuição, especial e da pessoa com deficiência, com as regras de transição.</p></div>
+        <div class="area rv d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 000-7.8z"/></svg></div><h3>BPC/LOAS</h3><p>Benefício assistencial à pessoa idosa e à pessoa com deficiência em situação de vulnerabilidade.</p></div>
+        <div class="area rv d3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Benefícios por incapacidade</h3><p>Auxílio por incapacidade temporária, aposentadoria por incapacidade permanente e auxílio-acidente.</p></div>
+        <div class="area rv d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8"/></svg></div><h3>Pensão por morte</h3><p>Proteção aos dependentes e análise dos requisitos e da duração do benefício.</p></div>
+        <div class="area rv d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></div><h3>Planejamento previdenciário</h3><p>Estratégias para o segurado se aposentar no melhor momento e com o melhor benefício.</p></div>
+        <div class="area rv d3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 21h14M7 7h10M4 7l-2 6a3 3 0 006 0L6 7M18 7l-2 6a3 3 0 006 0l-2-6"/></svg></div><h3>Processo e revisões</h3><p>Requerimentos e recursos no INSS, ações na Justiça Federal e revisões de benefícios.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM -->
+  <section id="publico">
+    <div class="wrap">
+      <div class="cab">
+        <span class="k rv">Para quem é</span>
+        <h2 class="rv d1">Feita para quem quer se destacar</h2>
+      </div>
+      <div class="publico">
+        <div class="pub rv d1"><span class="n">01</span><div><h4>Advogados</h4><p>Que querem abrir ou fortalecer a frente previdenciária do escritório.</p></div></div>
+        <div class="pub rv d2"><span class="n">02</span><div><h4>Bacharéis em Direito</h4><p>Que buscam uma especialização com mercado de trabalho constante.</p></div></div>
+        <div class="pub rv d3"><span class="n">03</span><div><h4>Servidores públicos</h4><p>Que atuam com seguridade social, assistência ou atendimento ao cidadão.</p></div></div>
+        <div class="pub rv d1"><span class="n">04</span><div><h4>Assistentes sociais</h4><p>Que acompanham famílias no acesso a benefícios assistenciais.</p></div></div>
+        <div class="pub rv d2"><span class="n">05</span><div><h4>Contadores e RH</h4><p>Que lidam com contribuições, vínculos e rotinas previdenciárias.</p></div></div>
+        <div class="pub rv d3"><span class="n">06</span><div><h4>Graduados em áreas afins</h4><p>Que desejam aprofundar o conhecimento na proteção social.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="escuro">
+    <div class="wrap">
+      <div class="cab">
+        <span class="k rv">Por que a IPEDE</span>
+        <h2 class="rv d1">Tradição e proximidade, aqui em Codó</h2>
+        <p class="rv d2">Uma pós pensada para a realidade de quem vive e trabalha na região.</p>
+      </div>
+      <div class="difs">
+        <div class="dif rv d1"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><h3>Credenciada pelo MEC</h3><p>Instituição de ensino superior credenciada, com a seriedade que a sua carreira exige.</p></div>
+        <div class="dif rv d2"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><h3>Perto de você</h3><p>Faculdades IPEDE em Codó/MA, sem precisar se deslocar para outra cidade.</p></div>
+        <div class="dif rv d3"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg><h3>Foco na prática</h3><p>Conteúdo voltado para os casos que chegam todos os dias aos escritórios e ao INSS.</p></div>
+        <div class="dif rv d4"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 21l1.9-5.2A8.4 8.4 0 1121 11.5z"/></svg><h3>Atendimento humano</h3><p>Nossa secretaria acompanha você da pré-inscrição até a matrícula.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSCRIÇÃO -->
+  <section id="inscricao">
+    <div class="wrap grade-insc">
+      <aside class="lado">
+        <span class="k rv">Pré-inscrição</span>
+        <h2 class="rv d1">Garanta sua vaga na próxima turma</h2>
+        <p class="rv d2">Preencha seus dados. Nossa secretaria entra em contato com as informações de valores, início das aulas e documentos.</p>
+        <ol class="passos rv d3">
+          <li><b>1</b><div><strong>Preencha a pré-inscrição</strong><span>Leva menos de 2 minutos.</span></div></li>
+          <li><b>2</b><div><strong>Receba seu protocolo</strong><span>Sua inscrição fica registrada na hora.</span></div></li>
+          <li><b>3</b><div><strong>Fale com a secretaria</strong><span>Pelo WhatsApp, com a mensagem pronta.</span></div></li>
+        </ol>
+      </aside>
+
+      <div class="painel rv d1">
+        <div class="painel-topo">
+          <h3 id="tituloPainel">Ficha de pré-inscrição</h3>
+          <p id="subPainel">Pós-graduação em Direito Previdenciário e Assistencial</p>
+          <div class="barra-passos" aria-hidden="true"><i class="on" id="b1"></i><i id="b2"></i></div>
+        </div>
+
+        <form class="corpo" id="form" novalidate>
+          <div class="titulo-bloco">Dados pessoais</div>
+          <div class="grade">
+            <div class="campo cheio"><label for="nome">Nome completo <span class="o">*</span></label>
+              <input id="nome" autocomplete="name" placeholder="Como está no seu documento"><span class="msg-erro"></span></div>
+            <div class="campo"><label for="cpf">CPF <span class="o">*</span></label>
+              <input id="cpf" inputmode="numeric" placeholder="000.000.000-00" maxlength="14"><span class="msg-erro"></span></div>
+            <div class="campo"><label for="nascimento">Data de nascimento <span class="o">*</span></label>
+              <input id="nascimento" type="date"><span class="msg-erro"></span></div>
+            <div class="campo"><label for="whatsapp">WhatsApp <span class="o">*</span></label>
+              <input id="whatsapp" inputmode="tel" autocomplete="tel" placeholder="(99) 99999-9999" maxlength="15"><span class="msg-erro"></span></div>
+            <div class="campo"><label for="email">E-mail <span class="o">*</span></label>
+              <input id="email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com"><span class="msg-erro"></span></div>
+            <div class="campo cheio"><label for="cidade">Cidade / UF <span class="o">*</span></label>
+              <input id="cidade" placeholder="Ex.: Codó – MA"><span class="msg-erro"></span></div>
+          </div>
+
+          <div class="titulo-bloco">Formação e atuação</div>
+          <div class="grade">
+            <div class="campo cheio"><label for="formacao">Formação <span class="o">*</span></label>
+              <select id="formacao">
+                <option value="">Selecione</option>
+                <option>Bacharel em Direito</option>
+                <option>Advogado(a) com OAB</option>
+                <option>Estudante de Direito (último ano)</option>
+                <option>Serviço Social</option>
+                <option>Ciências Contábeis</option>
+                <option>Administração / Gestão de RH</option>
+                <option>Outra graduação</option>
+              </select><span class="msg-erro"></span></div>
+            <div class="campo"><label for="instituicao">Instituição de formação</label>
+              <input id="instituicao" placeholder="Onde você se formou"></div>
+            <div class="campo"><label for="ano">Ano de conclusão</label>
+              <input id="ano" inputmode="numeric" maxlength="4" placeholder="Ex.: 2022"></div>
+            <div class="campo"><label for="atuacaoProf">Atuação profissional</label>
+              <input id="atuacaoProf" placeholder="Ex.: advogado, servidor, estudante"></div>
+            <div class="campo"><label for="origem">Como conheceu a pós?</label>
+              <select id="origem"><option value="">Selecione (opcional)</option><option>Instagram</option><option>Facebook</option><option>WhatsApp</option><option>Indicação</option><option>Já sou aluno(a) ou ex-aluno(a) da IPEDE</option><option>Google</option><option>Outro</option></select></div>
+            <div class="campo cheio">
+              <label class="check"><input type="checkbox" id="lgpd"><span>Autorizo as Faculdades IPEDE a usar meus dados para esta pré-inscrição e para entrar em contato comigo sobre a pós-graduação, conforme a LGPD (Lei nº 13.709/2018).</span></label>
+              <span class="msg-erro" id="erroLgpd"></span>
+            </div>
+          </div>
+
+          <div class="alerta" id="alerta" role="alert"></div>
+          <div class="rodape-form">
+            <small><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5A667D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Seus dados ficam protegidos.</small>
+            <button class="btn btn-ouro" type="submit" id="btnEnviar">Concluir pré-inscrição <span class="seta">→</span></button>
+          </div>
+        </form>
+
+        <div class="corpo oculto" id="final">
+          <div class="final">
+            <div class="ok"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#061A40" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+            <h3 id="finalTitulo">Pré-inscrição confirmada!</h3>
+            <p>Para concluir, fale com a secretaria das Faculdades IPEDE pelo WhatsApp e receba as informações de valores, início das aulas e documentos.</p>
+            <div class="protocolo" id="protocolo">Protocolo</div>
+            <div class="previa"><small>Mensagem que será enviada</small><span id="previa"></span></div>
+            <a class="btn btn-wa" id="btnWhats" href="#" target="_blank" rel="noopener">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.1.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
+              Falar com a secretaria no WhatsApp
+            </a>
+            <p style="font-size:13px;margin-top:16px">Secretaria: (99) 98193-0161</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding-top:40px">
+    <div class="wrap">
+      <div class="cab"><span class="k rv">Dúvidas frequentes</span><h2 class="rv d1">Perguntas e respostas</h2></div>
+      <div class="faq">
+        <details class="rv d1"><summary>Quem pode fazer a pós-graduação?</summary><p>Profissionais com curso superior concluído: bacharéis em Direito, advogados e graduados em áreas afins, como Serviço Social, Contábeis e Administração. Estudantes no último ano podem fazer a pré-inscrição e confirmar as condições com a secretaria.</p></details>
+        <details class="rv d1"><summary>A pré-inscrição tem custo?</summary><p>Não. A pré-inscrição é gratuita e não gera nenhum compromisso. Valores e condições de pagamento são informados pela secretaria.</p></details>
+        <details class="rv d2"><summary>Quando começam as aulas?</summary><p>A data de início da turma é informada pela secretaria no contato após a pré-inscrição.</p></details>
+        <details class="rv d2"><summary>Quais documentos vou precisar?</summary><p>Normalmente são pedidos documento de identidade, CPF, comprovante de residência e diploma ou declaração de conclusão da graduação. A secretaria confirma a lista completa no momento da matrícula.</p></details>
+        <details class="rv d3"><summary>Como funciona depois que eu envio os dados?</summary><p>Você recebe um protocolo na hora e é direcionado ao WhatsApp da secretaria com uma mensagem pronta. A equipe dá sequência à sua matrícula por lá.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="cta rv">
+        <div>
+          <h2>Dê o próximo passo na sua carreira jurídica</h2>
+          <p>Faça agora sua pré-inscrição na Pós em Direito Previdenciário e Assistencial.</p>
+        </div>
+        <a class="btn btn-ouro" href="#inscricao">Fazer pré-inscrição <span class="seta">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <svg class="logo" viewBox="70 0 1270 345" role="img" aria-label="Faculdades IPEDE"><use href="#logo"/></svg>
+      <p>Pós-graduação em Direito Previdenciário e Assistencial · Codó – MA.</p>
+    </div>
+    <div>
+      <strong>Contato</strong>
+      WhatsApp: <a href="https://wa.me/5599981930161" target="_blank" rel="noopener">(99) 98193-0161</a><br>
+      E-mail: <a href="mailto:ipede@ipede.edu.br">ipede@ipede.edu.br</a>
+    </div>
+    <div>
+      <strong>Endereço</strong>
+      Rua Francisco Alves Lisbino, 1020<br>São Sebastião · Codó – MA<br>CEP 65400-000
+    </div>
+    <div class="copy"><span>© 2026 Faculdades IPEDE</span><span>Seus dados são tratados conforme a LGPD.</span></div>
+  </div>
+</footer>
+
+<script>
+  var WHATS = '5599981930161';
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzzp8lJbLT7z821T4S8aqY5klB5NdxEmY8bBrnce7JFdMl40sQuwvKNeQhm6vDG90YPWQ/exec';
+  var CURSO = 'Pós-graduação em Direito Previdenciário e Assistencial';
+  var reduzido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (id) { return document.getElementById(id); };
+
+  /* topo e progresso */
+  var topo = $('topo'), prog = $('progresso');
+  function aoRolar() {
+    var y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
+    topo.classList.toggle('solido', y > 40);
+    prog.style.width = (h > 0 ? y / h * 100 : 0) + '%';
+  }
+  addEventListener('scroll', aoRolar, { passive: true }); aoRolar();
+
+  /* revelar ao rolar */
+  if ('IntersectionObserver' in window && !reduzido) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+    }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+  } else document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('on'); });
+
+  /* máscaras */
+  $('cpf').addEventListener('input', function () {
+    var d = this.value.replace(/\D/g, '').slice(0, 11);
+    this.value = d.replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+  });
+  $('whatsapp').addEventListener('input', function () {
+    var d = this.value.replace(/\D/g, '').slice(0, 11);
+    if (d.length > 10) this.value = d.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+    else if (d.length > 6) this.value = d.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+    else if (d.length > 2) this.value = d.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+    else this.value = d;
+  });
+  $('ano').addEventListener('input', function () { this.value = this.value.replace(/\D/g, '').slice(0, 4); });
+
+  function cpfValido(c) {
+    c = c.replace(/\D/g, '');
+    if (!/^\d{11}$/.test(c) || /^(\d)\1{10}$/.test(c)) return false;
+    for (var t = 9; t < 11; t++) { var s = 0; for (var i = 0; i < t; i++) s += +c[i] * (t + 1 - i); if (((s * 10) % 11) % 10 !== +c[t]) return false; }
+    return true;
+  }
+  function erro(id, msg) {
+    var el = $(id); el.classList.toggle('invalido', !!msg);
+    var m = el.parentNode.querySelector('.msg-erro'); if (m) m.textContent = msg || '';
+    return !msg;
+  }
+  ['nome', 'cpf', 'nascimento', 'whatsapp', 'email', 'cidade', 'formacao'].forEach(function (id) {
+    $(id).addEventListener('input', function () { erro(id, ''); });
+    $(id).addEventListener('change', function () { erro(id, ''); });
+  });
+  $('lgpd').addEventListener('change', function () { $('erroLgpd').textContent = ''; });
+
+  function validar() {
+    var v = function (id) { return $(id).value.trim(); }, ok = true;
+    ok = erro('nome', v('nome').split(/\s+/).length < 2 ? 'Informe nome e sobrenome.' : '') && ok;
+    ok = erro('cpf', cpfValido(v('cpf')) ? '' : 'CPF inválido.') && ok;
+    var n = v('nascimento'), anos = n ? (Date.now() - new Date(n).getTime()) / 31557600000 : 0;
+    ok = erro('nascimento', !n || anos < 16 || anos > 100 ? 'Informe uma data válida.' : '') && ok;
+    ok = erro('whatsapp', v('whatsapp').replace(/\D/g, '').length < 10 ? 'Informe DDD + número.' : '') && ok;
+    ok = erro('email', /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('email')) ? '' : 'E-mail inválido.') && ok;
+    ok = erro('cidade', v('cidade').length < 3 ? 'Informe sua cidade.' : '') && ok;
+    ok = erro('formacao', v('formacao') ? '' : 'Selecione sua formação.') && ok;
+    $('erroLgpd').textContent = $('lgpd').checked ? '' : 'Marque a autorização para continuar.';
+    ok = $('lgpd').checked && ok;
+    if (!ok) { var p = document.querySelector('.invalido') || $('lgpd'); p.scrollIntoView({ block: 'center', behavior: reduzido ? 'auto' : 'smooth' }); p.focus({ preventScroll: true }); }
+    return ok;
+  }
+  function alerta(msg) { $('alerta').textContent = msg || ''; $('alerta').style.display = msg ? 'block' : 'none'; }
+
+  function enviar(dados) {
+    return fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify({ acao: 'pos', dados: dados }) })
+      .catch(function () { throw new Error('Falha de conexão. Verifique sua internet e tente novamente.'); })
+      .then(function (r) { return r.json(); })
+      .then(function (j) { if (!j.ok) throw new Error(j.erro || 'Não foi possível concluir. Tente novamente.'); return j.r; });
+  }
+
+  $('form').addEventListener('submit', function (ev) {
+    ev.preventDefault(); alerta('');
+    if (!validar()) return;
+    var v = function (id) { return $(id).value.trim(); };
+    var dados = { nome: v('nome'), cpf: v('cpf'), nascimento: v('nascimento'), whatsapp: v('whatsapp'), email: v('email'),
+      cidade: v('cidade'), formacao: v('formacao'), instituicao: v('instituicao'), ano: v('ano'), atuacao: v('atuacaoProf'),
+      origem: v('origem'), lgpd: $('lgpd').checked };
+    var btn = $('btnEnviar'), txt = btn.innerHTML;
+    btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Enviando...';
+    enviar(dados).then(function (r) { concluir(r, dados); })
+      .catch(function (e) { alerta(e.message); btn.disabled = false; btn.innerHTML = txt; });
+  });
+
+  function tituloCaso(s) {
+    return (s || '').toLowerCase().split(/\s+/).map(function (p) { return /^(da|de|do|das|dos|e)$/.test(p) ? p : p.charAt(0).toUpperCase() + p.slice(1); }).join(' ');
+  }
+  function concluir(r, dados) {
+    var nome = tituloCaso(r.nome || dados.nome);
+    $('form').classList.add('oculto');
+    var f = $('final'); f.classList.remove('oculto'); f.classList.remove('entra'); void f.offsetWidth; f.classList.add('entra');
+    $('b2').classList.add('on');
+    $('tituloPainel').textContent = r.jaInscrito ? 'Pré-inscrição já registrada' : 'Pré-inscrição concluída';
+    $('finalTitulo').textContent = (r.jaInscrito ? 'Encontramos sua pré-inscrição, ' : 'Pré-inscrição confirmada, ') + nome.split(' ')[0] + '!';
+    $('protocolo').textContent = 'Protocolo ' + r.protocolo;
+    var msg = 'Olá! Meu nome é ' + nome + '. Acabei de realizar minha pré-inscrição na ' + CURSO +
+      ' das Faculdades IPEDE (protocolo ' + r.protocolo + '). Gostaria, por gentileza, de receber informações sobre valores, início das aulas e documentos necessários para a matrícula. Desde já, agradeço.';
+    $('previa').textContent = msg;
+    $('btnWhats').href = 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(msg);
+    document.querySelector('.painel').scrollIntoView({ behavior: reduzido ? 'auto' : 'smooth', block: 'start' });
+  }
+</script>
+</body>
+</html>
