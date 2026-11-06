@@ -7,266 +7,338 @@
 <meta name="description" content="Pós-graduação em Direito Previdenciário e Assistencial das Faculdades IPEDE, em Codó/MA. Faça sua pré-inscrição online.">
 <meta name="theme-color" content="#061A40">
 <meta property="og:title" content="Pós-graduação em Direito Previdenciário e Assistencial – Faculdades IPEDE">
-<meta property="og:description" content="Especialize-se em uma das áreas que mais cresce na advocacia. Pré-inscrição online.">
+<meta property="og:description" content="Especialize-se em uma das áreas que mais movimentam a advocacia. Pré-inscrição online.">
 <meta property="og:image" content="https://pos-previdenciario-ipede.vercel.app/og.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#061A40; --navy-2:#0A2A66; --navy-3:#0F3A8A; --noite:#030E26;
+    --navy:#061A40; --navy-2:#0A2A66; --navy-3:#123F94; --noite:#020B20;
     --azul:#1E6BFF; --ciano:#38B6FF;
-    --ouro:#F5B819; --ouro-2:#E39B06; --ouro-cl:#FFE08A;
-    --tinta:#0C1830; --cinza:#5A667D; --linha:#E2E8F2; --fundo:#F5F7FB; --erro:#C62828;
-    --ease:cubic-bezier(.2,.8,.2,1);
-    --sombra:0 30px 70px -30px rgba(6,26,64,.45); --sombra-s:0 10px 30px -16px rgba(6,26,64,.35);
+    --ouro:#F2B51C; --ouro-2:#D9960A; --ouro-cl:#FBE3A0;
+    --tinta:#0C1830; --cinza:#56627A; --linha:#E3E8F1; --fundo:#F6F7FA; --creme:#FBFAF6; --erro:#C62828;
+    --ease:cubic-bezier(.16,1,.3,1);
+    --sombra:0 40px 80px -40px rgba(6,26,64,.45); --sombra-s:0 14px 34px -20px rgba(6,26,64,.35);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--tinta);background:#fff;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--tinta);background:#fff;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   a{color:inherit}
   img{max-width:100%;display:block}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
-  h1,h2,h3,h4{font-family:Montserrat,Inter,sans-serif;letter-spacing:-.02em;line-height:1.08}
-  .it{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:600;letter-spacing:0}
-  .ouro{background:linear-gradient(180deg,var(--ouro-cl),var(--ouro) 45%,var(--ouro-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+  h1,h2,h3,h4{font-family:Montserrat,Inter,sans-serif;letter-spacing:-.022em;line-height:1.1;text-wrap:balance}
+  .it{font-family:"Playfair Display",Georgia,serif;font-style:italic;font-weight:500;letter-spacing:-.005em}
+  .ouro{background:linear-gradient(180deg,#FFE7A3 0%,var(--ouro) 48%,var(--ouro-2) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
   ::selection{background:var(--ouro);color:var(--navy)}
 
-  #progresso{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;background:linear-gradient(90deg,var(--ciano),var(--azul),var(--ouro))}
+  /* grão sutil (textura premium) */
+  .grao{position:absolute;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-  /* topo */
-  header.topo{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .35s,box-shadow .35s,backdrop-filter .35s}
-  header.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:82px;transition:height .35s var(--ease)}
-  header.topo.solido{background:rgba(6,26,64,.82);backdrop-filter:saturate(1.4) blur(16px);-webkit-backdrop-filter:saturate(1.4) blur(16px);box-shadow:0 1px 0 rgba(255,255,255,.08),0 16px 40px -24px rgba(0,0,0,.6)}
-  header.topo.solido .wrap{height:66px}
-  .logo{height:44px;width:auto;transition:height .35s var(--ease)}
-  header.topo.solido .logo{height:36px}
-  nav.menu{display:flex;gap:30px;font-size:14px;font-weight:600}
-  nav.menu a{text-decoration:none;color:rgba(255,255,255,.82);position:relative;transition:color .2s}
+  #progresso{position:fixed;top:0;left:0;height:2px;width:100%;z-index:60;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--ciano),var(--ouro))}
+
+  /* ===== topo ===== */
+  header.topo{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .5s var(--ease),box-shadow .5s,backdrop-filter .5s}
+  header.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:88px;transition:height .5s var(--ease)}
+  header.topo.solido{background:rgba(4,17,46,.78);backdrop-filter:saturate(1.5) blur(18px);-webkit-backdrop-filter:saturate(1.5) blur(18px);box-shadow:0 1px 0 rgba(255,255,255,.07)}
+  header.topo.solido .wrap{height:68px}
+  .logo{height:42px;width:auto;transition:height .5s var(--ease)}
+  header.topo.solido .logo{height:34px}
+  nav.menu{display:flex;gap:6px;font-size:13.5px;font-weight:600;padding:6px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08)}
+  nav.menu a{text-decoration:none;color:rgba(255,255,255,.72);padding:8px 16px;border-radius:999px;transition:color .3s,background .3s}
   nav.menu a:hover{color:#fff}
-  nav.menu a:after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:var(--ouro);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
-  nav.menu a:hover:after{transform:scaleX(1)}
+  nav.menu a.ativo{color:var(--navy);background:var(--ouro-cl)}
 
-  .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:12px;font:700 15px/1 Montserrat,Inter,sans-serif;letter-spacing:.01em;padding:17px 28px;cursor:pointer;text-decoration:none;overflow:hidden;isolation:isolate;transition:transform .25s var(--ease),box-shadow .25s,background .25s}
+  .btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;border:0;border-radius:999px;font:700 14.5px/1 Montserrat,Inter,sans-serif;letter-spacing:.01em;padding:18px 30px;cursor:pointer;text-decoration:none;overflow:hidden;isolation:isolate;transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .3s,border-color .3s,color .3s}
   .btn:active{transform:scale(.98)}
-  .btn .seta{transition:transform .3s var(--ease)}
+  .btn .seta{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;margin-right:-10px;transition:transform .5s var(--ease)}
   .btn:hover .seta{transform:translateX(4px)}
-  .btn-ouro{background:linear-gradient(180deg,#FFD24A,var(--ouro) 50%,var(--ouro-2));color:var(--navy);box-shadow:0 14px 30px -12px rgba(245,184,25,.65),inset 0 1px 0 rgba(255,255,255,.5)}
-  .btn-ouro:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);transition:transform .9s var(--ease)}
-  .btn-ouro:hover:before{transform:translateX(120%)}
-  .btn-ouro:hover{box-shadow:0 18px 36px -12px rgba(245,184,25,.8),inset 0 1px 0 rgba(255,255,255,.5)}
-  .btn-linha{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
-  .btn-linha:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.55)}
-  .btn-wa{background:linear-gradient(180deg,#2BD96B,#1FA855);color:#fff;font-size:16px;padding:19px 30px;box-shadow:0 14px 30px -12px rgba(31,168,85,.7)}
-  .btn[disabled]{opacity:.6;cursor:not-allowed}
-  .topo .btn{padding:13px 22px;font-size:13.5px}
+  .btn-ouro{background:linear-gradient(180deg,#FFD45A,var(--ouro) 55%,var(--ouro-2));color:var(--navy);box-shadow:0 18px 36px -16px rgba(242,181,28,.7),inset 0 1px 0 rgba(255,255,255,.55)}
+  .btn-ouro .seta{background:var(--navy);color:var(--ouro)}
+  .btn-ouro:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.6) 50%,transparent 65%);transform:translateX(-130%);transition:transform 1.1s var(--ease)}
+  .btn-ouro:hover{transform:translateY(-2px);box-shadow:0 24px 44px -16px rgba(242,181,28,.8),inset 0 1px 0 rgba(255,255,255,.55)}
+  .btn-ouro:hover:after{transform:translateX(130%)}
+  .btn-linha{background:rgba(255,255,255,.03);color:#fff;border:1px solid rgba(255,255,255,.22)}
+  .btn-linha:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.45);transform:translateY(-2px)}
+  .btn-wa{background:linear-gradient(180deg,#2BD96B,#1FA855);color:#fff;font-size:15.5px;padding:19px 30px;box-shadow:0 18px 36px -16px rgba(31,168,85,.75)}
+  .btn-wa:hover{transform:translateY(-2px)}
+  .btn[disabled]{opacity:.65;cursor:not-allowed;transform:none}
+  .topo .btn{padding:12px 20px;font-size:13px}
 
-  /* HERO */
-  .hero{position:relative;overflow:hidden;color:#fff;min-height:100vh;min-height:100svh;display:flex;align-items:center;
-    background:radial-gradient(900px 600px at 78% 20%,rgba(30,107,255,.35),transparent 60%),
-               radial-gradient(700px 500px at 0% 100%,rgba(56,182,255,.16),transparent 60%),
-               linear-gradient(165deg,var(--noite) 0%,var(--navy) 45%,var(--navy-2) 100%)}
-  .hero:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
-    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;
-    mask-image:radial-gradient(ellipse at 60% 40%,#000 10%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 60% 40%,#000 10%,transparent 70%)}
+  /* ===== HERO ===== */
+  .hero{position:relative;overflow:hidden;color:#fff;min-height:100vh;min-height:100svh;display:flex;align-items:center;background:linear-gradient(170deg,var(--noite) 0%,var(--navy) 50%,#08245A 100%)}
+  .aurora{position:absolute;border-radius:50%;filter:blur(110px);pointer-events:none;will-change:transform}
+  .aurora.a1{width:720px;height:720px;right:-180px;top:-220px;background:radial-gradient(circle,rgba(30,107,255,.55),transparent 65%);animation:deriva1 26s ease-in-out infinite}
+  .aurora.a2{width:560px;height:560px;left:-200px;bottom:-260px;background:radial-gradient(circle,rgba(56,182,255,.32),transparent 65%);animation:deriva2 32s ease-in-out infinite}
+  .aurora.a3{width:380px;height:380px;right:22%;bottom:-160px;background:radial-gradient(circle,rgba(242,181,28,.22),transparent 65%);animation:deriva1 38s ease-in-out infinite reverse}
+  @keyframes deriva1{0%,100%{transform:translate(0,0)}50%{transform:translate(-60px,50px)}}
+  @keyframes deriva2{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,-40px)}}
+  .hero:before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:64px 64px;
+    mask-image:radial-gradient(ellipse 70% 60% at 65% 40%,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 65% 40%,#000,transparent 75%)}
   .ondas{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:auto;pointer-events:none}
-  .ondas path{stroke-dasharray:2400;stroke-dashoffset:2400;animation:traca 2.6s var(--ease) .3s forwards}
+  .ondas path{stroke-dasharray:2600;stroke-dashoffset:2600;animation:traca 3.2s var(--ease) .6s forwards}
   @keyframes traca{to{stroke-dashoffset:0}}
-  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.12fr .88fr;gap:56px;align-items:center;padding-top:130px;padding-bottom:120px;width:100%}
-  .eyebrow{display:inline-flex;align-items:center;gap:12px;font:700 12px/1 Montserrat,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--ouro-cl)}
-  .eyebrow:before{content:"";width:34px;height:2px;background:linear-gradient(90deg,var(--ouro),transparent)}
-  .hero .pre{font:800 clamp(18px,2.2vw,24px)/1.1 Montserrat,sans-serif;letter-spacing:.02em;margin-top:26px;color:#fff;text-transform:uppercase}
-  .hero h1{font-size:clamp(44px,6.6vw,86px);font-weight:900;margin:10px 0 0;text-transform:uppercase;letter-spacing:-.025em;line-height:.98}
-  .hero h1 .l2{display:block;font-size:.62em;color:#fff;letter-spacing:-.01em;margin-top:10px;line-height:1.05}
-  .hero p.lead{font-size:clamp(16.5px,1.7vw,19px);color:rgba(255,255,255,.78);max-width:560px;margin:26px 0 36px}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:center;padding-top:118px;padding-bottom:110px;width:100%}
+
+  /* entrada do hero: texto surge por máscara */
+  .linha-m{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+  .linha-m > span{display:inline-block;transform:translateY(110%);transition:transform 1.3s var(--ease)}
+  .pronto .linha-m > span{transform:none}
+  .fade-h{opacity:0;transform:translateY(18px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease)}
+  .pronto .fade-h{opacity:1;transform:none}
+
+  .eyebrow{display:inline-flex;align-items:center;gap:14px;font:600 11.5px/1 Montserrat,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--ouro-cl)}
+  .eyebrow i{width:40px;height:1px;background:linear-gradient(90deg,var(--ouro),transparent)}
+  .hero .pre{font:600 clamp(15px,1.6vw,18px)/1.2 Montserrat,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-top:26px}
+  .hero h1{font-size:clamp(50px,6.4vw,92px);font-weight:900;margin-top:12px;text-transform:uppercase;letter-spacing:-.03em;line-height:.96}
+  .hero h1 .l2{font-size:.5em;font-weight:800;color:#fff;letter-spacing:-.012em;line-height:1.08}
+  .hero h1 .l2 .linha-m:first-child{margin-top:16px}
+  .hero p.lead{font-size:clamp(16.5px,1.6vw,18.5px);color:rgba(255,255,255,.72);max-width:540px;margin:24px 0 34px;line-height:1.7}
   .hero .acoes{display:flex;flex-wrap:wrap;gap:14px}
-  .selos{display:flex;flex-wrap:wrap;gap:12px 26px;margin-top:40px;font-size:14px;color:rgba(255,255,255,.8)}
-  .selos span{display:inline-flex;align-items:center;gap:9px}
-  .selos svg{flex:none}
+  .selos{display:flex;flex-wrap:wrap;gap:12px 30px;margin-top:38px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:13.5px;color:rgba(255,255,255,.7);max-width:560px}
+  .selos span{display:inline-flex;align-items:center;gap:10px}
 
-  .moldura{position:relative;justify-self:center;max-width:430px;width:100%}
-  .moldura .halo{position:absolute;inset:-12% -10%;background:radial-gradient(circle at 50% 45%,rgba(56,182,255,.45),transparent 62%);filter:blur(30px);z-index:-1}
-  .moldura .cartao{position:relative;border-radius:22px;padding:10px;background:linear-gradient(145deg,rgba(255,224,138,.9),rgba(245,184,25,.25) 30%,rgba(56,182,255,.35) 70%,rgba(255,224,138,.7));box-shadow:0 50px 100px -40px rgba(0,0,0,.8);transform:perspective(1200px) rotateY(-8deg) rotateX(3deg);transition:transform .8s var(--ease)}
-  .moldura:hover .cartao{transform:perspective(1200px) rotateY(0) rotateX(0)}
-  .moldura img{border-radius:15px;width:100%;height:auto}
-  .moldura .tag{position:absolute;left:-26px;bottom:42px;background:#fff;color:var(--navy);border-radius:14px;padding:14px 18px;box-shadow:var(--sombra);font-size:13px;line-height:1.35;max-width:220px}
-  .moldura .tag b{display:block;font-family:Montserrat,sans-serif;font-size:15px}
-  .moldura .tag i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#22C55E;margin-right:6px;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+  .moldura{position:relative;justify-self:center;width:100%;max-width:440px;perspective:1400px}
+  .moldura .halo{position:absolute;inset:-14% -12%;background:radial-gradient(circle at 50% 45%,rgba(56,182,255,.42),transparent 62%);filter:blur(36px);z-index:-1}
+  .moldura .cartao{position:relative;border-radius:24px;padding:1px;transform-style:preserve-3d;will-change:transform;
+    background:linear-gradient(150deg,rgba(251,227,160,.9),rgba(242,181,28,.15) 28%,rgba(56,182,255,.3) 62%,rgba(251,227,160,.75));
+    box-shadow:0 60px 120px -50px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.04);
+    opacity:0;transform:translateY(40px) scale(.96) rotateX(6deg);transition:opacity 1.6s var(--ease) .35s,transform 1.6s var(--ease) .35s}
+  .pronto .moldura .cartao{opacity:1;transform:none}
+  .moldura .interno{position:relative;border-radius:23px;overflow:hidden;background:var(--navy)}
+  .moldura img{width:100%;height:auto}
+  .moldura .brilho{position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.28) 48%,transparent 60%);transform:translateX(-120%)}
+  .pronto .moldura .brilho{animation:varre 2.2s var(--ease) 1.6s forwards}
+  @keyframes varre{to{transform:translateX(120%)}}
+  .moldura .reflexo{position:absolute;inset:0;pointer-events:none;border-radius:23px;background:radial-gradient(600px circle at var(--rx,50%) var(--ry,0%),rgba(255,255,255,.12),transparent 40%);opacity:0;transition:opacity .5s}
+  .moldura:hover .reflexo{opacity:1}
 
-  /* seções */
-  section{padding:120px 0;position:relative}
-  section[id]{scroll-margin-top:70px}
-  .cab{max-width:760px;margin:0 auto 60px;text-align:center}
-  .cab .k{font:700 12px/1 Montserrat,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--azul)}
-  .cab h2{font-size:clamp(30px,4.2vw,50px);font-weight:800;color:var(--navy);margin-top:16px}
-  .cab p{color:var(--cinza);font-size:18px;margin-top:16px}
-  .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
-  .rv.on{opacity:1;transform:none}
-  .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+  /* ===== seções ===== */
+  section{padding:140px 0;position:relative}
+  section[id]{scroll-margin-top:60px}
+  .k{display:inline-flex;align-items:center;gap:12px;font:600 11.5px/1 Montserrat,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--azul)}
+  .k:before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+  .cab{max-width:780px;margin:0 auto 72px;text-align:center}
+  .cab .k:after{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+  .cab h2{font-size:clamp(32px,4.4vw,54px);font-weight:800;color:var(--navy);margin-top:20px}
+  .cab p{color:var(--cinza);font-size:18px;margin-top:18px}
+  .orn{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:26px}
+  .orn i{width:48px;height:1px;background:linear-gradient(90deg,transparent,var(--ouro))}
+  .orn i:last-child{background:linear-gradient(90deg,var(--ouro),transparent)}
+  .orn b{width:7px;height:7px;transform:rotate(45deg);background:var(--ouro)}
 
-  /* sobre */
-  .sobre{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-  .sobre h2{font-size:clamp(30px,3.8vw,46px);color:var(--navy);font-weight:800}
-  .sobre .k{font:700 12px/1 Montserrat,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--azul);display:block;margin-bottom:16px}
-  .sobre p{color:var(--cinza);font-size:17px;margin-top:18px}
-  .citacao{position:relative;border-radius:24px;padding:46px 40px;color:#fff;overflow:hidden;
-    background:radial-gradient(500px 300px at 100% 0%,rgba(56,182,255,.3),transparent 60%),linear-gradient(150deg,var(--navy),var(--navy-3))}
-  .citacao:before{content:"\201C";position:absolute;top:-30px;right:24px;font:700 220px/1 "Playfair Display",serif;color:rgba(245,184,25,.18)}
-  .citacao blockquote{font-family:"Playfair Display",serif;font-size:clamp(22px,2.4vw,28px);line-height:1.35;font-style:italic;position:relative}
-  .citacao .linha-ouro{width:60px;height:3px;background:var(--ouro);margin:26px 0 18px;border-radius:2px}
-  .citacao small{color:rgba(255,255,255,.75);font-size:14.5px;display:block}
-  .citacao ul{list-style:none;margin-top:26px;display:grid;gap:12px;position:relative}
-  .citacao li{display:flex;gap:12px;align-items:flex-start;font-size:15px;color:rgba(255,255,255,.9)}
-  .citacao li:before{content:"";flex:none;width:20px;height:20px;margin-top:2px;border-radius:6px;background:rgba(245,184,25,.18) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F5B819' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/12px no-repeat}
+  /* revelar ao rolar: sobe + desfoque */
+  .rv{opacity:0;transform:translateY(32px);filter:blur(6px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease),filter 1.2s var(--ease)}
+  .rv.on{opacity:1;transform:none;filter:none}
+  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
 
-  /* atuação */
-  #atuacao{background:var(--fundo)}
-  .areas{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .area{position:relative;background:#fff;border:1px solid var(--linha);border-radius:20px;padding:32px 28px;box-shadow:var(--sombra-s);transition:transform .4s var(--ease),box-shadow .4s,border-color .4s;overflow:hidden}
-  .area:after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--ouro),var(--azul));transform:scaleY(0);transform-origin:top;transition:transform .5s var(--ease)}
-  .area:hover{transform:translateY(-6px);box-shadow:var(--sombra);border-color:#C9D6EE}
-  .area:hover:after{transform:scaleY(1)}
-  .area .ic{width:54px;height:54px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(150deg,var(--navy),var(--navy-3));margin-bottom:22px;box-shadow:0 12px 24px -14px rgba(6,26,64,.8)}
+  /* ===== sobre ===== */
+  #sobre{background:var(--creme)}
+  .sobre{display:grid;grid-template-columns:.9fr 1.1fr;gap:96px;align-items:center}
+  .visual{position:relative;max-width:440px;justify-self:center;width:100%}
+  .visual .foto{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:349/700;box-shadow:var(--sombra);background:var(--navy)}
+  .visual .foto img{width:100%;height:100%;object-fit:cover;object-position:top;transform:scale(1.08);transition:transform 2.4s var(--ease)}
+  .visual.on .foto img{transform:scale(1)}
+  .visual .foto:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(6,26,64,.92) 88%)}
+  .visual .contorno{position:absolute;inset:-18px 18px 18px -18px;border:1px solid rgba(217,150,10,.45);border-radius:32px;z-index:-1}
+  .visual .legenda{position:absolute;left:28px;right:28px;bottom:30px;color:#fff;z-index:2}
+  .visual .legenda blockquote{font-family:"Playfair Display",serif;font-style:italic;font-size:clamp(20px,2vw,24px);line-height:1.35}
+  .visual .legenda small{display:block;margin-top:14px;font:600 11px/1 Montserrat,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--ouro-cl)}
+  .sobre h2{font-size:clamp(32px,4vw,50px);color:var(--navy);font-weight:800;margin-top:20px}
+  .sobre p{color:var(--cinza);font-size:17px;margin-top:20px}
+  .lista-ouro{list-style:none;margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:16px 26px}
+  .lista-ouro li{display:flex;gap:14px;align-items:flex-start;font-size:15px;color:var(--tinta);font-weight:500;line-height:1.5}
+  .lista-ouro li:before{content:"";flex:none;width:22px;height:22px;margin-top:1px;border-radius:50%;border:1px solid rgba(217,150,10,.6);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D9960A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/11px no-repeat}
+
+  /* ===== atuação ===== */
+  .areas{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linha);border:1px solid var(--linha);border-radius:28px;overflow:hidden}
+  .area{position:relative;background:#fff;padding:44px 38px 42px;transition:background .6s var(--ease)}
+  .area:before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(30,107,255,.07),transparent 45%);opacity:0;transition:opacity .5s;pointer-events:none}
+  .area:hover:before{opacity:1}
+  .area .num{position:absolute;top:36px;right:36px;font:500 13px/1 Montserrat,sans-serif;letter-spacing:.1em;color:#B8C2D6;transition:color .5s}
+  .area:hover .num{color:var(--ouro-2)}
+  .area .ic{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(150deg,var(--navy),var(--navy-3));margin-bottom:28px;box-shadow:0 14px 28px -16px rgba(6,26,64,.9);transition:transform .7s var(--ease),box-shadow .7s var(--ease)}
+  .area:hover .ic{transform:translateY(-4px) rotate(-4deg);box-shadow:0 20px 34px -16px rgba(6,26,64,.9),0 0 0 6px rgba(242,181,28,.12)}
   .area .ic svg{width:26px;height:26px}
-  .area h3{font-size:19px;color:var(--navy);font-weight:700}
-  .area p{color:var(--cinza);font-size:15px;margin-top:8px}
+  .area h3{font-size:19.5px;color:var(--navy);font-weight:700}
+  .area p{color:var(--cinza);font-size:15px;margin-top:10px}
+  .area .traco{position:absolute;left:38px;right:38px;bottom:0;height:2px;background:linear-gradient(90deg,var(--ouro),var(--azul));transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
+  .area:hover .traco{transform:scaleX(1)}
 
-  /* para quem */
-  .publico{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .pub{display:flex;gap:16px;align-items:flex-start;padding:24px;border-radius:18px;border:1px solid var(--linha);background:#fff;transition:border-color .3s,box-shadow .3s}
-  .pub:hover{border-color:#C9D6EE;box-shadow:var(--sombra-s)}
-  .pub .n{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font:800 15px/1 Montserrat,sans-serif;color:var(--navy);background:linear-gradient(180deg,#FFE9A8,var(--ouro))}
-  .pub h4{font-size:16.5px;color:var(--navy)}
-  .pub p{font-size:14.5px;color:var(--cinza);margin-top:4px}
+  /* ===== para quem ===== */
+  #publico{background:var(--fundo)}
+  .publico{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .pub{position:relative;padding:32px 30px;border-radius:22px;background:#fff;border:1px solid var(--linha);transition:transform .7s var(--ease),box-shadow .7s var(--ease),border-color .5s}
+  .pub:hover{transform:translateY(-6px);box-shadow:var(--sombra);border-color:transparent}
+  .pub .n{display:block;font-family:"Playfair Display",serif;font-style:italic;font-size:40px;line-height:1;color:var(--ouro-2);margin-bottom:18px}
+  .pub h4{font-size:17.5px;color:var(--navy)}
+  .pub p{font-size:14.5px;color:var(--cinza);margin-top:8px}
 
-  /* diferenciais (faixa escura) */
-  .escuro{color:#fff;background:radial-gradient(800px 400px at 90% 0%,rgba(30,107,255,.28),transparent 60%),linear-gradient(170deg,var(--noite),var(--navy))}
-  .escuro .cab h2{color:#fff}.escuro .cab p{color:rgba(255,255,255,.72)}.escuro .cab .k{color:var(--ouro)}
-  .difs{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .dif{padding:30px 26px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);transition:background .3s,border-color .3s,transform .4s var(--ease)}
-  .dif:hover{background:rgba(255,255,255,.07);border-color:rgba(245,184,25,.45);transform:translateY(-4px)}
-  .dif svg{width:30px;height:30px;margin-bottom:18px}
+  /* ===== diferenciais ===== */
+  .escuro{color:#fff;overflow:hidden;background:linear-gradient(170deg,var(--noite),var(--navy) 70%,#082050)}
+  .escuro .aurora.a1{opacity:.6}
+  .escuro .wrap{position:relative;z-index:2}
+  .escuro .cab h2{color:#fff}.escuro .cab p{color:rgba(255,255,255,.66)}.escuro .k{color:var(--ouro-cl)}
+  .difs{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .dif{position:relative;padding:36px 30px;border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.09);transition:transform .7s var(--ease),border-color .5s,background .5s}
+  .dif:hover{transform:translateY(-6px);border-color:rgba(242,181,28,.45);background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.02))}
+  .dif .ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;border:1px solid rgba(242,181,28,.35);background:rgba(242,181,28,.08);margin-bottom:26px}
+  .dif svg{width:24px;height:24px}
   .dif h3{font-size:18px}
-  .dif p{font-size:14.5px;color:rgba(255,255,255,.72);margin-top:8px}
+  .dif p{font-size:14.5px;color:rgba(255,255,255,.66);margin-top:10px}
 
-  /* inscrição */
+  /* ===== inscrição ===== */
   #inscricao{background:linear-gradient(180deg,#fff,var(--fundo))}
-  .grade-insc{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
-  .lado{position:sticky;top:100px}
-  .lado .k{font:700 12px/1 Montserrat,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--azul)}
-  .lado h2{font-size:clamp(30px,3.8vw,46px);color:var(--navy);margin:16px 0}
+  .grade-insc{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:start}
+  .lado{position:sticky;top:110px}
+  .lado h2{font-size:clamp(32px,4vw,50px);color:var(--navy);margin:20px 0 18px}
   .lado p{color:var(--cinza);font-size:17px}
-  .passos{list-style:none;margin-top:30px;display:grid;gap:0;position:relative}
-  .passos li{display:flex;gap:16px;padding-bottom:22px;position:relative}
-  .passos li:not(:last-child):before{content:"";position:absolute;left:17px;top:38px;bottom:2px;width:2px;background:linear-gradient(180deg,var(--linha),transparent)}
-  .passos b{flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:var(--ouro);font:800 14px/1 Montserrat,sans-serif}
-  .passos strong{display:block;color:var(--navy);font-size:15.5px}
+  .passos{list-style:none;margin-top:40px;display:grid}
+  .passos li{display:flex;gap:18px;padding-bottom:28px;position:relative}
+  .passos li:not(:last-child):before{content:"";position:absolute;left:19px;top:44px;bottom:4px;width:1px;background:linear-gradient(180deg,rgba(217,150,10,.5),transparent)}
+  .passos b{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(217,150,10,.55);color:var(--ouro-2);font:italic 600 17px/1 "Playfair Display",serif;background:#fff}
+  .passos strong{display:block;color:var(--navy);font-size:15.5px;margin-top:2px}
   .passos span{color:var(--cinza);font-size:14.5px}
+  .contato-lado{margin-top:22px;padding:22px 24px;border-radius:20px;background:#fff;border:1px solid var(--linha);display:flex;gap:16px;align-items:center}
+  .contato-lado .ic{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#E9F9EF}
+  .contato-lado b{display:block;color:var(--navy);font-size:15px}
+  .contato-lado a{color:var(--cinza);font-size:14px;text-decoration:none}
+  .contato-lado a:hover{color:var(--azul)}
 
-  .painel{scroll-margin-top:80px;background:#fff;border-radius:26px;border:1px solid var(--linha);box-shadow:0 50px 100px -50px rgba(6,26,64,.5);overflow:hidden}
-  .painel-topo{position:relative;padding:28px 34px;color:#fff;overflow:hidden;background:linear-gradient(135deg,var(--navy),var(--navy-3))}
-  .painel-topo:after{content:"";position:absolute;right:-60px;top:-80px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(245,184,25,.35),transparent 70%)}
-  .painel-topo h3{font-size:21px;position:relative}
-  .painel-topo p{font-size:14.5px;color:rgba(255,255,255,.78);position:relative;margin-top:4px}
-  .barra-passos{display:flex;gap:6px;margin-top:18px;position:relative}
-  .barra-passos i{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.18);overflow:hidden;position:relative}
-  .barra-passos i:after{content:"";position:absolute;inset:0;background:var(--ouro);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
-  .barra-passos i.on:after{transform:scaleX(1)}
-  .corpo{padding:30px 34px 34px}
-  .corpo.entra{animation:entra .5s var(--ease)}
-  @keyframes entra{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-  .titulo-bloco{font:700 12px/1 Montserrat,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--azul);margin:4px 0 16px;display:flex;align-items:center;gap:12px}
+  .painel{scroll-margin-top:90px;background:#fff;border-radius:30px;border:1px solid var(--linha);box-shadow:0 60px 120px -60px rgba(6,26,64,.55);overflow:hidden}
+  .painel-topo{position:relative;padding:32px 38px 28px;color:#fff;overflow:hidden;background:linear-gradient(135deg,var(--noite),var(--navy-2) 70%,var(--navy-3))}
+  .painel-topo:after{content:"";position:absolute;right:-80px;top:-110px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(242,181,28,.32),transparent 70%)}
+  .painel-topo h3{font-size:22px;position:relative}
+  .painel-topo p{font-size:14.5px;color:rgba(255,255,255,.7);position:relative;margin-top:6px}
+  .medidor{position:relative;margin-top:22px;display:flex;align-items:center;gap:14px;font:600 12px/1 Montserrat,sans-serif;letter-spacing:.08em;color:rgba(255,255,255,.7)}
+  .medidor .trilho{flex:1;height:4px;border-radius:4px;background:rgba(255,255,255,.14);overflow:hidden}
+  .medidor .trilho i{display:block;height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,var(--ouro-cl),var(--ouro));transition:width .8s var(--ease)}
+  .medidor b{color:var(--ouro-cl);min-width:38px;text-align:right}
+  .corpo{padding:34px 38px 38px}
+  .corpo.entra{animation:entra .9s var(--ease)}
+  @keyframes entra{from{opacity:0;transform:translateY(16px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+  .titulo-bloco{font:600 11.5px/1 Montserrat,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--navy-3);margin:4px 0 20px;display:flex;align-items:center;gap:14px}
   .titulo-bloco:after{content:"";flex:1;height:1px;background:var(--linha)}
-  .grade{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;margin-bottom:24px}
-  .campo{display:flex;flex-direction:column;gap:7px;min-width:0}
+  .grade{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;margin-bottom:30px}
+  .campo{display:flex;flex-direction:column;gap:8px;min-width:0}
   .campo.cheio{grid-column:1/-1}
   label{font-size:13.5px;font-weight:600;color:var(--tinta)}
   label .o{color:var(--ouro-2)}
-  input,select{font:16px/1.4 Inter,sans-serif;color:var(--tinta);background:#F8FAFD;border:1.5px solid var(--linha);border-radius:12px;padding:14px 15px;width:100%;transition:border-color .2s,box-shadow .2s,background .2s;appearance:none;-webkit-appearance:none}
-  select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235A667D' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;padding-right:40px}
-  input:hover,select:hover{border-color:#C9D6EE}
-  input:focus,select:focus{outline:0;border-color:var(--azul);background:#fff;box-shadow:0 0 0 4px rgba(30,107,255,.12)}
-  .invalido{border-color:var(--erro)!important;background:#FFF8F8!important}
-  .msg-erro{color:var(--erro);font-size:12.5px;font-weight:600;min-height:0}
-  .check{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--cinza);font-weight:500;cursor:pointer}
+  input,select{font:16px/1.4 Inter,sans-serif;color:var(--tinta);background:#F8F9FC;border:1px solid #DCE2EE;border-radius:14px;padding:15px 16px;width:100%;transition:border-color .3s,box-shadow .4s var(--ease),background .3s;appearance:none;-webkit-appearance:none}
+  input::placeholder{color:#9AA4B8}
+  select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2356627A' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center;background-size:16px;padding-right:42px}
+  input:hover,select:hover{border-color:#C3CCDE;background-color:#fff}
+  input:focus,select:focus{outline:0;border-color:var(--navy-3);background-color:#fff;box-shadow:0 0 0 5px rgba(18,63,148,.1)}
+  .campo.ok input,.campo.ok select{border-color:#BFD8C8}
+  .invalido{border-color:var(--erro)!important;background-color:#FFF8F8!important;box-shadow:0 0 0 4px rgba(198,40,40,.08)!important}
+  .msg-erro{color:var(--erro);font-size:12.5px;font-weight:600}
+  .msg-erro:empty{display:none}
+  .check{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--cinza);font-weight:500;cursor:pointer;line-height:1.55}
   .check input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--navy);appearance:auto;-webkit-appearance:checkbox;padding:0}
-  .alerta{display:none;background:#FDECEA;border:1px solid #F5C2C0;color:var(--erro);border-radius:12px;padding:12px 14px;font-size:14px;margin-top:16px}
-  .rodape-form{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-top:24px;flex-wrap:wrap}
+  .alerta{display:none;background:#FDECEA;border:1px solid #F5C2C0;color:var(--erro);border-radius:14px;padding:13px 16px;font-size:14px;margin-top:16px;animation:entra .5s var(--ease)}
+  .rodape-form{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:28px;padding-top:26px;border-top:1px solid var(--linha);flex-wrap:wrap}
   .rodape-form small{color:var(--cinza);font-size:13px;display:flex;align-items:center;gap:8px}
-  .spinner{width:18px;height:18px;border:3px solid rgba(6,26,64,.25);border-top-color:var(--navy);border-radius:50%;animation:gira .8s linear infinite}
+  .spinner{width:18px;height:18px;border:2.5px solid rgba(6,26,64,.25);border-top-color:var(--navy);border-radius:50%;animation:gira .8s linear infinite}
   @keyframes gira{to{transform:rotate(360deg)}}
 
-  .final{text-align:center;padding:8px 0}
-  .final .ok{width:92px;height:92px;border-radius:50%;margin:0 auto 22px;display:grid;place-items:center;background:linear-gradient(180deg,#FFF3CC,#FFE08A);box-shadow:0 0 0 10px rgba(245,184,25,.12)}
-  .final .ok path{stroke-dasharray:30;stroke-dashoffset:30;animation:risca .6s .3s var(--ease) forwards}
+  .final{text-align:center;padding:10px 0}
+  .final .ok{position:relative;width:96px;height:96px;border-radius:50%;margin:0 auto 26px;display:grid;place-items:center;background:linear-gradient(180deg,#FFF4D2,#FBE3A0)}
+  .final .ok:before,.final .ok:after{content:"";position:absolute;inset:-10px;border-radius:50%;border:1px solid rgba(217,150,10,.4);animation:onda 2.4s var(--ease) .4s 2 both}
+  .final .ok:after{animation-delay:1s}
+  @keyframes onda{from{transform:scale(.85);opacity:1}to{transform:scale(1.5);opacity:0}}
+  .final .ok path{stroke-dasharray:30;stroke-dashoffset:30;animation:risca .9s .35s var(--ease) forwards}
   @keyframes risca{to{stroke-dashoffset:0}}
   .final h3{font-size:clamp(22px,2.6vw,28px);color:var(--navy)}
   .final p{color:var(--cinza);max-width:520px;margin:12px auto 0}
-  .protocolo{display:inline-block;margin:22px 0;padding:12px 22px;border-radius:12px;border:1.5px dashed var(--navy-3);color:var(--navy);font:800 15px/1 Montserrat,sans-serif;letter-spacing:.08em;background:#F3F6FD}
-  .previa{max-width:560px;margin:0 auto 26px;text-align:left;background:#F3F6FD;border:1px solid var(--linha);border-radius:16px;padding:16px 18px;font-size:14px}
-  .previa small{display:block;font:700 11px/1 Montserrat,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza);margin-bottom:8px}
+  .protocolo{display:inline-flex;align-items:center;gap:10px;margin:24px 0;padding:13px 24px;border-radius:999px;border:1px solid rgba(217,150,10,.5);color:var(--navy);font:700 14.5px/1 Montserrat,sans-serif;letter-spacing:.1em;background:#FFFBEF}
+  .previa{max-width:560px;margin:0 auto 28px;text-align:left;background:var(--fundo);border:1px solid var(--linha);border-radius:18px;padding:18px 20px;font-size:14px;line-height:1.6}
+  .previa small{display:block;font:600 10.5px/1 Montserrat,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza);margin-bottom:10px}
 
   .oculto{display:none!important}
 
-  /* FAQ */
-  .faq{max-width:840px;margin:0 auto;display:grid;gap:14px}
-  .faq details{border:1px solid var(--linha);border-radius:18px;background:#fff;transition:border-color .3s,box-shadow .3s;overflow:hidden}
-  .faq details[open]{border-color:#C9D6EE;box-shadow:var(--sombra-s)}
-  .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:21px 24px;font:700 16px/1.35 Montserrat,sans-serif;color:var(--navy)}
+  /* ===== FAQ ===== */
+  .faq{max-width:860px;margin:0 auto;border-top:1px solid var(--linha)}
+  .faq details{border-bottom:1px solid var(--linha)}
+  .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px 4px;font:600 17.5px/1.4 Montserrat,sans-serif;color:var(--navy);transition:color .3s}
+  .faq summary:hover{color:var(--navy-3)}
   .faq summary::-webkit-details-marker{display:none}
-  .faq summary:after{content:"+";flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#EEF3FC;color:var(--navy);font:500 20px/1 Inter,sans-serif;transition:transform .35s var(--ease),background .3s,color .3s}
-  .faq details[open] summary:after{transform:rotate(45deg);background:var(--navy);color:var(--ouro)}
-  .faq details p{padding:0 24px 22px;color:var(--cinza);font-size:15.5px;animation:entra .4s var(--ease)}
+  .faq summary .mais{position:relative;flex:none;width:36px;height:36px;border-radius:50%;border:1px solid var(--linha);transition:background .4s,border-color .4s,transform .6s var(--ease)}
+  .faq summary .mais:before,.faq summary .mais:after{content:"";position:absolute;left:50%;top:50%;width:12px;height:1.5px;margin:-.75px 0 0 -6px;background:var(--navy);transition:transform .6s var(--ease),background .4s}
+  .faq summary .mais:after{transform:rotate(90deg)}
+  .faq details[open] summary .mais{background:var(--navy);border-color:var(--navy);transform:rotate(180deg)}
+  .faq details[open] summary .mais:before,.faq details[open] summary .mais:after{background:var(--ouro)}
+  .faq details[open] summary .mais:after{transform:rotate(0)}
+  .faq .resp{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--ease)}
+  .faq details[open] .resp{grid-template-rows:1fr}
+  .faq .resp > div{overflow:hidden}
+  .faq .resp p{padding:0 60px 28px 4px;color:var(--cinza);font-size:16px}
 
-  /* CTA */
-  .cta{position:relative;overflow:hidden;border-radius:30px;padding:72px 56px;color:#fff;display:grid;grid-template-columns:1.4fr auto;gap:30px;align-items:center;
-    background:radial-gradient(600px 300px at 100% 0%,rgba(245,184,25,.28),transparent 60%),radial-gradient(500px 300px at 0% 100%,rgba(56,182,255,.25),transparent 60%),linear-gradient(140deg,var(--noite),var(--navy-2))}
-  .cta h2{font-size:clamp(28px,3.6vw,44px)}
-  .cta p{color:rgba(255,255,255,.75);font-size:17px;margin-top:12px}
+  /* ===== CTA ===== */
+  .cta{position:relative;overflow:hidden;border-radius:34px;padding:84px 64px;color:#fff;display:grid;grid-template-columns:1.4fr auto;gap:40px;align-items:center;
+    background:linear-gradient(140deg,var(--noite),var(--navy-2))}
+  .cta .aurora.a1{width:520px;height:520px;right:-160px;top:-240px;opacity:.8}
+  .cta .aurora.a3{right:auto;left:-120px;bottom:-200px}
+  .cta > div,.cta > .btn{position:relative;z-index:2}
+  .cta .bordinha{position:absolute;inset:0;border-radius:34px;padding:1px;z-index:1;pointer-events:none;background:linear-gradient(120deg,rgba(251,227,160,.6),transparent 30%,transparent 70%,rgba(56,182,255,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+  .cta h2{font-size:clamp(30px,3.8vw,48px)}
+  .cta p{color:rgba(255,255,255,.7);font-size:17px;margin-top:14px}
 
-  footer{background:var(--noite);color:rgba(255,255,255,.72);padding:64px 0 30px;font-size:14px}
-  footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
-  footer .logo{height:42px;margin-bottom:16px}
-  footer strong{display:block;color:#fff;font:700 12.5px/1 Montserrat,sans-serif;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
-  footer a{color:#fff;text-decoration:none}
+  footer{background:var(--noite);color:rgba(255,255,255,.66);padding:76px 0 32px;font-size:14px}
+  footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+  footer .logo{height:40px;margin-bottom:18px}
+  footer strong{display:block;color:#fff;font:600 11.5px/1 Montserrat,sans-serif;letter-spacing:.22em;text-transform:uppercase;margin-bottom:16px}
+  footer a{color:#fff;text-decoration:none;transition:color .3s}
   footer a:hover{color:var(--ouro)}
-  footer .copy{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.1);padding-top:22px;font-size:12.5px;opacity:.7;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+  footer .copy{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.08);padding-top:24px;font-size:12.5px;opacity:.7;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
-  @media (max-width:1000px){
+  @media (max-width:1020px){
     nav.menu{display:none}
-    .hero .wrap{grid-template-columns:1fr;gap:50px;padding-top:120px;padding-bottom:110px}
-    .moldura{max-width:360px}
-    .moldura .cartao{transform:none}
-    .sobre,.grade-insc{grid-template-columns:1fr;gap:44px}
+    .hero .wrap{grid-template-columns:1fr;gap:64px;padding-top:130px;padding-bottom:120px}
+    .moldura{max-width:380px}
+    .sobre,.grade-insc{grid-template-columns:1fr;gap:64px}
+    .visual{max-width:380px}
     .lado{position:static}
-    .areas,.publico{grid-template-columns:1fr 1fr}
+    .areas{grid-template-columns:1fr 1fr}
+    .publico{grid-template-columns:1fr 1fr}
     .difs{grid-template-columns:1fr 1fr}
-    .cta{grid-template-columns:1fr;text-align:left;padding:56px 36px}
+    .cta{grid-template-columns:1fr;padding:60px 40px}
     footer .wrap{grid-template-columns:1fr 1fr}
   }
-  @media (max-width:620px){
-    .wrap{padding:0 16px}
-    section{padding:80px 0}
-    header.topo .wrap{height:68px}
-    .logo{height:34px}
-    .topo .btn{padding:11px 14px;font-size:12.5px}
-    .hero h1{font-size:clamp(38px,11vw,52px)}
+  @media (max-width:640px){
+    .wrap{padding:0 18px}
+    section{padding:92px 0}
+    .cab{margin-bottom:52px}
+    header.topo .wrap{height:70px}
+    .logo{height:32px}
+    .topo .btn{padding:11px 16px;font-size:12.5px}
+    .hero .wrap{padding-top:116px;padding-bottom:100px}
+    .hero h1{font-size:clamp(42px,12vw,58px)}
     .hero .acoes .btn{width:100%}
-    .moldura .tag{left:8px;bottom:-22px}
+    .selos{flex-direction:column;gap:12px}
+    .moldura{max-width:320px}
+    .visual{max-width:320px}
+    .visual .contorno{inset:-12px 12px 12px -12px}
+    .lista-ouro{grid-template-columns:1fr}
     .areas,.publico,.difs{grid-template-columns:1fr}
+    .area{padding:36px 28px}
     .grade{grid-template-columns:1fr}
-    .corpo{padding:24px 18px 26px}
-    .painel-topo{padding:24px 18px}
+    .corpo{padding:28px 20px 30px}
+    .painel-topo{padding:28px 20px 24px}
+    .painel{border-radius:24px}
     .rodape-form .btn{width:100%}
-    .citacao{padding:36px 24px}
-    .cta{padding:44px 22px;border-radius:22px}
+    .faq summary{font-size:16px;padding:22px 2px}
+    .faq .resp p{padding-right:10px}
+    .cta{padding:48px 24px;border-radius:26px}
     .cta .btn{width:100%}
     footer .wrap{grid-template-columns:1fr}
   }
   @media (prefers-reduced-motion:reduce){
-    *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
-    .rv{opacity:1;transform:none}
+    *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;transition-delay:0s!important;scroll-behavior:auto!important}
+    .rv,.fade-h,.moldura .cartao{opacity:1;transform:none;filter:none}
+    .linha-m > span{transform:none}
     .ondas path{stroke-dashoffset:0}
   }
 </style>
@@ -274,10 +346,8 @@
 <body>
 <div id="progresso"></div>
 
-<!-- logotipo reutilizável -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <linearGradient id="gLeque" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9BE1FF"/><stop offset=".55" stop-color="#38B6FF"/><stop offset="1" stop-color="#1E6BFF"/></linearGradient>
     <symbol id="logo" viewBox="70 0 1270 345">
       <text x="228" y="96" textLength="640" lengthAdjust="spacing" font-family="Montserrat,Inter,sans-serif" font-weight="600" font-size="46" fill="#fff">FACULDADES</text>
       <text x="85" y="241" textLength="928" lengthAdjust="spacingAndGlyphs" font-family="Montserrat,Inter,sans-serif" font-weight="900" font-size="180" fill="#fff">IPEDE</text>
@@ -290,44 +360,54 @@
   <div class="wrap">
     <a href="#" aria-label="Faculdades IPEDE – início" onclick="scrollTo({top:0});return false"><svg class="logo" viewBox="70 0 1270 345" role="img" aria-label="Faculdades IPEDE"><use href="#logo"/></svg></a>
     <nav class="menu" aria-label="Seções">
-      <a href="#sobre">A pós</a><a href="#atuacao">Atuação</a><a href="#publico">Para quem</a><a href="#faq">Dúvidas</a>
+      <a href="#sobre">A pós</a><a href="#atuacao">Atuação</a><a href="#publico">Para quem</a><a href="#inscricao">Inscrição</a><a href="#faq">Dúvidas</a>
     </nav>
-    <a class="btn btn-ouro" href="#inscricao">Fazer pré-inscrição</a>
+    <a class="btn btn-ouro" href="#inscricao">Pré-inscrição</a>
   </div>
 </header>
 
 <main>
-  <section class="hero" aria-label="Pós-graduação em Direito Previdenciário e Assistencial">
+  <!-- HERO -->
+  <section class="hero" id="hero" aria-label="Pós-graduação em Direito Previdenciário e Assistencial">
+    <span class="aurora a1"></span><span class="aurora a2"></span><span class="aurora a3"></span>
+    <span class="grao"></span>
     <svg class="ondas" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M0,170 C260,90 520,210 820,150 C1080,98 1260,120 1440,60" fill="none" stroke="url(#gOnda1)" stroke-width="2.5"/>
-      <path d="M0,200 C300,140 560,230 860,180 C1120,138 1300,160 1440,110" fill="none" stroke="url(#gOnda2)" stroke-width="1.5"/>
       <defs>
-        <linearGradient id="gOnda1" x1="0" x2="1"><stop offset="0" stop-color="#38B6FF" stop-opacity="0"/><stop offset=".45" stop-color="#38B6FF"/><stop offset="1" stop-color="#F5B819"/></linearGradient>
-        <linearGradient id="gOnda2" x1="0" x2="1"><stop offset="0" stop-color="#F5B819" stop-opacity="0"/><stop offset=".6" stop-color="#F5B819" stop-opacity=".7"/><stop offset="1" stop-color="#38B6FF" stop-opacity=".4"/></linearGradient>
+        <linearGradient id="gOnda1" x1="0" x2="1"><stop offset="0" stop-color="#38B6FF" stop-opacity="0"/><stop offset=".45" stop-color="#38B6FF" stop-opacity=".9"/><stop offset="1" stop-color="#F2B51C"/></linearGradient>
+        <linearGradient id="gOnda2" x1="0" x2="1"><stop offset="0" stop-color="#F2B51C" stop-opacity="0"/><stop offset=".6" stop-color="#F2B51C" stop-opacity=".6"/><stop offset="1" stop-color="#38B6FF" stop-opacity=".35"/></linearGradient>
       </defs>
+      <path d="M0,170 C260,90 520,210 820,150 C1080,98 1260,120 1440,60" fill="none" stroke="url(#gOnda1)" stroke-width="2"/>
+      <path d="M0,200 C300,140 560,230 860,180 C1120,138 1300,160 1440,110" fill="none" stroke="url(#gOnda2)" stroke-width="1.2"/>
     </svg>
     <div class="wrap">
       <div>
-        <span class="eyebrow rv">Inscrições abertas · Codó/MA</span>
-        <p class="pre rv d1">Pós-graduação em</p>
-        <h1 class="rv d2"><span class="ouro">Direito</span><span class="l2">Previdenciário e Assistencial</span></h1>
-        <p class="lead rv d3">Domine aposentadorias, pensões, benefícios por incapacidade e o BPC/LOAS. Especialize-se em uma das áreas que mais movimentam a advocacia e o atendimento à população.</p>
-        <div class="acoes rv d4">
-          <a class="btn btn-ouro" href="#inscricao">Quero me inscrever <span class="seta">→</span></a>
+        <span class="eyebrow fade-h" style="transition-delay:.1s"><i></i>Inscrições abertas · Codó/MA</span>
+        <p class="pre"><span class="linha-m"><span style="transition-delay:.2s">Pós-graduação em</span></span></p>
+        <h1>
+          <span class="linha-m"><span class="ouro" style="transition-delay:.32s">Direito</span></span>
+          <span class="l2">
+            <span class="linha-m"><span style="transition-delay:.46s">Previdenciário</span></span>
+            <span class="linha-m"><span style="transition-delay:.58s">e Assistencial</span></span>
+          </span>
+        </h1>
+        <p class="lead fade-h" style="transition-delay:.8s">Domine aposentadorias, pensões, benefícios por incapacidade e o BPC/LOAS. Especialize-se em uma das áreas que mais movimentam a advocacia e o atendimento à população.</p>
+        <div class="acoes fade-h" style="transition-delay:.95s">
+          <a class="btn btn-ouro" href="#inscricao">Quero me inscrever <span class="seta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
           <a class="btn btn-linha" href="#sobre">Conhecer a pós</a>
         </div>
-        <div class="selos rv d5">
-          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6.5.9-4.7 4.6 1.1 6.5L12 17l-5.9 3 1.1-6.5L2.5 8.9 9 8z"/></svg>Faculdades IPEDE</span>
-          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>Instituição credenciada pelo MEC</span>
-          <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Pré-inscrição em 2 minutos</span>
+        <div class="selos fade-h" style="transition-delay:1.1s">
+          <span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>Instituição credenciada pelo MEC</span>
+          <span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Pré-inscrição em 2 minutos</span>
         </div>
       </div>
-      <div class="moldura rv d2">
+      <div class="moldura" id="moldura">
         <span class="halo"></span>
-        <div class="cartao">
-          <picture><source srcset="arte.webp" type="image/webp"><img src="arte.jpg" width="900" height="985" alt="Arte da Pós-graduação em Direito Previdenciário e Assistencial das Faculdades IPEDE"></picture>
+        <div class="cartao" id="cartaoArte">
+          <div class="interno">
+            <picture><source srcset="arte.webp" type="image/webp"><img src="arte.jpg" width="900" height="985" alt="Arte da Pós-graduação em Direito Previdenciário e Assistencial das Faculdades IPEDE" fetchpriority="high"></picture>
+            <span class="brilho"></span><span class="reflexo"></span>
+          </div>
         </div>
-        <div class="tag"><b><i></i>Turma em formação</b>Garanta sua pré-inscrição e receba as condições pela secretaria.</div>
       </div>
     </div>
   </section>
@@ -335,19 +415,24 @@
   <!-- SOBRE -->
   <section id="sobre">
     <div class="wrap sobre">
+      <div class="visual rv" id="visual">
+        <span class="contorno"></span>
+        <div class="foto">
+          <picture><source srcset="estatua.webp" type="image/webp"><img src="estatua.jpg" width="349" height="820" alt="Estátua da Justiça sobre livros de Direito Previdenciário" loading="lazy"></picture>
+        </div>
+        <div class="legenda">
+          <blockquote>“Conhecer a Previdência é garantir direitos a quem mais precisa deles.”</blockquote>
+          <small>Faculdades IPEDE</small>
+        </div>
+      </div>
       <div>
         <span class="k rv">A pós-graduação</span>
-        <h2 class="rv d1">Uma especialização que <span class="it" style="color:var(--azul)">transforma</span> a sua atuação</h2>
+        <h2 class="rv d1">Uma especialização que <span class="it" style="color:var(--navy-3)">transforma</span> a sua atuação</h2>
         <p class="rv d2">O Direito Previdenciário e Assistencial está no centro da vida de milhões de brasileiros: aposentadorias, pensões, auxílios e benefícios assistenciais movimentam diariamente o INSS e a Justiça Federal.</p>
         <p class="rv d3">A pós das Faculdades IPEDE prepara você para atuar com segurança técnica nessa área, do requerimento administrativo ao processo judicial, com visão prática da realidade da nossa região.</p>
-      </div>
-      <div class="citacao rv d2">
-        <blockquote>Conhecer a Previdência é garantir direitos a quem mais precisa deles.</blockquote>
-        <div class="linha-ouro"></div>
-        <small>Ao longo da especialização, você desenvolve:</small>
-        <ul>
-          <li>Leitura estratégica de casos previdenciários e assistenciais</li>
-          <li>Segurança no processo administrativo junto ao INSS</li>
+        <ul class="lista-ouro rv d4">
+          <li>Leitura estratégica de casos previdenciários</li>
+          <li>Segurança no processo administrativo do INSS</li>
           <li>Atuação no processo judicial previdenciário</li>
           <li>Diferencial competitivo no mercado jurídico</li>
         </ul>
@@ -360,16 +445,17 @@
     <div class="wrap">
       <div class="cab">
         <span class="k rv">Campo de atuação</span>
-        <h2 class="rv d1">Onde a especialização leva você</h2>
-        <p class="rv d2">Áreas com demanda constante, em escritórios, órgãos públicos e no atendimento direto à população.</p>
+        <h2 class="rv d1">Onde a especialização <span class="it">leva você</span></h2>
+        <p class="rv d2">Áreas com demanda constante em escritórios, órgãos públicos e no atendimento direto à população.</p>
+        <div class="orn rv d3"><i></i><b></b><i></i></div>
       </div>
-      <div class="areas">
-        <div class="area rv d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a5 5 0 015-5h4a5 5 0 015 5v2"/></svg></div><h3>Aposentadorias</h3><p>Por idade, tempo de contribuição, especial e da pessoa com deficiência, com as regras de transição.</p></div>
-        <div class="area rv d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 000-7.8z"/></svg></div><h3>BPC/LOAS</h3><p>Benefício assistencial à pessoa idosa e à pessoa com deficiência em situação de vulnerabilidade.</p></div>
-        <div class="area rv d3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Benefícios por incapacidade</h3><p>Auxílio por incapacidade temporária, aposentadoria por incapacidade permanente e auxílio-acidente.</p></div>
-        <div class="area rv d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8"/></svg></div><h3>Pensão por morte</h3><p>Proteção aos dependentes e análise dos requisitos e da duração do benefício.</p></div>
-        <div class="area rv d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></div><h3>Planejamento previdenciário</h3><p>Estratégias para o segurado se aposentar no melhor momento e com o melhor benefício.</p></div>
-        <div class="area rv d3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 21h14M7 7h10M4 7l-2 6a3 3 0 006 0L6 7M18 7l-2 6a3 3 0 006 0l-2-6"/></svg></div><h3>Processo e revisões</h3><p>Requerimentos e recursos no INSS, ações na Justiça Federal e revisões de benefícios.</p></div>
+      <div class="areas rv">
+        <div class="area"><span class="num">01</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5 21v-2a5 5 0 015-5h4a5 5 0 015 5v2"/></svg></div><h3>Aposentadorias</h3><p>Por idade, tempo de contribuição, especial e da pessoa com deficiência, com as regras de transição.</p><span class="traco"></span></div>
+        <div class="area"><span class="num">02</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 000-7.8z"/></svg></div><h3>BPC/LOAS</h3><p>Benefício assistencial à pessoa idosa e à pessoa com deficiência em situação de vulnerabilidade.</p><span class="traco"></span></div>
+        <div class="area"><span class="num">03</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><h3>Benefícios por incapacidade</h3><p>Auxílio por incapacidade temporária, aposentadoria por incapacidade permanente e auxílio-acidente.</p><span class="traco"></span></div>
+        <div class="area"><span class="num">04</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.9M16 3.1a4 4 0 010 7.8"/></svg></div><h3>Pensão por morte</h3><p>Proteção aos dependentes e análise dos requisitos e da duração do benefício.</p><span class="traco"></span></div>
+        <div class="area"><span class="num">05</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-6"/></svg></div><h3>Planejamento previdenciário</h3><p>Estratégias para o segurado se aposentar no melhor momento e com o melhor benefício.</p><span class="traco"></span></div>
+        <div class="area"><span class="num">06</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 21h14M7 7h10M4 7l-2 6a3 3 0 006 0L6 7M18 7l-2 6a3 3 0 006 0l-2-6"/></svg></div><h3>Processo e revisões</h3><p>Requerimentos e recursos no INSS, ações na Justiça Federal e revisões de benefícios.</p><span class="traco"></span></div>
       </div>
     </div>
   </section>
@@ -379,32 +465,34 @@
     <div class="wrap">
       <div class="cab">
         <span class="k rv">Para quem é</span>
-        <h2 class="rv d1">Feita para quem quer se destacar</h2>
+        <h2 class="rv d1">Feita para quem quer <span class="it">se destacar</span></h2>
+        <div class="orn rv d2"><i></i><b></b><i></i></div>
       </div>
       <div class="publico">
-        <div class="pub rv d1"><span class="n">01</span><div><h4>Advogados</h4><p>Que querem abrir ou fortalecer a frente previdenciária do escritório.</p></div></div>
-        <div class="pub rv d2"><span class="n">02</span><div><h4>Bacharéis em Direito</h4><p>Que buscam uma especialização com mercado de trabalho constante.</p></div></div>
-        <div class="pub rv d3"><span class="n">03</span><div><h4>Servidores públicos</h4><p>Que atuam com seguridade social, assistência ou atendimento ao cidadão.</p></div></div>
-        <div class="pub rv d1"><span class="n">04</span><div><h4>Assistentes sociais</h4><p>Que acompanham famílias no acesso a benefícios assistenciais.</p></div></div>
-        <div class="pub rv d2"><span class="n">05</span><div><h4>Contadores e RH</h4><p>Que lidam com contribuições, vínculos e rotinas previdenciárias.</p></div></div>
-        <div class="pub rv d3"><span class="n">06</span><div><h4>Graduados em áreas afins</h4><p>Que desejam aprofundar o conhecimento na proteção social.</p></div></div>
+        <div class="pub rv d1"><span class="n">01</span><h4>Advogados</h4><p>Que querem abrir ou fortalecer a frente previdenciária do escritório.</p></div>
+        <div class="pub rv d2"><span class="n">02</span><h4>Bacharéis em Direito</h4><p>Que buscam uma especialização com mercado de trabalho constante.</p></div>
+        <div class="pub rv d3"><span class="n">03</span><h4>Servidores públicos</h4><p>Que atuam com seguridade social, assistência ou atendimento ao cidadão.</p></div>
+        <div class="pub rv d1"><span class="n">04</span><h4>Assistentes sociais</h4><p>Que acompanham famílias no acesso a benefícios assistenciais.</p></div>
+        <div class="pub rv d2"><span class="n">05</span><h4>Contadores e RH</h4><p>Que lidam com contribuições, vínculos e rotinas previdenciárias.</p></div>
+        <div class="pub rv d3"><span class="n">06</span><h4>Graduados em áreas afins</h4><p>Que desejam aprofundar o conhecimento na proteção social.</p></div>
       </div>
     </div>
   </section>
 
   <!-- DIFERENCIAIS -->
   <section class="escuro">
+    <span class="aurora a1"></span><span class="grao"></span>
     <div class="wrap">
       <div class="cab">
         <span class="k rv">Por que a IPEDE</span>
-        <h2 class="rv d1">Tradição e proximidade, aqui em Codó</h2>
+        <h2 class="rv d1">Tradição e proximidade, <span class="it ouro">aqui em Codó</span></h2>
         <p class="rv d2">Uma pós pensada para a realidade de quem vive e trabalha na região.</p>
       </div>
       <div class="difs">
-        <div class="dif rv d1"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><h3>Credenciada pelo MEC</h3><p>Instituição de ensino superior credenciada, com a seriedade que a sua carreira exige.</p></div>
-        <div class="dif rv d2"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><h3>Perto de você</h3><p>Faculdades IPEDE em Codó/MA, sem precisar se deslocar para outra cidade.</p></div>
-        <div class="dif rv d3"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg><h3>Foco na prática</h3><p>Conteúdo voltado para os casos que chegam todos os dias aos escritórios e ao INSS.</p></div>
-        <div class="dif rv d4"><svg viewBox="0 0 24 24" fill="none" stroke="#F5B819" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 21l1.9-5.2A8.4 8.4 0 1121 11.5z"/></svg><h3>Atendimento humano</h3><p>Nossa secretaria acompanha você da pré-inscrição até a matrícula.</p></div>
+        <div class="dif rv d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Credenciada pelo MEC</h3><p>Instituição de ensino superior credenciada, com a seriedade que a sua carreira exige.</p></div>
+        <div class="dif rv d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div><h3>Perto de você</h3><p>Faculdades IPEDE em Codó/MA, sem precisar se deslocar para outra cidade.</p></div>
+        <div class="dif rv d3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div><h3>Foco na prática</h3><p>Conteúdo voltado aos casos que chegam todos os dias aos escritórios e ao INSS.</p></div>
+        <div class="dif rv d4"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#F2B51C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 21l1.9-5.2A8.4 8.4 0 1121 11.5z"/></svg></div><h3>Atendimento humano</h3><p>Nossa secretaria acompanha você da pré-inscrição até a matrícula.</p></div>
       </div>
     </div>
   </section>
@@ -414,20 +502,24 @@
     <div class="wrap grade-insc">
       <aside class="lado">
         <span class="k rv">Pré-inscrição</span>
-        <h2 class="rv d1">Garanta sua vaga na próxima turma</h2>
+        <h2 class="rv d1">Garanta sua vaga na <span class="it">próxima turma</span></h2>
         <p class="rv d2">Preencha seus dados. Nossa secretaria entra em contato com as informações de valores, início das aulas e documentos.</p>
         <ol class="passos rv d3">
           <li><b>1</b><div><strong>Preencha a pré-inscrição</strong><span>Leva menos de 2 minutos.</span></div></li>
           <li><b>2</b><div><strong>Receba seu protocolo</strong><span>Sua inscrição fica registrada na hora.</span></div></li>
           <li><b>3</b><div><strong>Fale com a secretaria</strong><span>Pelo WhatsApp, com a mensagem pronta.</span></div></li>
         </ol>
+        <div class="contato-lado rv d4">
+          <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="#1FA855" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.1.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.4-.3z"/></svg></span>
+          <div><b>Dúvidas antes de se inscrever?</b><a href="https://wa.me/5599981930161?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20a%20P%C3%B3s-gradua%C3%A7%C3%A3o%20em%20Direito%20Previdenci%C3%A1rio%20e%20Assistencial." target="_blank" rel="noopener">Fale com a secretaria: (99) 98193-0161</a></div>
+        </div>
       </aside>
 
       <div class="painel rv d1">
         <div class="painel-topo">
           <h3 id="tituloPainel">Ficha de pré-inscrição</h3>
           <p id="subPainel">Pós-graduação em Direito Previdenciário e Assistencial</p>
-          <div class="barra-passos" aria-hidden="true"><i class="on" id="b1"></i><i id="b2"></i></div>
+          <div class="medidor" id="medidor" aria-hidden="true"><span>FICHA</span><span class="trilho"><i id="barra"></i></span><b id="pct">0%</b></div>
         </div>
 
         <form class="corpo" id="form" novalidate>
@@ -476,20 +568,20 @@
 
           <div class="alerta" id="alerta" role="alert"></div>
           <div class="rodape-form">
-            <small><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5A667D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Seus dados ficam protegidos.</small>
-            <button class="btn btn-ouro" type="submit" id="btnEnviar">Concluir pré-inscrição <span class="seta">→</span></button>
+            <small><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#56627A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Seus dados ficam protegidos.</small>
+            <button class="btn btn-ouro" type="submit" id="btnEnviar">Concluir pré-inscrição <span class="seta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
           </div>
         </form>
 
         <div class="corpo oculto" id="final">
           <div class="final">
-            <div class="ok"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#061A40" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+            <div class="ok"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#061A40" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
             <h3 id="finalTitulo">Pré-inscrição confirmada!</h3>
             <p>Para concluir, fale com a secretaria das Faculdades IPEDE pelo WhatsApp e receba as informações de valores, início das aulas e documentos.</p>
             <div class="protocolo" id="protocolo">Protocolo</div>
             <div class="previa"><small>Mensagem que será enviada</small><span id="previa"></span></div>
             <a class="btn btn-wa" id="btnWhats" href="#" target="_blank" rel="noopener">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.1.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.1.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
               Falar com a secretaria no WhatsApp
             </a>
             <p style="font-size:13px;margin-top:16px">Secretaria: (99) 98193-0161</p>
@@ -500,27 +592,28 @@
   </section>
 
   <!-- FAQ -->
-  <section id="faq" style="padding-top:40px">
+  <section id="faq" style="padding-top:60px">
     <div class="wrap">
-      <div class="cab"><span class="k rv">Dúvidas frequentes</span><h2 class="rv d1">Perguntas e respostas</h2></div>
-      <div class="faq">
-        <details class="rv d1"><summary>Quem pode fazer a pós-graduação?</summary><p>Profissionais com curso superior concluído: bacharéis em Direito, advogados e graduados em áreas afins, como Serviço Social, Contábeis e Administração. Estudantes no último ano podem fazer a pré-inscrição e confirmar as condições com a secretaria.</p></details>
-        <details class="rv d1"><summary>A pré-inscrição tem custo?</summary><p>Não. A pré-inscrição é gratuita e não gera nenhum compromisso. Valores e condições de pagamento são informados pela secretaria.</p></details>
-        <details class="rv d2"><summary>Quando começam as aulas?</summary><p>A data de início da turma é informada pela secretaria no contato após a pré-inscrição.</p></details>
-        <details class="rv d2"><summary>Quais documentos vou precisar?</summary><p>Normalmente são pedidos documento de identidade, CPF, comprovante de residência e diploma ou declaração de conclusão da graduação. A secretaria confirma a lista completa no momento da matrícula.</p></details>
-        <details class="rv d3"><summary>Como funciona depois que eu envio os dados?</summary><p>Você recebe um protocolo na hora e é direcionado ao WhatsApp da secretaria com uma mensagem pronta. A equipe dá sequência à sua matrícula por lá.</p></details>
+      <div class="cab"><span class="k rv">Dúvidas frequentes</span><h2 class="rv d1">Perguntas e <span class="it">respostas</span></h2></div>
+      <div class="faq rv d2">
+        <details><summary>Quem pode fazer a pós-graduação?<span class="mais"></span></summary><div class="resp"><div><p>Profissionais com curso superior concluído: bacharéis em Direito, advogados e graduados em áreas afins, como Serviço Social, Contábeis e Administração. Estudantes no último ano podem fazer a pré-inscrição e confirmar as condições com a secretaria.</p></div></div></details>
+        <details><summary>A pré-inscrição tem custo?<span class="mais"></span></summary><div class="resp"><div><p>Não. A pré-inscrição é gratuita e não gera nenhum compromisso. Valores e condições de pagamento são informados pela secretaria.</p></div></div></details>
+        <details><summary>Quando começam as aulas?<span class="mais"></span></summary><div class="resp"><div><p>A data de início da turma é informada pela secretaria no contato após a pré-inscrição.</p></div></div></details>
+        <details><summary>Quais documentos vou precisar?<span class="mais"></span></summary><div class="resp"><div><p>Normalmente são pedidos documento de identidade, CPF, comprovante de residência e diploma ou declaração de conclusão da graduação. A secretaria confirma a lista completa no momento da matrícula.</p></div></div></details>
+        <details><summary>Como funciona depois que eu envio os dados?<span class="mais"></span></summary><div class="resp"><div><p>Você recebe um protocolo na hora e é direcionado ao WhatsApp da secretaria com uma mensagem pronta. A equipe dá sequência à sua matrícula por lá.</p></div></div></details>
       </div>
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section style="padding-top:20px">
     <div class="wrap">
       <div class="cta rv">
+        <span class="aurora a1"></span><span class="aurora a3"></span><span class="bordinha"></span>
         <div>
-          <h2>Dê o próximo passo na sua carreira jurídica</h2>
+          <h2>Dê o próximo passo na sua <span class="it ouro">carreira jurídica</span></h2>
           <p>Faça agora sua pré-inscrição na Pós em Direito Previdenciário e Assistencial.</p>
         </div>
-        <a class="btn btn-ouro" href="#inscricao">Fazer pré-inscrição <span class="seta">→</span></a>
+        <a class="btn btn-ouro" href="#inscricao">Fazer pré-inscrição <span class="seta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
     </div>
   </section>
@@ -550,24 +643,58 @@
   var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzzp8lJbLT7z821T4S8aqY5klB5NdxEmY8bBrnce7JFdMl40sQuwvKNeQhm6vDG90YPWQ/exec';
   var CURSO = 'Pós-graduação em Direito Previdenciário e Assistencial';
   var reduzido = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finoPonteiro = matchMedia('(hover:hover) and (pointer:fine)').matches;
   var $ = function (id) { return document.getElementById(id); };
 
-  /* topo e progresso */
+  /* entrada do hero */
+  requestAnimationFrame(function () { requestAnimationFrame(function () { $('hero').classList.add('pronto'); }); });
+
+  /* topo, progresso e menu ativo */
   var topo = $('topo'), prog = $('progresso');
+  var links = [].slice.call(document.querySelectorAll('nav.menu a'));
+  var alvos = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  var agendado = false;
   function aoRolar() {
+    agendado = false;
     var y = scrollY, h = document.documentElement.scrollHeight - innerHeight;
     topo.classList.toggle('solido', y > 40);
-    prog.style.width = (h > 0 ? y / h * 100 : 0) + '%';
+    prog.style.transform = 'scaleX(' + (h > 0 ? y / h : 0) + ')';
+    var atual = -1;
+    alvos.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < innerHeight * .4) atual = i; });
+    links.forEach(function (a, i) { a.classList.toggle('ativo', i === atual); });
   }
-  addEventListener('scroll', aoRolar, { passive: true }); aoRolar();
+  addEventListener('scroll', function () { if (!agendado) { agendado = true; requestAnimationFrame(aoRolar); } }, { passive: true });
+  aoRolar();
 
   /* revelar ao rolar */
   if ('IntersectionObserver' in window && !reduzido) {
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
-    }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: .14, rootMargin: '0px 0px -60px 0px' });
     document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
   } else document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('on'); });
+
+  /* arte do hero: inclinação suave seguindo o cursor */
+  if (finoPonteiro && !reduzido) {
+    var mold = $('moldura'), cart = $('cartaoArte'), ref = mold.querySelector('.reflexo');
+    mold.addEventListener('mousemove', function (e) {
+      var r = mold.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      cart.style.transition = 'transform .6s cubic-bezier(.16,1,.3,1)';
+      cart.style.transform = 'rotateY(' + ((x - .5) * 8) + 'deg) rotateX(' + ((.5 - y) * 6) + 'deg)';
+      ref.style.setProperty('--rx', x * 100 + '%'); ref.style.setProperty('--ry', y * 100 + '%');
+    });
+    mold.addEventListener('mouseleave', function () { cart.style.transition = 'transform 1.2s cubic-bezier(.16,1,.3,1)'; cart.style.transform = ''; });
+    document.querySelectorAll('.area').forEach(function (c) {
+      c.addEventListener('mousemove', function (e) {
+        var r = c.getBoundingClientRect();
+        c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+
+  /* FAQ: uma aberta por vez */
+  var faqs = [].slice.call(document.querySelectorAll('.faq details'));
+  faqs.forEach(function (d) { d.addEventListener('toggle', function () { if (d.open) faqs.forEach(function (o) { if (o !== d) o.open = false; }); }); });
 
   /* máscaras */
   $('cpf').addEventListener('input', function () {
@@ -589,27 +716,42 @@
     for (var t = 9; t < 11; t++) { var s = 0; for (var i = 0; i < t; i++) s += +c[i] * (t + 1 - i); if (((s * 10) % 11) % 10 !== +c[t]) return false; }
     return true;
   }
+  var REGRAS = {
+    nome: function (v) { return v.split(/\s+/).length >= 2 && v.length > 4; },
+    cpf: cpfValido,
+    nascimento: function (v) { if (!v) return false; var a = (Date.now() - new Date(v).getTime()) / 31557600000; return a >= 16 && a <= 100; },
+    whatsapp: function (v) { return v.replace(/\D/g, '').length >= 10; },
+    email: function (v) { return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); },
+    cidade: function (v) { return v.length >= 3; },
+    formacao: function (v) { return !!v; }
+  };
+  var MSGS = { nome: 'Informe nome e sobrenome.', cpf: 'CPF inválido.', nascimento: 'Informe uma data válida.', whatsapp: 'Informe DDD + número.', email: 'E-mail inválido.', cidade: 'Informe sua cidade.', formacao: 'Selecione sua formação.' };
+
+  function medir() {
+    var total = Object.keys(REGRAS).length + 1, ok = 0;
+    Object.keys(REGRAS).forEach(function (id) {
+      var bom = REGRAS[id]($(id).value.trim());
+      $(id).parentNode.classList.toggle('ok', bom);
+      if (bom) ok++;
+    });
+    if ($('lgpd').checked) ok++;
+    var p = Math.round(ok / total * 100);
+    $('barra').style.width = p + '%'; $('pct').textContent = p + '%';
+  }
   function erro(id, msg) {
     var el = $(id); el.classList.toggle('invalido', !!msg);
     var m = el.parentNode.querySelector('.msg-erro'); if (m) m.textContent = msg || '';
     return !msg;
   }
-  ['nome', 'cpf', 'nascimento', 'whatsapp', 'email', 'cidade', 'formacao'].forEach(function (id) {
-    $(id).addEventListener('input', function () { erro(id, ''); });
-    $(id).addEventListener('change', function () { erro(id, ''); });
+  Object.keys(REGRAS).forEach(function (id) {
+    ['input', 'change'].forEach(function (ev) { $(id).addEventListener(ev, function () { erro(id, ''); medir(); }); });
+    $(id).addEventListener('blur', function () { var v = $(id).value.trim(); if (v && !REGRAS[id](v)) erro(id, MSGS[id]); });
   });
-  $('lgpd').addEventListener('change', function () { $('erroLgpd').textContent = ''; });
+  $('lgpd').addEventListener('change', function () { $('erroLgpd').textContent = ''; medir(); });
 
   function validar() {
-    var v = function (id) { return $(id).value.trim(); }, ok = true;
-    ok = erro('nome', v('nome').split(/\s+/).length < 2 ? 'Informe nome e sobrenome.' : '') && ok;
-    ok = erro('cpf', cpfValido(v('cpf')) ? '' : 'CPF inválido.') && ok;
-    var n = v('nascimento'), anos = n ? (Date.now() - new Date(n).getTime()) / 31557600000 : 0;
-    ok = erro('nascimento', !n || anos < 16 || anos > 100 ? 'Informe uma data válida.' : '') && ok;
-    ok = erro('whatsapp', v('whatsapp').replace(/\D/g, '').length < 10 ? 'Informe DDD + número.' : '') && ok;
-    ok = erro('email', /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('email')) ? '' : 'E-mail inválido.') && ok;
-    ok = erro('cidade', v('cidade').length < 3 ? 'Informe sua cidade.' : '') && ok;
-    ok = erro('formacao', v('formacao') ? '' : 'Selecione sua formação.') && ok;
+    var ok = true;
+    Object.keys(REGRAS).forEach(function (id) { ok = erro(id, REGRAS[id]($(id).value.trim()) ? '' : MSGS[id]) && ok; });
     $('erroLgpd').textContent = $('lgpd').checked ? '' : 'Marque a autorização para continuar.';
     ok = $('lgpd').checked && ok;
     if (!ok) { var p = document.querySelector('.invalido') || $('lgpd'); p.scrollIntoView({ block: 'center', behavior: reduzido ? 'auto' : 'smooth' }); p.focus({ preventScroll: true }); }
@@ -643,8 +785,8 @@
   function concluir(r, dados) {
     var nome = tituloCaso(r.nome || dados.nome);
     $('form').classList.add('oculto');
-    var f = $('final'); f.classList.remove('oculto'); f.classList.remove('entra'); void f.offsetWidth; f.classList.add('entra');
-    $('b2').classList.add('on');
+    var f = $('final'); f.classList.remove('oculto', 'entra'); void f.offsetWidth; f.classList.add('entra');
+    $('barra').style.width = '100%'; $('pct').textContent = '100%';
     $('tituloPainel').textContent = r.jaInscrito ? 'Pré-inscrição já registrada' : 'Pré-inscrição concluída';
     $('finalTitulo').textContent = (r.jaInscrito ? 'Encontramos sua pré-inscrição, ' : 'Pré-inscrição confirmada, ') + nome.split(' ')[0] + '!';
     $('protocolo').textContent = 'Protocolo ' + r.protocolo;
