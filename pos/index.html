@@ -297,6 +297,35 @@
   .faq .resp > div{overflow:hidden}
   .faq .resp p{padding:0 60px 28px 4px;color:var(--cinza);font-size:16px}
 
+  /* ===== investimento ===== */
+  #investimento{color:#fff;overflow:hidden;background:linear-gradient(175deg,var(--noite),var(--navy) 60%,#082050)}
+  #investimento .wrap{position:relative;z-index:2}
+  #investimento .cab h2{color:#fff}#investimento .cab p{color:rgba(255,255,255,.68)}#investimento .k{color:var(--ouro-cl)}
+  .preco{position:relative;max-width:720px;margin:0 auto;border-radius:32px;padding:56px 56px 48px;text-align:center;
+    background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 50px 100px -50px rgba(0,0,0,.8)}
+  .preco:before{content:"";position:absolute;inset:0;border-radius:32px;padding:2px;pointer-events:none;background:linear-gradient(150deg,rgba(251,227,160,.95),rgba(242,181,28,.3) 30%,rgba(255,255,255,.08) 55%,rgba(56,182,255,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+  .selo-lanc{display:inline-block;padding:11px 24px;border-radius:999px;background:linear-gradient(180deg,#FFD45A,var(--ouro) 55%,var(--ouro-2));color:var(--navy);font:800 12px/1 Montserrat,sans-serif;letter-spacing:.2em;text-transform:uppercase;box-shadow:0 12px 26px -12px rgba(242,181,28,.7)}
+  .preco .parc{margin-top:30px;color:rgba(255,255,255,.75);font-size:16px}
+  .preco .valor{display:flex;align-items:flex-start;justify-content:center;gap:8px;margin-top:6px;font-family:Montserrat,sans-serif;line-height:1}
+  .preco .valor small{font-size:28px;font-weight:800;color:var(--ouro);margin-top:16px}
+  .preco .valor strong{font-size:clamp(68px,10vw,104px);font-weight:900;letter-spacing:-.04em;color:#fff}
+  .preco .valor span{font-size:16px;font-weight:600;color:rgba(255,255,255,.6);align-self:flex-end;margin-bottom:12px}
+  .convenio{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:34px 0 8px;padding:22px 26px;border-radius:20px;text-align:left;
+    background:linear-gradient(135deg,rgba(242,181,28,.16),rgba(242,181,28,.05));border:1.5px solid rgba(242,181,28,.55)}
+  .convenio .tag{display:inline-block;padding:6px 11px;border-radius:8px;background:var(--ouro);color:var(--navy);font:800 12px/1 Montserrat,sans-serif;letter-spacing:.06em;margin-bottom:8px}
+  .convenio b{display:block;font:700 17px/1.3 Montserrat,sans-serif;color:#fff}
+  .convenio p{font-size:13.5px;color:rgba(255,255,255,.65);margin-top:2px}
+  .convenio .v{flex:none;text-align:right;font-family:Montserrat,sans-serif;line-height:1}
+  .convenio .v s{display:block;font-size:14px;color:rgba(255,255,255,.5);margin-bottom:6px}
+  .convenio .v strong{font-size:34px;font-weight:900;color:var(--ouro-cl);letter-spacing:-.02em}
+  .convenio .v em{display:block;font-style:normal;font-size:12.5px;color:rgba(255,255,255,.6);margin-top:6px}
+  .inclui{list-style:none;display:grid;gap:16px;margin:32px 0 38px;text-align:left}
+  .inclui li{display:flex;gap:14px;align-items:flex-start;font-size:16px;color:rgba(255,255,255,.9);line-height:1.5}
+  .inclui li:before{content:"";flex:none;width:24px;height:24px;margin-top:0;border-radius:50%;background:var(--ouro) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23061A40' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/13px no-repeat}
+  .preco .btn{width:100%;font-size:15.5px;padding:21px 30px;letter-spacing:.06em;text-transform:uppercase}
+  .preco .nota-vagas{margin-top:18px;font:600 11.5px/1 Montserrat,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+  .preco .obs{margin-top:22px;font-size:12.5px;color:rgba(255,255,255,.45)}
+
   /* ===== CTA ===== */
   .cta{position:relative;overflow:hidden;border-radius:34px;padding:84px 64px;color:#fff;display:grid;grid-template-columns:1.4fr auto;gap:40px;align-items:center;
     background:linear-gradient(140deg,var(--noite),var(--navy-2))}
@@ -373,6 +402,13 @@
     .faq summary{font-size:16px;padding:22px 2px}
     .faq .resp p{padding-right:10px}
     .cta{padding:48px 24px;border-radius:26px}
+    .preco{padding:40px 20px 34px;border-radius:24px}
+    .preco:before{border-radius:24px}
+    .convenio{flex-direction:column;align-items:flex-start;padding:20px}
+    .convenio .v{text-align:left}
+    .inclui li{font-size:15px}
+    .preco .btn{font-size:14px;padding:19px 20px}
+    .selo-lanc{font-size:10.5px;letter-spacing:.12em;padding:10px 16px}
     .cta .btn{width:100%}
     footer .wrap{grid-template-columns:1fr}
   }
@@ -401,7 +437,7 @@
   <div class="wrap">
     <a href="#" aria-label="Faculdades IPEDE – início" onclick="scrollTo({top:0});return false"><svg class="logo" viewBox="70 0 1270 345" role="img" aria-label="Faculdades IPEDE"><use href="#logo"/></svg></a>
     <nav class="menu" aria-label="Seções">
-      <a href="#sobre">A pós</a><a href="#atuacao">Atuação</a><a href="#publico">Para quem</a><a href="#inscricao">Inscrição</a><a href="#faq">Dúvidas</a>
+      <a href="#sobre">A pós</a><a href="#atuacao">Atuação</a><a href="#publico">Para quem</a><a href="#inscricao">Inscrição</a><a href="#faq">Dúvidas</a><a href="#investimento">Investimento</a>
     </nav>
     <a class="btn btn-ouro" href="#inscricao">Pré-inscrição</a>
   </div>
@@ -647,7 +683,7 @@
       <div class="faq rv d2">
         <details><summary>Quem pode fazer a pós-graduação?<span class="mais"></span></summary><div class="resp"><div><p>Profissionais com curso superior concluído: bacharéis em Direito, advogados e graduados em áreas afins, como Serviço Social, Contábeis e Administração. Estudantes no último ano podem fazer a pré-inscrição e confirmar as condições com a secretaria.</p></div></div></details>
         <details><summary>Qual a duração e como são as aulas?<span class="mais"></span></summary><div class="resp"><div><p>A pós tem duração de 18 meses, com aulas 100% presenciais nas Faculdades IPEDE, em Codó/MA, ministradas por professores mestres e doutores.</p></div></div></details>
-        <details><summary>A pré-inscrição tem custo?<span class="mais"></span></summary><div class="resp"><div><p>Não. A pré-inscrição é gratuita e não gera nenhum compromisso. Valores e condições de pagamento são informados pela secretaria.</p></div></div></details>
+        <details><summary>A pré-inscrição tem custo?<span class="mais"></span></summary><div class="resp"><div><p>Não. A pré-inscrição é gratuita e não gera nenhum compromisso. O curso tem parcelamento em até 18x de R$ 900,00, com 40% de desconto para convênio (R$ 540,00 por mês). Veja os detalhes na seção Investimento.</p></div></div></details>
         <details><summary>Quando começam as aulas?<span class="mais"></span></summary><div class="resp"><div><p>A data de início da turma é informada pela secretaria no contato após a pré-inscrição.</p></div></div></details>
         <details><summary>Quais documentos vou precisar?<span class="mais"></span></summary><div class="resp"><div><p>Normalmente são pedidos documento de identidade, CPF, comprovante de residência e diploma ou declaração de conclusão da graduação. A secretaria confirma a lista completa no momento da matrícula.</p></div></div></details>
         <details><summary>Como funciona depois que eu envio os dados?<span class="mais"></span></summary><div class="resp"><div><p>Você recebe um protocolo na hora e é direcionado ao WhatsApp da secretaria com uma mensagem pronta. A equipe dá sequência à sua matrícula por lá.</p></div></div></details>
@@ -655,15 +691,31 @@
     </div>
   </section>
 
-  <section style="padding-top:20px">
+  <section id="investimento">
+    <span class="aurora a1"></span><span class="aurora a3"></span><span class="grao"></span>
     <div class="wrap">
-      <div class="cta rv">
-        <span class="aurora a1"></span><span class="aurora a3"></span><span class="bordinha"></span>
-        <div>
-          <h2>Dê o próximo passo na sua <span class="it ouro">carreira jurídica</span></h2>
-          <p>Faça agora sua pré-inscrição na Pós em Direito Previdenciário e Assistencial.</p>
+      <div class="cab">
+        <span class="k rv">Investimento</span>
+        <h2 class="rv d1">Sua vaga na <span class="it ouro">turma 2026</span></h2>
+        <p class="rv d2">Um investimento que se converte em segurança técnica, novos clientes e posicionamento no mercado.</p>
+      </div>
+      <div class="preco rv d2">
+        <span class="selo-lanc">Condição especial de lançamento</span>
+        <p class="parc">Parcelamento em até 18x de</p>
+        <div class="valor"><small>R$</small><strong>900,00</strong><span>/mês</span></div>
+        <div class="convenio">
+          <div><span class="tag">40% OFF</span><b>Desconto convênio</b><p>Para empresas e instituições conveniadas com a IPEDE.</p></div>
+          <div class="v"><s>R$ 900,00</s><strong>R$ 540,00</strong><em>valor mensal</em></div>
         </div>
-        <a class="btn btn-ouro" href="#inscricao">Fazer pré-inscrição <span class="seta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <ul class="inclui">
+          <li>Pós-graduação completa com 380 horas e certificação reconhecida</li>
+          <li>Cobertura integral de RGPS, RPPS, Previdência Complementar e Assistência Social</li>
+          <li>Material de apoio, casos práticos e modelos aplicáveis à rotina</li>
+          <li>18 meses, 100% presencial, com professores mestres e doutores</li>
+        </ul>
+        <a class="btn btn-ouro" href="#inscricao">Garantir minha vaga <span class="seta"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <p class="nota-vagas">Vagas limitadas por turma</p>
+        <p class="obs">Condições sujeitas à confirmação pela secretaria no ato da matrícula.</p>
       </div>
     </div>
   </section>
